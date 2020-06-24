@@ -1,0 +1,28 @@
+.box,
+.sample-layout > div {
+  padding: 0;
+}
+
+
+img.avatar {
+    /* cambia estos dos valores para definir el tamaño de tu círculo */
+    height: 40px;
+    width: 40px;
+    /* los siguientes valores son independientes del tamaño del círculo */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+}
+
+.sample-layout, div.p-col-12{
+  padding-bottom: 0px;
+}
+
+.layout-sidebar {
+ position:fixed;
+ left:0;
+ height:100%;
+ background-color:#fff;
+ box-shadow:0 0 5px 0 rgba(0,0,0,.3)
+}

@@ -24,6 +24,10 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "digestyc-proyecto"
+    }
+  },
+  "defaultProject": "digestyc-proyecto",
+  "cli": {
+    "analytics": "af5f4657-9b50-4443-8427-40e1964c520a"
+  }
 }
