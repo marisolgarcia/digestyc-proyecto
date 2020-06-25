@@ -1,22 +1,22 @@
 <div class="layout-menu">
   <div class="p-grid">
-    <div class="p-col-6" style="justify-content: right;">
+    <div class="p-col-6" style="text-align: right;">
       <a class="logo" [routerLink]="['/']">
         <img class="avatar" src="assets/logo1.png">
       </a>
     </div>
     <div class="p-col-6">
-      <h2>SAI</h2>
+      <h1>SAI</h1>
     </div>
   </div>
-  <hr style="width: 100%">
+  <hr>
   <span>
     <i class="pi pi-home"></i>
     <span>Planificación</span>
   </span>
   <div>
     <a [routerLink]="['/']" routerLinkActive="router-link-active">Plan Quinquenal</a>
-    <a [routerLink]="['/']" routerLinkActive="router-link-active">Plan Anual de Trabajo</a>
+    <a [routerLink]="['/listaPlanesAnuales']" routerLinkActive="router-link-active">Plan Anual de Trabajo</a>
   </div>
 
   <span>
@@ -24,7 +24,7 @@
     <span>Seguimiento</span>
   </span>
   <div>
-    <a [routerLink]="['/']" routerLinkActive="router-link-active">Actividades</a>
+    <a [routerLink]="['/seguimientoActividades']" routerLinkActive="router-link-active">Actividades</a>
     <a [routerLink]="['/']" routerLinkActive="router-link-active">KPI</a>
     <a [routerLink]="['/']" routerLinkActive="router-link-active">AutoComplete</a>
   </div>
@@ -34,7 +34,7 @@
     <span>Reportes</span>
   </span>
   <div>
-    <a [routerLink]="['/']" routerLinkActive="router-link-active">Generar Reporte</a>
+    <a [routerLink]="['/reportes']" routerLinkActive="router-link-active">Generar Reporte</a>
   </div>
 
   <span>
