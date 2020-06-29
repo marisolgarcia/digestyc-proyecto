@@ -15,7 +15,7 @@ import { ListaActividadSegTodasComponent } from './pages/planificacion/lista-act
 import { EjecucionesActSegComponent } from './pages/planificacion/ejecuciones-act-seg/ejecuciones-act-seg.component';
 import { IngresoEjecucionActSegComponent } from './pages/planificacion/ingreso-ejecucion-act-seg/ingreso-ejecucion-act-seg.component';
 import { DetalleEjecucionActSegComponent } from './pages/planificacion/detalle-ejecucion-act-seg/detalle-ejecucion-act-seg.component';
-
+import { ListaSegIndicadoresComponent } from './pages/planificacion/lista-seg-indicadores/lista-seg-indicadores.component';
 
 const routes: Routes = [];
 
@@ -37,6 +37,7 @@ const routes: Routes = [];
       {path: 'ejecucionesActividad', component: EjecucionesActSegComponent},
       {path: 'ejecucionesActividad/ingresoEjecucion', component: IngresoEjecucionActSegComponent},
       {path: 'ejecucionesActividad/detalleEjecucion', component: DetalleEjecucionActSegComponent},
+      {path: 'segumientoIndicadores', component: ListaSegIndicadoresComponent},
 
       /*{path: 'setup', loadChildren: () => import('./components/setup/setup.module').then(m => m.SetupModule)},
       {path: 'theming', loadChildren: () => import('./components/theming/theming.module').then(m => m.ThemingModule)},

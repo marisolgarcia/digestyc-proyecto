@@ -1,6 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,8 @@ import {SidebarModule} from 'primeng/sidebar';
 import {CardModule} from 'primeng/card';
 import {DropdownModule} from 'primeng/dropdown';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
+import { TabMenuModule } from 'primeng/tabmenu';
+import {DialogModule} from 'primeng/dialog';
 
 import { EjemploComponent } from './pages/ejemplo/ejemplo.component';
 import { EditarIndicadorComponent } from './pages/planificacion/editar-indicador/editar-indicador.component';
@@ -31,6 +34,8 @@ import { EjecucionesActSegComponent } from './pages/planificacion/ejecuciones-ac
 import { IngresoEjecucionActSegComponent } from './pages/planificacion/ingreso-ejecucion-act-seg/ingreso-ejecucion-act-seg.component';
 import { DetalleEjecucionActSegComponent } from './pages/planificacion/detalle-ejecucion-act-seg/detalle-ejecucion-act-seg.component';
 import { SubMenuSeguimientoComponent } from './components/sub-menu-seguimiento/sub-menu-seguimiento.component';
+import { ListaSegIndicadoresComponent } from './pages/planificacion/lista-seg-indicadores/lista-seg-indicadores.component';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +57,7 @@ import { SubMenuSeguimientoComponent } from './components/sub-menu-seguimiento/s
     IngresoEjecucionActSegComponent,
     DetalleEjecucionActSegComponent,
     SubMenuSeguimientoComponent,
+    ListaSegIndicadoresComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -64,7 +70,10 @@ import { SubMenuSeguimientoComponent } from './components/sub-menu-seguimiento/s
     SidebarModule,
     CardModule,
     DropdownModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    TabMenuModule,
+    DialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
