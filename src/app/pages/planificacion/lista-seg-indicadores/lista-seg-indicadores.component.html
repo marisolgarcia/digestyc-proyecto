@@ -4,7 +4,7 @@
       <h1>Seguimiento de Indicadores Mayo</h1>
     </div>
     <div class="p-col-6 group-right" style="padding:0;">
-      <a (click)="showDialog()" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-search"></i></a>
+      <a (click)="showDialog()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-search"></i></a>
     </div>
   </div>
 
@@ -38,13 +38,14 @@
   </p-dialog>
 
   <div class="p-grid" style="padding: 1rem" *ngIf="tipoTemplate==false">
-    <div class="p-col-12 p-md-6 p-lg-6  ui-fluid" *ngFor="let indicador of indicadores1" >
-      <p-card header="Indicador"  styleClass="ui-card-shadow">
+    <div class="p-col-12 p-md-4 p-lg-4  ui-fluid" *ngFor="let indicador of indicadores1" >
+      <p-card header="Indicador"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-field p-grid margen">
-          <label class="p-col-fixed" style="width:100px">Indicador:</label>
-          <div class="p-col" style="text-align:right">
-            <label class="p-col-fixed" style="width:100px">{{indicador.indicador}}</label>
+          <div class="p-col" style="text-align:center">
+            <label class="p-col-fixed" style="width:100px">
+              <b>{{indicador.indicador}}</b>
+            </label>
           </div>
         </div>
         <div class="p-field p-grid margen">
@@ -68,22 +69,20 @@
         <div class="margen" style="padding:0;">
           <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
           <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-circle"></i></a>
-          <!--
-          <a href="" class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-          -->
         </div>
       </p-card>
     </div>
   </div>
 
   <div class="p-grid" style="padding: 1rem" *ngIf="tipoTemplate==true">
-    <div class="p-col-12 p-md-6 p-lg-6  ui-fluid" *ngFor="let indicador of indicadores3" >
-      <p-card header="Indicador"  styleClass="ui-card-shadow">
+    <div class="p-col-12 p-md-4 p-lg-4  ui-fluid" *ngFor="let indicador of indicadores3" >
+      <p-card header="Indicador"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-field p-grid margen">
-          <label class="p-col-fixed" style="width:100px">Indicador:</label>
-          <div class="p-col" style="text-align:right">
-            <label class="p-col-fixed" style="width:100px">{{indicador.indicador}}</label>
+          <div class="p-col" style="text-align:center">
+            <label class="p-col-fixed" style="width:100px">
+              <b>{{indicador.indicador}}</b>
+            </label>
           </div>
         </div>
         <div class="p-field p-grid margen">
@@ -107,9 +106,6 @@
         <div class="margen" style="padding:0;">
           <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
           <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-circle"></i></a>
-          <!--
-          <a href="" class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-          -->
         </div>
       </p-card>
     </div>
@@ -122,13 +118,14 @@
 
   <div class="p-grid" style="padding: 1rem" *ngIf="tipoTemplate==false">
 
-    <div class="p-col-12 p-md-6 p-lg-6  ui-fluid" *ngFor="let indicador of indicadores2" >
-      <p-card header="Indicador"  styleClass="ui-card-shadow">
+    <div class="p-col-12 p-md-4 p-lg-4  ui-fluid" *ngFor="let indicador of indicadores2" >
+      <p-card header="Indicador"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-field p-grid margen">
-          <label class="p-col-fixed" style="width:100px">Indicador:</label>
-          <div class="p-col" style="text-align:right">
-            <label class="p-col-fixed" style="width:100px">{{indicador.indicador}}</label>
+          <div class="p-col" style="text-align:center">
+            <label class="p-col-fixed" style="width:100px">
+              <b>{{indicador.indicador}}
+            </b></label>
           </div>
         </div>
         <div class="p-field p-grid margen">
@@ -152,22 +149,21 @@
         <div class="margen" style="padding:0;">
           <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
           <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-circle"></i></a>
-          <!--
-          <a href="" class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-          -->
         </div>
       </p-card>
     </div>
   </div>
+
   <div class="p-grid" style="padding: 1rem" *ngIf="tipoTemplate==true">
 
-    <div class="p-col-12 p-md-6 p-lg-6  ui-fluid" *ngFor="let indicador of indicadores4" >
-      <p-card header="Indicador"  styleClass="ui-card-shadow">
+    <div class="p-col-12 p-md-4 p-lg-4  ui-fluid" *ngFor="let indicador of indicadores4" >
+      <p-card header="Indicador"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-field p-grid margen">
-          <label class="p-col-fixed" style="width:100px">Indicador:</label>
-          <div class="p-col" style="text-align:right">
-            <label class="p-col-fixed" style="width:100px">{{indicador.indicador}}</label>
+          <div class="p-col" style="text-align:center">
+            <label class="p-col-fixed" style="width:100px">
+              <b>{{indicador.indicador}}</b>
+            </label>
           </div>
         </div>
         <div class="p-field p-grid margen">
@@ -188,13 +184,10 @@
             <label class="p-col-fixed" style="width:100px">{{indicador.periodo}}</label>
           </div>
         </div>
-        <div class="margen" style="padding:0;">
-          <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+        <p-footer>
+          <a href="" class="layout-config-button" style="color: #3E59AB"><i class="fa fa-eye"></i></a>
           <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-circle"></i></a>
-          <!--
-          <a href="" class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-          -->
-        </div>
+        </p-footer>
       </p-card>
     </div>
   </div>

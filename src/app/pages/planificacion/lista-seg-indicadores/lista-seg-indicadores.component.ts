@@ -36,6 +36,12 @@ export class ListaSegIndicadoresComponent implements OnInit {
         peso: '20%',
         periodicidad: 'Semestral',
         periodo: 'semestre 1',
+      },
+      {
+        indicador: 'Personal especializado, es decir, con al menos un diploma de aprobación nacional o internacional relacionada con el cargo que desempeña, por parte de Instituciones acreditadas.',
+        peso: '20%',
+        periodicidad: 'Mensual',
+        periodo: 'Mes 6',
       }
     ];
 
@@ -51,6 +57,12 @@ export class ListaSegIndicadoresComponent implements OnInit {
         peso: '25%',
         periodicidad: 'Semestral',
         periodo: 'semestre 1',
+      },
+      {
+        indicador: 'Presentación de la iniciativa  de la ley de creación del  Instituto Salvadoreño de Estadística (ISE).',
+        peso: '20%',
+        periodicidad: 'Mensual',
+        periodo: 'Mes 6',
       }
     ];
   this.items1 = [
@@ -75,6 +87,12 @@ export class ListaSegIndicadoresComponent implements OnInit {
         peso: '20%',
         periodicidad: 'Semestral',
         periodo: 'semestre 1',
+      },
+      {
+        indicador: 'Personal especializado, es decir, con al menos un diploma de aprobación nacional o internacional relacionada con el cargo que desempeña, por parte de Instituciones acreditadas.',
+        peso: '20%',
+        periodicidad: 'Mensual',
+        periodo: 'Mes 6',
       }
     ];
   this.indicadores4 = [
@@ -95,6 +113,12 @@ export class ListaSegIndicadoresComponent implements OnInit {
         peso: '25%',
         periodicidad: 'Semestral',
         periodo: 'semestre 1',
+      },
+      {
+        indicador: 'Presentación de la iniciativa  de la ley de creación del  Instituto Salvadoreño de Estadística (ISE).',
+        peso: '20%',
+        periodicidad: 'Mensual',
+        periodo: 'Mes 6',
       }
     ];
   this.perpectivas = [
