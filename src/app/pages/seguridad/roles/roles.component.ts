@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RolesComponent implements OnInit {
 
-  constructor() { }
+	public roles: any[] = new Array();
+	public columns: any[] = new Array();
 
-  ngOnInit(): void {
-  }
+	constructor() { }
+
+	ngOnInit(): void {
+		for(let i = 0; i < 15; i++){
+			this.roles.push({
+				nombre: 'Rol ' + (i + 1),
+				descripcion: 'Descripcion ' + (i + 1),
+				permisos: Math.floor(Math.random() * 10) + 1 // Genera num 1 - 10
+			});
+		}
+		this.columns = [
+			{field: 'nombre', header: 'Nombre'},
+			{field: 'descripcion', header: 'Descripcion'},
+			{field: 'permisos', header: 'Permisos'}
+		]
+	}
 
 }
