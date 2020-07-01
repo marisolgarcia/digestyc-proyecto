@@ -8,42 +8,6 @@
 
 	<hr>
 
-	<div class="p-grid p-justify-center" style="padding: 1rem">
-		<div class="p-col-12 p-md-8 p-lg-8">
-			<p-card header="Datos" styleClass="ui-card-shadow">
-				<hr>
-				<div class="ui-fluid">
-				    <div class="p-field p-grid">
-				        <label for="nombre" class="p-col-12 p-md-2">Nombre</label>
-				        <div class="p-col-12 p-md-10">
-				            <input id="nombre" type="text" pInputText> 
-				        </div>
-				    </div>
-				    <div class="p-field p-grid">
-				        <label for="descripcion" class="p-col-12 p-md-2">Descripcion</label>
-				        <div class="p-col-12 p-md-10">
-				        	<textarea id="descripcion" rows="5" pInputTextarea></textarea>
-				        </div>
-				    </div>
-				</div>
-			</p-card>
-		</div>
-	</div>
-
-	<div class="p-grid p-justify-center" style="padding: 1rem">
-		<div class="p-col-12 p-md-10 p-lg-10">
-			<p-card header="Permisos" styleClass="ui-card-shadow">
-				<hr>
-				<p-pickList [source]="srcPermisos" [target]="trgPermisos" sourceHeader="Disponibles" targetHeader="Seleccionados" [responsive]="true" filterBy="nombre"
-        		dragdrop="true" sourceFilterPlaceholder="Buscar por nombre" targetFilterPlaceholder="Buscar por nombre" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}" [showSourceControls]="false" [showTargetControls]="false">
-				    <ng-template let-permiso pTemplate="item">
-				        <div class="ui-helper-clearfix">
-				            <div style="font-size:14px;margin:15px 5px 0 0">{{permiso.nombre}}</div>
-				        </div>
-				    </ng-template>
-				</p-pickList>
-			</p-card>
-		</div>
-	</div>
+	<app-form-rol></app-form-rol>
 
 </div>
