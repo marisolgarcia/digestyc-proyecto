@@ -9,6 +9,8 @@ export class RolesComponent implements OnInit {
 
 	public roles: any[] = new Array();
 	public columns: any[] = new Array();
+	public first: number = 0;
+	public rows: number = 10;
 
 	constructor() { }
 
@@ -27,4 +29,23 @@ export class RolesComponent implements OnInit {
 		]
 	}
 
+	next() {
+        this.first = this.first + this.rows;
+    }
+
+    prev() {
+        this.first = this.first - this.rows;
+    }
+
+    reset() {
+        this.first = 0;
+    }
+
+    isLastPage(): boolean {
+        return this.first === (this.roles.length - this.rows);
+    }
+
+    isFirstPage(): boolean {
+        return this.first === 0;
+    }
 }
