@@ -18,7 +18,7 @@
 		>
 			<ng-template pTemplate="header">
 				<tr>
-					<th *ngFor="let col of columns"
+					<th *ngFor="let col of columns; index as i"
 					[pSortableColumn]="col.field"
 					>
 						{{col.header}}
@@ -28,7 +28,7 @@
 				</tr>
 			</ng-template>
 			<ng-template pTemplate="body" let-rowData let-columns="columns">
-				<tr>
+				<tr [routerLink]="['editar/', 1]">
 					<td *ngFor="let col of columns">{{rowData[col.field]}}</td>
 				</tr>
 			</ng-template>

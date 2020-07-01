@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { RolesComponent } from './roles.component';
 import { CrearComponent } from './crear/crear.component';
+import { EditarComponent } from './editar/editar.component';
 
 const routes: Routes = [
 	{
@@ -12,7 +13,11 @@ const routes: Routes = [
 	{
 		path: 'crear',
 		component: CrearComponent
-	}
+	},
+	{
+		path: 'editar/:id_rol',
+		component: EditarComponent
+	},
 ];
 
 @NgModule({

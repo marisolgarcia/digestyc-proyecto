@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-form-rol',
@@ -10,6 +10,9 @@ export class FormRolComponent implements OnInit {
 	public srcPermisos: any[];
 	public trgPermisos: any[];
 
+	@Input('id-rol')
+	private idRol: string;
+
 	constructor() { }
 
 	ngOnInit(): void {
@@ -18,6 +21,8 @@ export class FormRolComponent implements OnInit {
 		for(let i = 1; i <= 15 ; i++){
 			this.srcPermisos.push({nombre: 'Permiso Ejemplo num ' + i})
 		}
+
+		console.log(this.idRol);
 	}
 
 }
