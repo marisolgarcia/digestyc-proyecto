@@ -5,12 +5,14 @@
 			<h1>Editar Rol</h1>
 		</div>
 		<div class="p-col-4 group-right">
-			<button 
+			<button
+			(click)="disabled = !disabled"
 			pButton type="button" class="ui-button-rounded ui-button-info"
 			style="width: 40px; height: 40px">
 				<i class="fa fa-pencil-square"></i>
 			</button>
 			<button 
+			(click)="delete()"
 			pButton type="button" class="ui-button-rounded ui-button-secondary"
 			style="width: 40px; height: 40px; color: #B90B00;">
 				<i class="fa fa-trash"></i>
@@ -20,6 +22,6 @@
 
 	<hr>
 
-	<app-form-rol [id-rol]="paramIdRol"></app-form-rol>
+	<app-form-rol [id-rol]="paramIdRol" [disabled]="disabled"></app-form-rol>
 
 </div>

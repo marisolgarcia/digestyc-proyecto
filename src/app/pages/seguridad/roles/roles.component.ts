@@ -17,6 +17,7 @@ export class RolesComponent implements OnInit {
 	ngOnInit(): void {
 		for(let i = 0; i < 15; i++){
 			this.roles.push({
+				id: i + 1,
 				nombre: 'Rol ' + (i + 1),
 				descripcion: 'Descripcion ' + (i + 1),
 				permisos: Math.floor(Math.random() * 10) + 1 // Genera num 1 - 10

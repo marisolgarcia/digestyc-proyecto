@@ -1,9 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+
+import { MessageService } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-form-rol',
   templateUrl: './form-rol.component.html',
-  styleUrls: ['./form-rol.component.css']
+  styleUrls: ['./form-rol.component.css'],
+  providers: [MessageService, ConfirmationService]
 })
 export class FormRolComponent implements OnInit {
 
@@ -13,7 +19,16 @@ export class FormRolComponent implements OnInit {
 	@Input('id-rol')
 	private idRol: string;
 
-	constructor() { }
+	@Input('disabled')
+	public disabled: boolean = false;
+
+	public rol: any = {nombre: '', descripcion: ''};
+
+	constructor(
+		private mService: MessageService,
+		private cService: ConfirmationService,
+		private location: Location
+	) { }
 
 	ngOnInit(): void {
 		this.srcPermisos = new Array();
@@ -21,8 +36,65 @@ export class FormRolComponent implements OnInit {
 		for(let i = 1; i <= 15 ; i++){
 			this.srcPermisos.push({nombre: 'Permiso Ejemplo num ' + i})
 		}
+		if(this.idRol){
+			this.showRol();
+		}
+		else{
+			this.rol = {nombre: '', descripcion: ''};
+		}
+	}
 
-		console.log(this.idRol);
+	private showRol(){
+		this.rol = {
+			nombre: 'Rol ' + this.idRol,
+			descripcion: 'Descripcion ' + this.idRol
+		}
+		let randomIndex: number;
+		for(let i = 0; i < 4 ; i++){
+			randomIndex = Math.floor(Math.random() * 10) + 1;
+			this.trgPermisos.push(this.srcPermisos[randomIndex]);
+			this.srcPermisos.splice(randomIndex, 1)
+		}
+	}
+
+	guardar(){
+		this.showSuccessToast('Guardado', 'Rol Guardado Correctamente');
+	}
+
+	delete(){
+		this.cService.confirm({
+            message: 'Seguro que desea eliminar?',
+            header: 'Confirmar',
+            icon: 'pi pi-exclamation-triangle',
+            accept: () => {
+                this.showSuccessToast('Eliminado', 'Rol eliminado Correctamente');
+            },
+            reject: () => {
+                this.showErrorToast('Error', 'Canceló la operacion');
+            }
+        });
+	}
+
+	regresar(){
+		this.location.back();
+	}
+
+	private showSuccessToast(titulo: string, mensaje: string){
+		this.mService.add({
+			key:'exito',
+			severity:'success',
+			summary: titulo,
+			detail: mensaje
+		});
+	}
+
+	private showErrorToast(titulo: string, mensaje: string){
+		this.mService.add({
+			key:'error',
+			severity:'error',
+			summary: titulo,
+			detail: mensaje
+		});
 	}
 
 }

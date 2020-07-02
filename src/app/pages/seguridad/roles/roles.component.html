@@ -28,7 +28,7 @@
 				</tr>
 			</ng-template>
 			<ng-template pTemplate="body" let-rowData let-columns="columns">
-				<tr [routerLink]="['editar/', 1]">
+				<tr [routerLink]="['editar/', rowData['id']]">
 					<td *ngFor="let col of columns">{{rowData[col.field]}}</td>
 				</tr>
 			</ng-template>
