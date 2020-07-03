@@ -16,6 +16,11 @@ export class ReportesComponent implements OnInit {
   planAnual: string;
   fecha: Date;
   fecha2: Date;
+  nombreReporte: string;
+  meses: any[] = [];
+  mes: string;
+  trimestres: any[] = [];
+  trimestre: string;
 
   constructor() { }
 
@@ -36,6 +41,19 @@ export class ReportesComponent implements OnInit {
       {label: '2014', value: {id: 3, name: '2014'}}
     ];
     this.planAnual = this.planesAnuales1[0];
+
+    this.meses = [
+      {label: 'Enero', value: {id: 1, name: 'Enero'}},
+      {label: 'Febrero', value: {id: 2, name: 'Febrero'}},
+      {label: 'Marzo', value: {id: 3, name: 'Marzo'}},
+      {label: 'Abril', value: {id: 4, name: 'Abril'}}
+    ];
+    this.trimestres = [
+      {label: 'Trimestre 1', value: {id: 1, name: 'Trimestre 1'}},
+      {label: 'Trimestre 2', value: {id: 2, name: 'Trimestre 2'}},
+      {label: 'Trimestre 3', value: {id: 3, name: 'Trimestre 3'}},
+      {label: 'Trimestre 4', value: {id: 4, name: 'Trimestre 4'}}
+    ];
   }
 
   showDialog(tipoRepo) {
@@ -47,6 +65,7 @@ export class ReportesComponent implements OnInit {
       {label: '2013', value: {id: 3, name: '2013'}},
       {label: '2014', value: {id: 3, name: '2014'}}
     ];
+    this.nombreReporte = tipoRepo;
     this.fecha = null;
     this.fecha2 = null;
     if (tipoRepo === 'Plan Estratégico'){
@@ -55,8 +74,11 @@ export class ReportesComponent implements OnInit {
     else if (tipoRepo === 'Reporte de KPI' || tipoRepo === 'Plan de Trabajo Anual' || tipoRepo === 'Reporte de KPI Anual' || tipoRepo === 'Informe Anual de Seguimiento'  ) {
       this.tipoDialog = 2;
     }
-    else if (tipoRepo === 'Informe Mensual de Seguimiento' || tipoRepo === 'Reporte de KPI Trimestral' ) {
+    else if (tipoRepo === 'Informe Mensual de Seguimiento') {
       this.tipoDialog = 3;
+    }
+    else if (tipoRepo === 'Reporte de KPI Trimestral' ) {
+      this.tipoDialog = 4;
     }
     this.display = true;
   }

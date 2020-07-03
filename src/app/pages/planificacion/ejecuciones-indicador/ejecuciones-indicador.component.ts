@@ -1,31 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
+import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 
 @Component({
-  selector: 'app-lista-seg-indicadores',
-  templateUrl: './lista-seg-indicadores.component.html',
-  styleUrls: ['./lista-seg-indicadores.component.css']
+  selector: 'app-ejecuciones-indicador',
+  templateUrl: './ejecuciones-indicador.component.html',
+  styleUrls: ['./ejecuciones-indicador.component.css']
 })
-export class ListaSegIndicadoresComponent implements OnInit {
+export class EjecucionesIndicadorComponent implements OnInit {
 
-  public indicadores1: any[] = [];
-  public indicadores2: any[] = [];
-  public indicadores3: any[] = [];
-  public indicadores4: any[] = [];
-  items1: MenuItem[];
-  display = false;
-  tipoTemplate = false;
-  perpectivas: any[] = [];
-  perpectiva: string;
-  periodicidades: any[] = [];
-  periodicidad: string;
+  indicador: any;
+  public indicadores: any[] = [];
+  lugar: number;
+  ejecucionesTrimestral: any[] = [];
+  i: number;
+  backgroundColor: any;
 
-  constructor() {
-  }
 
-  ngOnInit(): void {
-  this.indicadores1 = [
+  constructor( private activateRoute: ActivatedRoute) {
+    this.indicadores = [
       {
         id: 1,
         indicador: 'Cumplimientos de tiempos de ejecución del inventario de procesos. ',
@@ -46,10 +39,7 @@ export class ListaSegIndicadoresComponent implements OnInit {
         peso: '20%',
         periodicidad: 'Mensual',
         periodo: 'Mes 6',
-      }
-    ];
-
-  this.indicadores2 = [
+      },
       {
         id: 4,
         indicador: ' Ejecución de Presupuesto Fondo GOES.',
@@ -70,13 +60,7 @@ export class ListaSegIndicadoresComponent implements OnInit {
         peso: '20%',
         periodicidad: 'Mensual',
         periodo: 'Mes 6',
-      }
-    ];
-  this.items1 = [
-      {label: 'Vigentes', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Todos', icon: 'pi pi-fw pi-calendar'},
-    ];
-  this.indicadores3 = [
+      },
       {
         id: 7,
         indicador: 'Cumplimientos de tiempos de ejecución del inventario de procesos. ',
@@ -104,9 +88,7 @@ export class ListaSegIndicadoresComponent implements OnInit {
         peso: '20%',
         periodicidad: 'Mensual',
         periodo: 'Mes 6',
-      }
-    ];
-  this.indicadores4 = [
+      },
       {
         id: 11,
         indicador: ' Ejecución de Presupuesto Fondo GOES.',
@@ -136,38 +118,43 @@ export class ListaSegIndicadoresComponent implements OnInit {
         periodo: 'Mes 6',
       }
     ];
-  this.perpectivas = [
-    {label: 'Todas', value: null},
-    {label: 'Perpectiva 1', value: {id: 1, name: 'Perpectiva 1'}},
-    {label: 'Perpectiva 2', value: {id: 2, name: 'Perpectiva 2'}},
-    {label: 'Perpectiva 3', value: {id: 3, name: 'Perpectiva 3'}},
-    {label: 'Perpectiva 4', value: {id: 4, name: 'Perpectiva 4'}}
+    this.activateRoute.params.subscribe( params => {
+      this.indicador = this.extraerIndicador(params.id);
+    });
+  }
+
+  ngOnInit(): void {
+    this.ejecucionesTrimestral = [
+      {
+        registrado: '02-04-2020',
+        planificadoPara: 'Trimestre 1',
+        anio: '2020',
+        meta: '40',
+        ejecucion: '15',
+        evidencia: 'archivo.pdf',
+      },
+      {
+        registrado: '02-07-2020',
+        planificadoPara: 'Trimestre 2',
+        anio: '2020',
+        meta: '30',
+        ejecucion: '30',
+        evidencia: 'documento.pdf',
+      },
+      {
+        registrado: '02-10-2020',
+        planificadoPara: 'Trimestre 3',
+        anio: '2020',
+        meta: '45',
+        ejecucion: '45',
+        evidencia: 'entrega.pdf',
+      }
     ];
-  this.periodicidades = [
-      {label: 'Todas', value: null},
-      {label: 'Mensual', value: {id: 1, name: 'Mensual'}},
-      {label: 'Trimestral', value: {id: 2, name: 'Trimestral'}},
-      {label: 'Sementral', value: {id: 3, name: 'Semestral'}},
-      {label: 'Anual', value: {id: 4, name: 'Anual'}}
-    ];
-
   }
 
-  showDialog() {
-    this.display = true;
+  extraerIndicador(id: number){
+    this.lugar = id - 1;
+    return this.indicadores[this.lugar];
   }
-
-  closeDialog(){
-    this.display = false;
-  }
-
-  cambio(tipo){
-    if (tipo.activeItem.label === 'Vigentes') {
-      this.tipoTemplate = false;
-    }else {
-      this.tipoTemplate = true;
-    }
-
-}
 
 }

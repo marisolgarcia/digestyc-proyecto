@@ -1,8 +1,17 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
+import {TableModule} from 'primeng/table';
+import {ProgressBarModule} from 'primeng/progressbar';
+import { FileUploadModule } from 'primeng/fileupload';
+import { HttpClientModule } from '@angular/common/http';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { MessagesModule } from 'primeng/messages';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {CheckboxModule} from 'primeng/checkbox';
+import { AccordionModule } from 'primeng/accordion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +45,13 @@ import { IngresoEjecucionActSegComponent } from './pages/planificacion/ingreso-e
 import { DetalleEjecucionActSegComponent } from './pages/planificacion/detalle-ejecucion-act-seg/detalle-ejecucion-act-seg.component';
 import { SubMenuSeguimientoComponent } from './components/sub-menu-seguimiento/sub-menu-seguimiento.component';
 import { ListaSegIndicadoresComponent } from './pages/planificacion/lista-seg-indicadores/lista-seg-indicadores.component';
+import { EjecucionesIndicadorComponent } from './pages/planificacion/ejecuciones-indicador/ejecuciones-indicador.component';
+import { InformarIndicadorComponent } from './pages/planificacion/informar-indicador/informar-indicador.component';
+import { VerEjecucionIndicadorComponent } from './pages/planificacion/ver-ejecucion-indicador/ver-ejecucion-indicador.component';
+import { EditarEjecucionIndicadorComponent } from './pages/planificacion/editar-ejecucion-indicador/editar-ejecucion-indicador.component';
+import { UnidadesOrganizativasVaciaComponent } from './pages/organizacion/unidades-organizativas-vacia/unidades-organizativas-vacia.component';
+import { UnidadOrganizativaRaizComponent } from './pages/organizacion/unidad-organizativa-raiz/unidad-organizativa-raiz.component';
+import { UnidadOrganiSecunComponent } from './pages/organizacion/unidad-organi-secun/unidad-organi-secun.component';
 
 
 @NgModule({
@@ -59,6 +75,13 @@ import { ListaSegIndicadoresComponent } from './pages/planificacion/lista-seg-in
     DetalleEjecucionActSegComponent,
     SubMenuSeguimientoComponent,
     ListaSegIndicadoresComponent,
+    EjecucionesIndicadorComponent,
+    InformarIndicadorComponent,
+    VerEjecucionIndicadorComponent,
+    EditarEjecucionIndicadorComponent,
+    UnidadesOrganizativasVaciaComponent,
+    UnidadOrganizativaRaizComponent,
+    UnidadOrganiSecunComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -75,7 +98,17 @@ import { ListaSegIndicadoresComponent } from './pages/planificacion/lista-seg-in
     TabMenuModule,
     DialogModule,
     FormsModule,
-    CalendarModule
+    CalendarModule,
+    TableModule,
+    ProgressBarModule,
+    FileUploadModule,
+    HttpClientModule,
+    ConfirmDialogModule,
+    MessagesModule,
+    ReactiveFormsModule,
+    InputNumberModule,
+    CheckboxModule,
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

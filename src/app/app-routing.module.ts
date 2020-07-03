@@ -16,6 +16,14 @@ import { EjecucionesActSegComponent } from './pages/planificacion/ejecuciones-ac
 import { IngresoEjecucionActSegComponent } from './pages/planificacion/ingreso-ejecucion-act-seg/ingreso-ejecucion-act-seg.component';
 import { DetalleEjecucionActSegComponent } from './pages/planificacion/detalle-ejecucion-act-seg/detalle-ejecucion-act-seg.component';
 import { ListaSegIndicadoresComponent } from './pages/planificacion/lista-seg-indicadores/lista-seg-indicadores.component';
+import {EjecucionesIndicadorComponent } from './pages/planificacion/ejecuciones-indicador/ejecuciones-indicador.component';
+import {InformarIndicadorComponent} from './pages/planificacion/informar-indicador/informar-indicador.component';
+import {VerEjecucionIndicadorComponent} from './pages/planificacion/ver-ejecucion-indicador/ver-ejecucion-indicador.component';
+import {EditarEjecucionIndicadorComponent} from './pages/planificacion/editar-ejecucion-indicador/editar-ejecucion-indicador.component';
+import {UnidadesOrganizativasVaciaComponent} from './pages/organizacion/unidades-organizativas-vacia/unidades-organizativas-vacia.component';
+import {UnidadOrganizativaRaizComponent} from './pages/organizacion/unidad-organizativa-raiz/unidad-organizativa-raiz.component';
+import {UnidadOrganiSecunComponent} from './pages/organizacion/unidad-organi-secun/unidad-organi-secun.component';
+
 
 const routes: Routes = [];
 
@@ -38,6 +46,13 @@ const routes: Routes = [];
       {path: 'ejecucionesActividad/ingresoEjecucion', component: IngresoEjecucionActSegComponent},
       {path: 'ejecucionesActividad/detalleEjecucion', component: DetalleEjecucionActSegComponent},
       {path: 'segumientoIndicadores', component: ListaSegIndicadoresComponent},
+      {path: 'ejecucionesIndicador/:id', component: EjecucionesIndicadorComponent},
+      {path: 'informaIndicador/:id', component: InformarIndicadorComponent},
+      {path: 'verIndicadorEje/:id', component: VerEjecucionIndicadorComponent },
+      {path: 'editarIndicadorEje/:id', component: EditarEjecucionIndicadorComponent },
+      {path: 'unidadesVacias', component: UnidadesOrganizativasVaciaComponent},
+      {path: 'unidadRaiz', component: UnidadOrganizativaRaizComponent},
+      {path: 'unidadSecundaria', component: UnidadOrganiSecunComponent}
 
       /*{path: 'setup', loadChildren: () => import('./components/setup/setup.module').then(m => m.SetupModule)},
       {path: 'theming', loadChildren: () => import('./components/theming/theming.module').then(m => m.ThemingModule)},

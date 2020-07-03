@@ -1,31 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
+import {FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'app-lista-seg-indicadores',
-  templateUrl: './lista-seg-indicadores.component.html',
-  styleUrls: ['./lista-seg-indicadores.component.css']
+  selector: 'app-informar-indicador',
+  templateUrl: './informar-indicador.component.html',
+  styleUrls: ['./informar-indicador.component.css']
 })
-export class ListaSegIndicadoresComponent implements OnInit {
+export class InformarIndicadorComponent implements OnInit {
+  indicador: any;
+  public indicadores: any[] = [];
+  lugar: number;
+  tipoJustificacion: any[] = [];
+  tipo: string;
+  maxFileSize = 10000000;
+  contents: any = null;
+  filename: string;
+  mostrarJustificacion = false;
 
-  public indicadores1: any[] = [];
-  public indicadores2: any[] = [];
-  public indicadores3: any[] = [];
-  public indicadores4: any[] = [];
-  items1: MenuItem[];
-  display = false;
-  tipoTemplate = false;
-  perpectivas: any[] = [];
-  perpectiva: string;
-  periodicidades: any[] = [];
-  periodicidad: string;
+  meta = 40;
+  limite = 30;
+  ejecutado = new FormControl('');
+  value = 0;
+  backgroundColor: any;
+  valueLimite = 0;
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  this.indicadores1 = [
+  constructor(private activateRoute: ActivatedRoute) {
+    this.indicadores = [
       {
         id: 1,
         indicador: 'Cumplimientos de tiempos de ejecución del inventario de procesos. ',
@@ -46,10 +47,7 @@ export class ListaSegIndicadoresComponent implements OnInit {
         peso: '20%',
         periodicidad: 'Mensual',
         periodo: 'Mes 6',
-      }
-    ];
-
-  this.indicadores2 = [
+      },
       {
         id: 4,
         indicador: ' Ejecución de Presupuesto Fondo GOES.',
@@ -70,13 +68,7 @@ export class ListaSegIndicadoresComponent implements OnInit {
         peso: '20%',
         periodicidad: 'Mensual',
         periodo: 'Mes 6',
-      }
-    ];
-  this.items1 = [
-      {label: 'Vigentes', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Todos', icon: 'pi pi-fw pi-calendar'},
-    ];
-  this.indicadores3 = [
+      },
       {
         id: 7,
         indicador: 'Cumplimientos de tiempos de ejecución del inventario de procesos. ',
@@ -104,9 +96,7 @@ export class ListaSegIndicadoresComponent implements OnInit {
         peso: '20%',
         periodicidad: 'Mensual',
         periodo: 'Mes 6',
-      }
-    ];
-  this.indicadores4 = [
+      },
       {
         id: 11,
         indicador: ' Ejecución de Presupuesto Fondo GOES.',
@@ -136,38 +126,67 @@ export class ListaSegIndicadoresComponent implements OnInit {
         periodo: 'Mes 6',
       }
     ];
-  this.perpectivas = [
-    {label: 'Todas', value: null},
-    {label: 'Perpectiva 1', value: {id: 1, name: 'Perpectiva 1'}},
-    {label: 'Perpectiva 2', value: {id: 2, name: 'Perpectiva 2'}},
-    {label: 'Perpectiva 3', value: {id: 3, name: 'Perpectiva 3'}},
-    {label: 'Perpectiva 4', value: {id: 4, name: 'Perpectiva 4'}}
-    ];
-  this.periodicidades = [
-      {label: 'Todas', value: null},
-      {label: 'Mensual', value: {id: 1, name: 'Mensual'}},
-      {label: 'Trimestral', value: {id: 2, name: 'Trimestral'}},
-      {label: 'Sementral', value: {id: 3, name: 'Semestral'}},
-      {label: 'Anual', value: {id: 4, name: 'Anual'}}
+    this.activateRoute.params.subscribe( params => {
+      this.indicador = this.extraerIndicador(params.id);
+      console.log(this.indicador);
+    });
+  }
+
+  ngOnInit(): void {
+    this.tipoJustificacion = [
+      {label: 'Falta de presupuesto', value: {id: 1, name: 'Falta de presupuesto'}},
+      {label: 'Falta de personal', value: {id: 2, name: 'Falta de personal'}},
+      {label: 'Actividades fortuitas', value: {id: 3, name: 'Actividades fortuitas'}}
     ];
 
+    const interval = setInterval(() => {
+
+      // Calcula el porcentaje con respecto a la meta
+      this.value = ((this.ejecutado.value) * 100) / this.meta;
+
+      // evalua el porcentaje y determina el color
+      if (this.value < 50) {
+        this.backgroundColor = 'background1';
+        this.mostrarJustificacion = true;
+      } else if (this.value >= 50 && this.value < 100) {
+        this.backgroundColor = 'background2';
+        this.mostrarJustificacion = true;
+      } else if (this.value >= 100) {
+        this.backgroundColor = 'background3';
+        this.mostrarJustificacion = false;
+      } else if (this.value === 0) {
+        this.backgroundColor = 'background4';
+      }
+
+      if (this.ejecutado.value < this.limite) {
+        this.mostrarJustificacion = true;
+      } else {
+        this.mostrarJustificacion = false;
+      }
+    }, 2000);
   }
 
-  showDialog() {
-    this.display = true;
+  extraerIndicador(id: number){
+    this.lugar = id - 1;
+    return this.indicadores[this.lugar];
   }
 
-  closeDialog(){
-    this.display = false;
-  }
-
-  cambio(tipo){
-    if (tipo.activeItem.label === 'Vigentes') {
-      this.tipoTemplate = false;
-    }else {
-      this.tipoTemplate = true;
+  public myUploader(event, form) {
+    console.log('Reading file...');
+    for (const file of event.files) {
+      const dataset = this.readFile(file);
+      console.log('onUpload: ', dataset);
     }
+    form.clear();
+  }
 
-}
+  private readFile(file: File) {
+    const reader: FileReader = new FileReader();
+    reader.onload = () => {
+      this.contents = reader.result;
+    };
+    reader.readAsText(file);
+    this.filename = file.name;
+  }
 
 }

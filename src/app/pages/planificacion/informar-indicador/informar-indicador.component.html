@@ -1,0 +1,117 @@
+<div style="padding: 1rem">
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-8" style="padding:0;">
+      <h1>Informar Indicador {{indicador.periodo}} / Mayo</h1>
+    </div>
+  </div>
+  <hr>
+
+  <div class="p-grid p-justify-center">
+    <div class="p-col-12 p-md-12 p-lg-5  ui-fluid">
+
+      <p-card header="Indicador"  styleClass="ui-card-shadow" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-field p-grid margen">
+          <div class="p-col" style="text-align:center">
+            <label class="p-col-fixed" style="width:100px">
+              <b>{{indicador.indicador}}</b>
+            </label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label  class="p-col-fixed" style="width:100px">Peso:</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.peso}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Periodicidad</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.periodicidad}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Periodo</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.periodo}}</label>
+          </div>
+        </div>
+      </p-card>
+    </div>
+    <div class="p-col-12 p-md-12 p-lg-5  ui-fluid">
+      <p-card header="Ejecución"  styleClass="ui-card-shadow" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:100px">Meta:</label>
+          <div class="p-col">
+            <p-inputNumber id="meta" [(ngModel)]="meta" [disabled]="true"></p-inputNumber>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label  class="p-col-fixed" style="width:100px">Limite de control:</label>
+          <label  class="p-col-fixed" style="width:100px">30</label>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:100px">Valor del KPI:</label>
+          <div class="p-col">
+            <p-inputNumber id="ejecutado" [(formControl)]="ejecutado"></p-inputNumber>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label  class="p-col-fixed" style="width:100px">Porcentaje de ejecución:</label>
+          <div class="p-col">
+            <p-progressBar [value]="value" [style]="{'height': '34px'}" class="ui-progressbar" [(ngClass)]="backgroundColor"></p-progressBar>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <div class="p-grid p-justify-center">
+
+    <div class="p-col-12 p-md-12 p-lg-10  ui-fluid">
+      <p-card header="Resultados"  styleClass="ui-card-shadow">
+        <hr>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:100px">Evidencia:</label>
+          <div class="p-col">
+            <p-fileUpload #form
+                          name="myfile[]"
+                          chooseLabel="Escoger un archivo"
+                          customUpload="true"
+                          maxFileSize="{{maxFileSize}}"
+                          (uploadHandler)="myUploader($event, form)"
+            ></p-fileUpload>
+            <div *ngIf="contents">
+              <u><h4>{{ filename }}</h4></u>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+    <div class="p-col-12 p-md-10" *ngIf="mostrarJustificacion==true">
+      <p-card header="Justificación por incumplimiento"  styleClass="ui-card-shadow">
+        <hr>
+        <div class="p-field p-grid">
+          <label class="p-col-4" style="width:100px">Tipo de Justificación:</label>
+          <div class="p-col">
+            <p-dropdown appendTo="body" [options]="tipoJustificacion" [(ngModel)]="tipo" ></p-dropdown>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:100px">Justificación:</label>
+          <div class="p-col">
+            <textarea type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" style="width: 100%"></textarea>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+  <div class="p-field p-grid p-col-align-center" style="padding-top: 1rem">
+    <div class="p-col-4">
+      <button [routerLink]="['/ejecucionesIndicador',indicador.id]" pButton type="button" label="Guardar" style="margin-left: 6.5em"></button>
+    </div>
+  </div>
+
+
+</div>

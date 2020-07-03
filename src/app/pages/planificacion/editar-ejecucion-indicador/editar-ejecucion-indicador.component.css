@@ -1,9 +1,29 @@
+h1 {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
 
-@import '~primeicons/primeicons.css';
-@import '~primeng/resources/themes/nova-light/theme.css';
-@import '~primeng/resources/primeng.css';
-@import '~primeflex/primeflex.css';
-@import "./assets/css/styles.css";
+hr {
+  margin-block-start: 0em;
+  margin-block-end: 1em;
+}
+
+.group-right {
+  text-align: right;
+}
+
+div a{
+  margin-left: 2em;
+}
+
+i{
+  font-size: 2.5em;
+}
+
+.margen {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
 
 .background1 .ui-progressbar .ui-progressbar-value {
   background: #B90B00;

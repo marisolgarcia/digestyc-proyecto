@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <p-dialog header="Datos" [(visible)]="display" *ngIf="tipoDialog == 1">
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 1">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
       <div class="p-col">
@@ -36,7 +36,7 @@
     </div>
   </p-dialog>
 
-  <p-dialog header="Datos" [(visible)]="display" *ngIf="tipoDialog == 2">
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 2">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
       <div class="p-col">
@@ -56,7 +56,7 @@
     </div>
   </p-dialog>
 
-  <p-dialog header="Datos" [(visible)]="display" *ngIf="tipoDialog == 3">
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 3">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
       <div class="p-col">
@@ -70,15 +70,35 @@
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Fecha de Inicio: </label>
+      <label class="p-col-fixed" style="width:100px">Mes: </label>
       <div class="p-col">
-        <p-calendar [(ngModel)]="fecha" dateFormat="dd/mm/yy" appendTo="body"  baseZIndex="100" class="ui-calendar"></p-calendar>
+        <p-dropdown appendTo="body"  [options]="meses" [(ngModel)]="mes" ></p-dropdown>
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Fecha de Inicio: </label>
       <div class="p-col">
-        <p-calendar [(ngModel)]="fecha2" dateFormat="dd/mm/yy" appendTo="body"  baseZIndex="100" class="ui-calendar"></p-calendar>
+        <button pButton type="button" label="Filtrar" (click)="closeDialog()" ></button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 4">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="planesEstrategicos" [(ngModel)]="planEstrategico" (onChange)="cambioPlanAnual(planEstrategico)"></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="planesAnuales1" [(ngModel)]="planAnual" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Trimestre: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="trimestres" [(ngModel)]="trimestre" ></p-dropdown>
       </div>
     </div>
     <div class="p-field p-grid">
