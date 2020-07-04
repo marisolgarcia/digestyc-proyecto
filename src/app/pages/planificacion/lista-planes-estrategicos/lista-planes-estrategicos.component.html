@@ -1,0 +1,120 @@
+<div style="padding: 1rem">
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-6" style="padding:0;">
+      <h1>Planes Estratégicos</h1>
+    </div>
+    <div class="p-col-6 group-right" style="padding:0;">
+      <a class="layout-config-button" style="color: #008100;" (click)="showDialogCrear()"><i class="fa fa-plus-circle"></i></a>
+      <a class="layout-config-button" style="color: #3E59AB;" (click)="showDialogFiltrar()"><i class="fa fa-search"></i></a>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="p-grid" style="padding: 1rem">
+    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" *ngFor="let plan of planes" >
+      <p-card header="{{plan.anioI}}-{{plan.anioF}}"  styleClass="ui-card-shadow" [style]="{height:'100%'}">
+        <hr>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Estado:</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed">{{plan.estado.nombre}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Objetivos Estratégicos:</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed">{{plan.obj}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Iniciativas:</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed">{{plan.inic}}</label>
+          </div>
+        </div>
+        <div class="margen" style="padding:0;">
+          <a href="/listaPerspectivas" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" style="color: #008100;" (click)="showDialogEditar(planes.indexOf(plan))"><i class="fa fa-pencil-square"></i></a>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+<p-dialog header="Crear Plan Estratégico" [(visible)]="mostrarCrear" [modal]="true" [resizable]="true">
+  <div class="p-grid p-justify-center ui-fluid" style="padding-top:1rem" *ngIf="planE">
+    <div class="p-col-10">
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:90px">Año Inicio</label>
+        <div class="p-col">
+          <p-inputNumber id="anioIn" type="number" pInputNumber class="ui-inputnumber ui-corner-all ui-state-default ui-widget" [(ngModel)]="planE.anioI"></p-inputNumber>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div style="text-align:left">
+      <button type="button" pButton (click)="guardarNuevo()" label="Guardar"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<p-dialog header="Editar Plan Estratégico" [(visible)]="mostrarEditar" [modal]="true" [resizable]="true">
+  <div class="p-grid p-justify-center ui-fluid" style="padding-top:1rem" *ngIf="planE">
+    <div class="p-col-10">
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:90px">Año Inicio</label>
+        <div class="p-col">
+          <p-inputNumber id="anioInicio" type="number" pInputNumber class="ui-inputnumber ui-corner-all ui-state-default ui-widget" [(ngModel)]="planE.anioI"></p-inputNumber>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:90px">Estado:</label>
+        <div class="p-col">
+          <p-dropdown inputId="estado" [options]="estados" optionLabel="nombre" [(ngModel)]="planE.estado" appendTo="body"></p-dropdown>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div style="text-align:left">
+      <button type="button" pButton (click)="editar()" label="Guardar"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<p-dialog header="Filtrar Plan Estratégico" [(visible)]="mostrarFiltrar" [modal]="true" [resizable]="true">
+  <div class="p-grid p-justify-center ui-fluid" style="padding-top:1rem">
+    <div class="p-col-10">
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:90px">Año Inicio</label>
+        <div class="p-col">
+          <p-inputNumber id="anioI" type="number" pInputNumber class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:90px">Año Fin</label>
+        <div class="p-col">
+          <p-inputNumber id="anioF" type="number" pInputNumber autofocus class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:90px">Estado:</label>
+        <div class="p-col">
+          <p-dropdown inputId="estado" [options]="estados" optionLabel="nombre" placeholder="Todos" appendTo="body"></p-dropdown>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div style="text-align:left">
+      <button type="button" pButton (click)="filtrar()" label="Filtrar"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<p-toast></p-toast>
+
+
+

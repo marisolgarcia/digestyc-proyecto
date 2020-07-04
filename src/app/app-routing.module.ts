@@ -16,6 +16,15 @@ import { EjecucionesActSegComponent } from './pages/planificacion/ejecuciones-ac
 import { IngresoEjecucionActSegComponent } from './pages/planificacion/ingreso-ejecucion-act-seg/ingreso-ejecucion-act-seg.component';
 import { DetalleEjecucionActSegComponent } from './pages/planificacion/detalle-ejecucion-act-seg/detalle-ejecucion-act-seg.component';
 
+import { ListaPlanesEstrategicosComponent } from './pages/planificacion/lista-planes-estrategicos/lista-planes-estrategicos.component';
+import { ListaObjetivosEstrategicosComponent } from './pages/planificacion/lista-objetivos-estrategicos/lista-objetivos-estrategicos.component';
+import {ListaIniciativasComponent} from "./pages/planificacion/lista-iniciativas/lista-iniciativas.component";
+import {ListaIndicadoresComponent} from "./pages/planificacion/lista-indicadores/lista-indicadores.component";
+import {ListaPerspectivasComponent} from "./pages/planificacion/lista-perspectivas/lista-perspectivas.component";
+import {CrearIniciativaComponent} from "./pages/planificacion/crear-iniciativa/crear-iniciativa.component";
+import {CrearIndicadorComponent} from "./pages/planificacion/crear-indicador/crear-indicador.component";
+import {EditarIniciativaComponent} from "./pages/planificacion/editar-iniciativa/editar-iniciativa.component";
+
 
 const routes: Routes = [];
 
@@ -23,7 +32,6 @@ const routes: Routes = [];
   imports: [
     RouterModule.forRoot([
       {path: 'ejemplo', component: EjemploComponent},
-      {path: 'editarIndicador', component: EditarIndicadorComponent},
       {path: 'listaPlanesAnuales', component: ListaPlanesAnualesComponent},
       {path: 'iniciativasPlanAnual', component: IniciativasPlanAnualComponent},
       {path: 'listaActividades', component: ListaActividadesComponent},
@@ -37,6 +45,16 @@ const routes: Routes = [];
       {path: 'ejecucionesActividad', component: EjecucionesActSegComponent},
       {path: 'ejecucionesActividad/ingresoEjecucion', component: IngresoEjecucionActSegComponent},
       {path: 'ejecucionesActividad/detalleEjecucion', component: DetalleEjecucionActSegComponent},
+
+      {path: 'listaPlanesEstrategicos', component: ListaPlanesEstrategicosComponent},
+      {path: 'listaPerspectivas', component: ListaPerspectivasComponent},
+      {path: 'listaObjetivosEstrategicos', component: ListaObjetivosEstrategicosComponent},
+      {path: 'listaIniciativas', component: ListaIniciativasComponent},
+      {path: 'listaIniciativas/crearIniciativa', component: CrearIniciativaComponent},
+      {path: 'listaIniciativas/editarIniciativa', component: EditarIniciativaComponent},
+      {path: 'listaIndicadores', component: ListaIndicadoresComponent},
+      {path: 'listaIndicadores/crearIndicador', component: CrearIndicadorComponent},
+      {path: 'listaIndicadores/editarIndicador', component: EditarIndicadorComponent},
 
       /*{path: 'setup', loadChildren: () => import('./components/setup/setup.module').then(m => m.SetupModule)},
       {path: 'theming', loadChildren: () => import('./components/theming/theming.module').then(m => m.ThemingModule)},

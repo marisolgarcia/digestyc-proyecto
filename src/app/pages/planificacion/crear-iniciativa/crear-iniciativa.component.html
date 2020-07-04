@@ -1,0 +1,115 @@
+<div style="padding: 1rem">
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+      <h1>Iniciativas 2020-2024 / Crear Iniciativa</h1>
+  </div>
+
+  <hr>
+
+  <div class="p-grid p-justify-center" style="padding-top:1rem;padding-bottom: 1rem">
+    <app-tabmenu-plan-estrategico></app-tabmenu-plan-estrategico>
+  </div>
+
+  <div class="p-grid p-justify-center" style="padding: 1rem">
+    <div class="p-col-12 p-md-12 p-lg-9 ui-fluid">
+      <p-card header="Datos"  styleClass="ui-card-shadow" [style]="{height:'100%'}">
+        <hr>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:160px">Perspectiva:</label>
+          <div class="p-col">
+            <!--
+            <p-dropdown inputId="state" [options]="states" [(ngModel)]="selectedState" placeholder="Select" optionLabel="name"></p-dropdown>
+            -->
+            <p-dropdown inputId="perspectiva" [options]="perspectivas" placeholder="Seleccione" optionLabel="nombre"></p-dropdown>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:160px">Objetivo Estratégico:</label>
+          <div class="p-col">
+            <p-dropdown inputId="objetivo" [options]="objetivos" placeholder="Seleccione" optionLabel="objetivo"></p-dropdown>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:160px">Unidad Líder:</label>
+          <div class="p-col">
+            <p-dropdown inputId="unidad" [options]="unidades" placeholder="Seleccione" optionLabel="nombre"></p-dropdown>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label for="iniciativa" class="p-col-fixed" style="width:160px">Iniciativa:</label>
+          <div class="p-col">
+            <textarea id="iniciativa" type="text" rows="2" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:160px">Codigo:</label>
+          <div class="p-col">
+            <p-inputNumber name="codigo" mode="decimal" [showButtons]="false" [min]="0" class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
+          </div>
+        </div>
+      </p-card>
+    </div>
+    <div class="p-col-12 p-md-12 p-lg-3 ui-fluid">
+      <p-card header="Progresión Gradual"  styleClass="ui-card-shadow" [style]="{height:'100%'}">
+        <hr>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:60px">2020</label>
+          <div class="p-col">
+            <p-inputNumber name="anio1" mode="decimal" [showButtons]="true" [min]="0" class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:60px">2021</label>
+          <div class="p-col">
+            <p-inputNumber name="anio2" mode="decimal" [showButtons]="true" [min]="0" class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:60px">2022</label>
+          <div class="p-col">
+            <p-inputNumber name="anio3" mode="decimal" [showButtons]="true" [min]="0" class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:60px">2023</label>
+          <div class="p-col">
+            <p-inputNumber name="anio4" mode="decimal" [showButtons]="true" [min]="0" class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:60px">2024</label>
+          <div class="p-col">
+            <p-inputNumber name="anio5" mode="decimal" [showButtons]="true" [min]="0" class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
+          </div>
+        </div>
+      </p-card>
+    </div>
+    <div class="p-col-12 p-md-12 p-lg-8 ui-fluid">
+      <p-card header="Resultado"  styleClass="ui-card-shadow" [style]="{height:'100%'}">
+        <hr>
+        <div class="p-field p-grid">
+          <label for="indicador" class="p-col-fixed" style="width:170px">Indicador de impacto:</label>
+          <div class="p-col">
+            <textarea id="indicador" type="text" rows="2" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label for="medio" class="p-col-fixed" style="width:170px">Medio de verificación:</label>
+          <div class="p-col">
+            <textarea id="medio" type="text" rows="2" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label for="resultado" class="p-col-fixed" style="width:170px">Resultado:</label>
+          <div class="p-col">
+            <textarea id="resultado" type="text" rows="2" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+          </div>
+        </div>
+      </p-card>
+    </div>
+    <div class="p-col-12" style="text-align:left">
+      <button type="button" pButton label="Guardar" (click)="guardar()"></button>
+    </div>
+  </div>
+</div>
+
+<p-toast></p-toast>
