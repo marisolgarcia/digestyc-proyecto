@@ -56,6 +56,7 @@ export class UnidadMedidaComponent implements OnInit {
 	}
 
 	guardar(){
+		// Aqui hay un bug, repite el elemento en la lista, corregirlo
 		this.unidades.push(this.unidad);
 		this.unidad = {nombre: '', activo: true};
 		this.showToast('success', 'Guardado', 'Unidad guardada correctamente');
