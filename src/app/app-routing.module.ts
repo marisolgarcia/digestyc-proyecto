@@ -45,6 +45,10 @@ const routes: Routes = [];
         path: 'seguridad',
         loadChildren: () => import('./pages/seguridad/seguridad.module').then(m => m.SeguridadModule),
       },
+      {
+        path: 'catalogos',
+        loadChildren: () => import('./pages/catalogo/catalogo.module').then(m => m.CatalogoModule),
+      },
     ])],
   exports: [RouterModule]
 })
