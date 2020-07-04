@@ -12,6 +12,7 @@ import { MessagesModule } from 'primeng/messages';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {CheckboxModule} from 'primeng/checkbox';
 import { AccordionModule } from 'primeng/accordion';
+import {PickListModule} from 'primeng/picklist';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,6 +53,10 @@ import { EditarEjecucionIndicadorComponent } from './pages/planificacion/editar-
 import { UnidadesOrganizativasVaciaComponent } from './pages/organizacion/unidades-organizativas-vacia/unidades-organizativas-vacia.component';
 import { UnidadOrganizativaRaizComponent } from './pages/organizacion/unidad-organizativa-raiz/unidad-organizativa-raiz.component';
 import { UnidadOrganiSecunComponent } from './pages/organizacion/unidad-organi-secun/unidad-organi-secun.component';
+import { ListaUsuariosComponent } from './pages/seguridad/lista-usuarios/lista-usuarios.component';
+import { CreaUsuarioComponent } from './pages/seguridad/crea-usuario/crea-usuario.component';
+import { EditarUsuarioComponent } from './pages/seguridad/editar-usuario/editar-usuario.component';
+import { VerUsuarioComponent } from './pages/seguridad/ver-usuario/ver-usuario.component';
 
 
 @NgModule({
@@ -82,6 +87,10 @@ import { UnidadOrganiSecunComponent } from './pages/organizacion/unidad-organi-s
     UnidadesOrganizativasVaciaComponent,
     UnidadOrganizativaRaizComponent,
     UnidadOrganiSecunComponent,
+    ListaUsuariosComponent,
+    CreaUsuarioComponent,
+    EditarUsuarioComponent,
+    VerUsuarioComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -108,7 +117,8 @@ import { UnidadOrganiSecunComponent } from './pages/organizacion/unidad-organi-s
     ReactiveFormsModule,
     InputNumberModule,
     CheckboxModule,
-    AccordionModule
+    AccordionModule,
+    PickListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
