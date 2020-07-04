@@ -14,8 +14,10 @@ import {FormControl} from '@angular/forms';
 export class VerEjecucionIndicadorComponent implements OnInit {
   indicador: any;
   public indicadores: any[] = [];
+  ejecuciones: any[] = [];
   lugar: number;
   tipoJustificacion: any[] = [];
+  mostrarJustificacion = false;
   tipo: string;
   valor: number;
   valorKPI: number;
@@ -25,10 +27,11 @@ export class VerEjecucionIndicadorComponent implements OnInit {
   text: string;
   msgs: Message[] = [];
   position: string;
+  ejecucion: any;
 
-  meta = 40;
+  meta: number;
   limite = 30;
-  ejecutado = new FormControl('');
+  ejecutado;
   value = 0;
   backgroundColor: any;
 
@@ -54,7 +57,7 @@ export class VerEjecucionIndicadorComponent implements OnInit {
         indicador: 'Personal especializado, es decir, con al menos un diploma de aprobación nacional o internacional relacionada con el cargo que desempeña, por parte de Instituciones acreditadas.',
         peso: '20%',
         periodicidad: 'Mensual',
-        periodo: 'Mes 6',
+        periodo: 'Junio',
       },
       {
         id: 4,
@@ -75,7 +78,7 @@ export class VerEjecucionIndicadorComponent implements OnInit {
         indicador: 'Presentación de la iniciativa  de la ley de creación del  Instituto Salvadoreño de Estadística (ISE).',
         peso: '20%',
         periodicidad: 'Mensual',
-        periodo: 'Mes 6',
+        periodo: 'Junio',
       },
       {
         id: 7,
@@ -103,7 +106,7 @@ export class VerEjecucionIndicadorComponent implements OnInit {
         indicador: 'Personal especializado, es decir, con al menos un diploma de aprobación nacional o internacional relacionada con el cargo que desempeña, por parte de Instituciones acreditadas.',
         peso: '20%',
         periodicidad: 'Mensual',
-        periodo: 'Mes 6',
+        periodo: 'Junio',
       },
       {
         id: 11,
@@ -131,15 +134,261 @@ export class VerEjecucionIndicadorComponent implements OnInit {
         indicador: 'Presentación de la iniciativa  de la ley de creación del  Instituto Salvadoreño de Estadística (ISE).',
         peso: '20%',
         periodicidad: 'Mensual',
-        periodo: 'Mes 6',
+        periodo: 'Junio',
       }
     ];
-    this.activateRoute.params.subscribe( params => {
-      this.indicador = this.extraerIndicador(params.id);
-    });
+    this.ejecuciones = [
+      {
+        id: 1,
+        registrado: '02-04-2020',
+        planificadoPara: 'Trimestre 1',
+        anio: '2020',
+        meta: '40',
+        ejecucion: '15',
+        evidencia: 'archivo.pdf',
+        idIndicador: 1
+      },
+      {
+        id: 2,
+        registrado: '02-02-2020',
+        planificadoPara: 'Enero',
+        anio: '2020',
+        meta: '30',
+        ejecucion: '30',
+        evidencia: 'documento.pdf',
+        idIndicador: 3
+      },
+      {
+        id: 3,
+        registrado: '02-03-2020',
+        planificadoPara: 'Febrero',
+        anio: '2020',
+        meta: '45',
+        ejecucion: '45',
+        evidencia: 'entrega.pdf',
+        idIndicador: 3
+      },
+      {
+        id: 4,
+        registrado: '02-04-2020',
+        planificadoPara: 'Marzo',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 3
+      },
+      {
+        id: 5,
+        registrado: '02-05-2020',
+        planificadoPara: 'Abril',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 3
+      },
+      {
+        id: 6,
+        registrado: '02-06-2020',
+        planificadoPara: 'Mayo',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 3
+      },
+      {
+        id: 7,
+        registrado: '02-04-2020',
+        planificadoPara: 'Trimestre 1',
+        anio: '2020',
+        meta: '40',
+        ejecucion: '20',
+        evidencia: 'archivo.pdf',
+        idIndicador: 4
+      },
+      {
+        id: 8,
+        registrado: '02-02-2020',
+        planificadoPara: 'Enero',
+        anio: '2020',
+        meta: '30',
+        ejecucion: '30',
+        evidencia: 'documento.pdf',
+        idIndicador: 6
+      },
+      {
+        id: 9,
+        registrado: '02-03-2020',
+        planificadoPara: 'Febrero',
+        anio: '2020',
+        meta: '45',
+        ejecucion: '45',
+        evidencia: 'entrega.pdf',
+        idIndicador: 6
+      },
+      {
+        id: 10,
+        registrado: '02-04-2020',
+        planificadoPara: 'Marzo',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 6
+      },
+      {
+        id: 11,
+        registrado: '02-05-2020',
+        planificadoPara: 'Abril',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 6
+      },
+      {
+        id: 12,
+        registrado: '02-06-2020',
+        planificadoPara: 'Mayo',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 6
+      },
+      {
+        id: 13,
+        registrado: '02-04-2020',
+        planificadoPara: 'Trimestre 1',
+        anio: '2020',
+        meta: '40',
+        ejecucion: '15',
+        evidencia: 'archivo.pdf',
+        idIndicador: 7
+      },
+      {
+        id: 14,
+        registrado: '02-02-2020',
+        planificadoPara: 'Enero',
+        anio: '2020',
+        meta: '30',
+        ejecucion: '30',
+        evidencia: 'documento.pdf',
+        idIndicador: 10
+      },
+      {
+        id: 15,
+        registrado: '02-03-2020',
+        planificadoPara: 'Febrero',
+        anio: '2020',
+        meta: '45',
+        ejecucion: '45',
+        evidencia: 'entrega.pdf',
+        idIndicador: 10
+      },
+      {
+        id: 16,
+        registrado: '02-04-2020',
+        planificadoPara: 'Marzo',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 10
+      },
+      {
+        id: 17,
+        registrado: '02-05-2020',
+        planificadoPara: 'Abril',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 10
+      },
+      {
+        id: 18,
+        registrado: '02-06-2020',
+        planificadoPara: 'Mayo',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 10
+      },
+      {
+        id: 19,
+        registrado: '02-04-2020',
+        planificadoPara: 'Trimestre 1',
+        anio: '2020',
+        meta: '40',
+        ejecucion: '15',
+        evidencia: 'archivo.pdf',
+        idIndicador: 11
+      },
+      {
+        id: 20,
+        registrado: '02-02-2020',
+        planificadoPara: 'Enero',
+        anio: '2020',
+        meta: '30',
+        ejecucion: '30',
+        evidencia: 'documento.pdf',
+        idIndicador: 14
+      },
+      {
+        id: 21,
+        registrado: '02-03-2020',
+        planificadoPara: 'Febrero',
+        anio: '2020',
+        meta: '45',
+        ejecucion: '45',
+        evidencia: 'entrega.pdf',
+        idIndicador: 14
+      },
+      {
+        id: 22,
+        registrado: '02-04-2020',
+        planificadoPara: 'Marzo',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 14
+      },
+      {
+        id: 23,
+        registrado: '02-05-2020',
+        planificadoPara: 'Abril',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 14
+      },
+      {
+        id: 24,
+        registrado: '02-06-2020',
+        planificadoPara: 'Mayo',
+        anio: '2020',
+        meta: '35',
+        ejecucion: '30',
+        evidencia: 'entrega.pdf',
+        idIndicador: 14
+      }
+    ];
   }
 
   ngOnInit(): void {
+    this.activateRoute.params.subscribe( params => {
+      this.ejecucion = this.extraerEjecucion(params.id);
+    });
+    this.meta = this.ejecucion.meta;
+    this.ejecutado = new FormControl(this.ejecucion.ejecucion);
+
+    this.indicador = this.extraerIndicador(this.ejecucion.idIndicador);
     this.tipoJustificacion = [
       {label: 'Falta de presupuesto', value: {id: 1, name: 'Falta de presupuesto'}},
       {label: 'Falta de personal', value: {id: 2, name: 'Falta de personal'}},
@@ -148,12 +397,12 @@ export class VerEjecucionIndicadorComponent implements OnInit {
     this.valor = 0;
     this.valorKPI = 15;
     this.valor = (this.valorKPI / 40) * 100;
-    this.text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    this.text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 
     const interval = setInterval(() => {
 
       // Calcula el porcentaje con respecto a la meta
-      this.value = ((15) * 100) / this.meta;
+      this.value = Math.round(((this.ejecutado.value) * 100) / this.meta);
 
       // evalua el porcentaje y determina el color
       if (this.value < 50) {
@@ -165,11 +414,20 @@ export class VerEjecucionIndicadorComponent implements OnInit {
       } else if (this.value === 0) {
         this.backgroundColor = 'background4';
       }
+      if (this.ejecutado.value < this.limite) {
+        this.mostrarJustificacion = true;
+      } else {
+        this.mostrarJustificacion = false;
+      }
     }, 2000);
   }
   extraerIndicador(id: number){
     this.lugar = id - 1;
     return this.indicadores[this.lugar];
+  }
+  extraerEjecucion(id: number){
+    this.lugar = id - 1;
+    return this.ejecuciones[this.lugar];
   }
 
   progreso(valorkpi){

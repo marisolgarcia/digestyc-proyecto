@@ -1,7 +1,8 @@
 <div style="padding: 1rem">
   <div class="p-grid ui-fluid" style="padding:1rem;">
     <div class="p-col-8" style="padding:0;">
-      <h1>Informar Indicador {{indicador.periodo}} / Mayo</h1>
+      <h1 *ngIf="indicador.periodicidad != 'Mensual'">Informar Indicador {{indicador.periodo}} / Junio </h1>
+      <h1 *ngIf="indicador.periodicidad === 'Mensual'">Informar Indicador {{indicador.periodo}} </h1>
     </div>
   </div>
   <hr>
