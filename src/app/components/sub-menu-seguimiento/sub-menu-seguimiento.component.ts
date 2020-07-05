@@ -14,9 +14,9 @@ export class SubMenuSeguimientoComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-            {label:'Vigentes', url: '/seguimientoActividades'},
-            {label:'Todas', url: '/seguimientoActividades/todas'}
-        ];
+      {label:'Vigentes', url: '/seguimientoActividades'},
+      {label:'Todas', url: '/seguimientoActividades/todas'}
+    ];
   }
 
 }
