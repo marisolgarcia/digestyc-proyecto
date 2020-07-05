@@ -13,10 +13,12 @@ export class SubMenuSeguimientoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
     this.items = [
-      {label:'Vigentes', url: '/seguimientoActividades'},
-      {label:'Todas', url: '/seguimientoActividades/todas'}
-    ];
+            {label: 'Vigentes', routerLink:'/seguimientoActividades'},
+            {label: 'Todas', routerLink:'/seguimientoActividadesTodas'},
+        ];
+
   }
 
 }

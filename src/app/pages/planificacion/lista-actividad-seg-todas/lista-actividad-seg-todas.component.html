@@ -1,1 +1,300 @@
-<p>lista-actividad-seg-todas works!</p>
+<div style="padding: 1rem">
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-9" style="padding:0;">
+      <h1>Seguimiento de Actividades</h1>
+    </div>
+    <div class="p-col-3 group-right" style="padding:0;">
+      <a class="layout-config-button" style="color: #3E59AB;" (click)="filtrarDialog()"><i class="fa fa-search"></i></a>
+    </div>
+
+    <p-dialog header="Filtrar" [(visible)]="filtrar" [modal]="true" [baseZIndex]="10000" [style]="{width: '50vw'}">
+      <div class="p-grid" style="padding-top:1rem;">
+        <div class="p-col-12 p-md-12  ui-fluid">
+          <div class="p-field p-grid">
+            <label for="perspectiva" class="p-md-4 p-lg-3">Perspectiva:</label>
+            <div class="p-md-8 p-lg-9">
+              <p-dropdown inputId="perspectiva" [options]="perspectiva" placeholder="Todas" optionLabel="name"></p-dropdown>
+            </div>
+          </div>
+          <div class="p-field p-grid">
+            <label for="fechaInicio" class="p-md-4 p-lg-3">Fecha Inicio:</label>
+            <div class="p-md-8 p-lg-9">
+              <input id="fechaInicio" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+            </div>
+          </div>
+          <div class="p-field p-grid">
+            <label for="fechaFin" class="p-md-4 p-lg-3">Fecha fin:</label>
+            <div class="p-md-8 p-lg-9">
+              <input id="fechaFin" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+            </div>
+          </div>
+        </div>
+      </div>
+      <p-footer>
+        <button type="button" pButton (click)="filtrar=false" label="Filtrar"></button>
+        <button type="button" pButton (click)="filtrar=false" label="Cancelar" class="ui-button-secondary"></button>
+      </p-footer>
+    </p-dialog>
+  </div>
+
+  <hr>
+
+  <div class="p-grid p-justify-center" style="padding:1rem; text-align:center;">
+    <app-sub-menu-seguimiento></app-sub-menu-seguimiento>
+  </div>
+
+  <div style="padding-left:1.5em;">
+    <div class="p-col-12" style="padding:0;">
+      <h2>1. Ciudadania Satisfecha con Nuestro Servicio</h2>
+    </div>
+    <hr>
+  </div>
+
+  <div class="p-grid ui-fluid p-justify-center" style="padding: 1rem">
+
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <p-card header="Actividad"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-grid margen">
+          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
+            Materiales informativos sobre hechos de violencia contra la mujer y brechas de género
+          </p>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaInicio">Fecha Inicio:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaInicio" style="text-align:right">
+              01/01/2020
+            </p>
+          </div>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaFin">Fecha Fin:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaFin" style="text-align:right">
+              30/06/2020
+            </p>
+          </div>
+        </div>
+        <p-footer>
+          <a [routerLink]="['/ejecucionesActividad']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <span style="color: #A1A1A1; padding-left:1.5em;"><i class="fa fa-circle"></i></span>
+        </p-footer>
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <p-card header="Actividad"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-grid margen">
+          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
+            Cálculo y publicación del Índice de Precios al Consumidor (IPC)
+          </p>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaInicio">Fecha Inicio:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaInicio" style="text-align:right">
+              01/01/2020
+            </p>
+          </div>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaFin">Fecha Fin:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaFin" style="text-align:right">
+              30/06/2020
+            </p>
+          </div>
+        </div>
+
+        <p-footer>
+          <a [routerLink]="['/ejecucionesActividad']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <span style="color: #A1A1A1; padding-left:1.5em;"><i class="fa fa-circle"></i></span>
+        </p-footer>
+      </p-card>
+    </div>
+  </div>
+
+  <div style="padding-left:1.5em;">
+    <div class="p-col-12" style="padding:0;">
+      <h2>2. Eficacia de los Procesos Organizacionales</h2>
+    </div>
+    <hr>
+  </div>
+
+  <div class="p-grid p-justify-center" style="padding: 1rem">
+
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <p-card header="Actividad"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-grid margen">
+          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
+            Revisar, actualizar y adaptar los clasificadores: Clasificación de Actividades Económicas de El Salvador (CLAEES), Clasificación de Productos de El Salvador (CPES) y  Clasificación del Consumo Individual por Finalidades de El Salvador (CCIFES), para su implementación en la producción estadística
+          </p>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaInicio">Fecha Inicio:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaInicio" style="text-align:right">
+              01/01/2020
+            </p>
+          </div>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaFin">Fecha Fin:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaFin" style="text-align:right">
+              30/06/2020
+            </p>
+          </div>
+        </div>
+        <p-footer>
+          <a [routerLink]="['/ejecucionesActividad']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <span style="color: #66B0FF; padding-left:1.5em;"><i class="fa fa-circle"></i></span>
+        </p-footer>
+      </p-card>
+    </div>
+
+  </div>
+
+  <div style="padding-left:1.5em;">
+    <div class="p-col-12" style="padding:0;">
+      <h2>3. Desarrollo y Mordenización Organizacional y del Talento Humano</h2>
+    </div>
+    <hr>
+  </div>
+
+  <div class="p-grid p-justify-center" style="padding: 1rem">
+
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <p-card header="Actividad"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-grid margen">
+          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
+            Realizar un inventario de Hardware y software disponible en la institución
+          </p>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaInicio">Fecha Inicio:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaInicio" style="text-align:right">
+              01/01/2020
+            </p>
+          </div>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaFin">Fecha Fin:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaFin" style="text-align:right">
+              30/06/2020
+            </p>
+          </div>
+        </div>
+        <p-footer>
+          <a [routerLink]="['/ejecucionesActividad']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <span style="color: #EBE30B; padding-left:1.5em;"><i class="fa fa-circle"></i></span>
+        </p-footer>
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <p-card header="Actividad"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-grid margen">
+          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
+            Formular el plan de actualización e innovación tecnológica
+          </p>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaInicio">Fecha Inicio:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaInicio" style="text-align:right">
+              01/01/2020
+            </p>
+          </div>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaFin">Fecha Fin:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaFin" style="text-align:right">
+              30/06/2020
+            </p>
+          </div>
+        </div>
+        <p-footer>
+          <a [routerLink]="['/ejecucionesActividad']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <span style="color: #B90B00; padding-left:1.5em;"><i class="fa fa-circle"></i></span>
+        </p-footer>
+      </p-card>
+    </div>
+
+  </div>
+
+  <div style="padding-left:1.5em;">
+    <div class="p-col-12" style="padding:0;">
+      <h2>4. Eficacia en la Movilización y Manejo de los Recursos</h2>
+    </div>
+    <hr>
+  </div>
+
+  <div class="p-grid p-justify-center" style="padding: 1rem">
+
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <p-card header="Actividad"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-grid margen">
+          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
+            Elaborar un inventario de productos estadisticos
+          </p>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaInicio">Fecha Inicio:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaInicio" style="text-align:right">
+              01/01/2020
+            </p>
+          </div>
+        </div>
+        <div class="p-grid margen">
+          <div class="p-col-4">
+            <label for="fechaFin">Fecha Fin:</label>
+          </div>
+          <div class="p-col-8">
+            <p for="fechaFin" style="text-align:right">
+              30/06/2020
+            </p>
+          </div>
+        </div>
+        <p-footer>
+          <a [routerLink]="['/ejecucionesActividad']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <span style="color: #008100; padding-left:1.5em;"><i class="fa fa-circle"></i></span>
+        </p-footer>
+      </p-card>
+    </div>
+
+  </div>
+
+</div>

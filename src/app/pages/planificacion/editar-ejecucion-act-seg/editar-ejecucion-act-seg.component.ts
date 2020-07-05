@@ -1,31 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
+
 interface mes {
   name: string;
   code: string;
 }
 
-interface tipoJustificacion {
-  name: string;
-  code: string;
-}
-
 @Component({
-  selector: 'app-ingreso-ejecucion-act-seg',
-  templateUrl: './ingreso-ejecucion-act-seg.component.html',
-  styleUrls: ['./ingreso-ejecucion-act-seg.component.css']
+  selector: 'app-editar-ejecucion-act-seg',
+  templateUrl: './editar-ejecucion-act-seg.component.html',
+  styleUrls: ['./editar-ejecucion-act-seg.component.css']
 })
-export class IngresoEjecucionActSegComponent implements OnInit {
+export class EditarEjecucionActSegComponent implements OnInit {
 
   //datos quemados
   meta= 60;
-  acumulado= 0;
+  acumulado= 30;
 
   mes: mes[];
   selectedMes: string ="Junio";
-
-  tipoJustificacion: tipoJustificacion[];
 
   //formControl para obtener el valor de lo ejecutado
   ejecutado = new FormControl('');
@@ -39,7 +33,7 @@ export class IngresoEjecucionActSegComponent implements OnInit {
 
   constructor() {
     this.mes = [
-      {name: 'Enero', code: '1'},
+      {name: 'Junio', code: '1'},
       {name: 'Febreo', code: '2'},
       {name: 'Marzo', code: '3'},
       {name: 'Abril', code: '4'},
@@ -52,13 +46,6 @@ export class IngresoEjecucionActSegComponent implements OnInit {
       {name: 'Noviembre', code: '11'},
       {name: 'Diciembre', code: '12'},
     ];
-
-    this.tipoJustificacion = [
-      {name: 'Atraso de tiempo de procesos', code: '1'},
-      {name: 'Cambio de prioridad institucional', code: '2'},
-      {name: 'Casos fortuitos', code: '3'},
-    ];
-
   }
 
   ngOnInit(): void {

@@ -2,21 +2,25 @@
 @import '~primeicons/primeicons.css';
 @import '~primeng/resources/themes/nova-light/theme.css';
 @import '~primeng/resources/primeng.css';
-@import '~primeflex/primeflex.css';
+
 @import "./assets/css/styles.css";
 
 .background1 .ui-progressbar .ui-progressbar-value {
-  background: #B90B00;
-}
+    background: #B90B00;
+  }
 
-.background2 .ui-progressbar .ui-progressbar-value {
-  background: #EBE30B;
-}
+  .background2 .ui-progressbar .ui-progressbar-value {
+    background: #EBE30B;
+  }
 
-.background3 .ui-progressbar .ui-progressbar-value {
-  background: #008100;
-}
+  .background3 .ui-progressbar .ui-progressbar-value {
+    background: #008100;
+  }
 
-.background4 .ui-progressbar .ui-progressbar-value {
-  background: #A1A1A1;
-}
+  .background4 .ui-progressbar .ui-progressbar-value {
+    background: #A1A1A1;
+  }
+
+  .layout-config-button{
+    cursor: pointer;
+  }

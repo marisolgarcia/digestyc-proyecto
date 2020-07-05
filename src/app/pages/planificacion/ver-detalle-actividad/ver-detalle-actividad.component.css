@@ -1,0 +1,59 @@
+h1 {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+hr {
+    margin-block-start: 0em;
+    margin-block-end: 1em;
+}
+
+.group-right {
+    text-align: right;
+}
+
+div a{
+    margin-left: 2em;
+}
+
+i{
+    font-size: 2.5em;
+}
+
+.margen {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 1.5em;
+}
+
+p-dialog{
+  height: 50%
+}
+
+p{
+  text-align: center;
+}
+
+.fondo{
+   vertical-align: bottom;
+}
+
+.mydialog {
+    width: 50vw;
+}
+
+@media screen and (max-width: 40em) {
+    .mydialog {
+        width: 75vw;
+    }
+}
+
+:host ::ng-deep .ui-button {
+            margin: .5em .5em .5em 0;
+            width: 140px;
+        }
+        @media screen and (max-width: 40em) {
+            :host ::ng-deep .ui-dialog {
+                width: 75vw !important;
+            }
+        }

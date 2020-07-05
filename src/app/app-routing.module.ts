@@ -37,6 +37,7 @@ import {CrearIniciativaComponent} from "./pages/planificacion/crear-iniciativa/c
 import {CrearIndicadorComponent} from "./pages/planificacion/crear-indicador/crear-indicador.component";
 import {EditarIniciativaComponent} from "./pages/planificacion/editar-iniciativa/editar-iniciativa.component";
 
+import { EditarEjecucionActSegComponent } from './pages/planificacion/editar-ejecucion-act-seg/editar-ejecucion-act-seg.component';
 
 const routes: Routes = [];
 
@@ -44,6 +45,7 @@ const routes: Routes = [];
   imports: [
     RouterModule.forRoot([
       {path: 'ejemplo', component: EjemploComponent},
+      {path: 'editarIndicador', component: EditarIndicadorComponent},
       {path: 'listaPlanesAnuales', component: ListaPlanesAnualesComponent},
       {path: 'iniciativasPlanAnual', component: IniciativasPlanAnualComponent},
       {path: 'listaActividades', component: ListaActividadesComponent},
@@ -79,6 +81,7 @@ const routes: Routes = [];
       {path: 'listaIndicadores', component: ListaIndicadoresComponent},
       {path: 'listaIndicadores/crearIndicador', component: CrearIndicadorComponent},
       {path: 'listaIndicadores/editarIndicador', component: EditarIndicadorComponent},
+      {path: 'ejecucionesActividad/editarEjecucion', component: EditarEjecucionActSegComponent},
 
       /*{path: 'setup', loadChildren: () => import('./components/setup/setup.module').then(m => m.SetupModule)},
       {path: 'theming', loadChildren: () => import('./components/theming/theming.module').then(m => m.ThemingModule)},
