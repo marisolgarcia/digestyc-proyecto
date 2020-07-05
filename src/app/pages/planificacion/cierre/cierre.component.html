@@ -1,74 +1,129 @@
 <div style="padding: 1rem">
-  <h1>Tittle</h1>
-  <hr>
-
-
-  <div class="p-grid">
-    <div class="p-col-12 p-md-12 p-lg-6  ui-fluid">
-      <p-card header="Header"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid">
-            <label for="firstname3" class="p-col-fixed" style="width:100px">Firstname</label>
-            <div class="p-col">
-                <input id="firstname3" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
-            </div>
-        </div>
-        <div class="p-field p-grid">
-            <label for="lastname3" class="p-col-fixed" style="width:100px">Lastname</label>
-            <div class="p-col">
-                <input id="lastname3" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
-            </div>
-        </div>
-        <div class="p-field p-grid">
-            <label for="lastname3" class="p-col-fixed" style="width:100px">Lastname</label>
-            <div class="p-col">
-              <textarea id="address" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
-            </div>
-        </div>
-      </p-card>
-    </div>
-    <div class="p-col-12 p-md-12 p-lg-6  ui-fluid">
-      <p-card header="Header"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid">
-            <label for="firstname3" class="p-col-fixed" style="width:100px">Firstname</label>
-            <div class="p-col">
-                <input id="firstname3" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
-            </div>
-        </div>
-        <div class="p-field p-grid">
-            <label for="lastname3" class="p-col-fixed" style="width:100px">Lastname</label>
-            <div class="p-col">
-                <input id="lastname3" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
-            </div>
-        </div>
-        <div class="p-field p-grid">
-            <label for="lastname3" class="p-col-fixed" style="width:100px">Lastname</label>
-            <div class="p-col">
-            <!--
-            <p-dropdown inputId="state" [options]="states" [(ngModel)]="selectedState" placeholder="Select" optionLabel="name"></p-dropdown>
-            -->
-        <p-dropdown inputId="state" placeholder="Select" optionLabel="name"></p-dropdown>
-      </div>
-        </div>
-      </p-card>
-    </div>
-    <div class="p-col-12 p-md-12">
-      <p-card header="header"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid">
-            <label for="firstname3" class="p-col-fixed" style="width:100px">Firstname</label>
-            <div class="p-col">
-                <input id="firstname3" type="text" pInputText>
-            </div>
-        </div>
-        <div class="p-field p-grid">
-            <label for="lastname3" class="p-col-fixed" style="width:100px">Lastname</label>
-            <div class="p-col">
-                <input id="lastname3" type="text" pInputText>
-            </div>
-        </div>
-      </p-card>
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-12" style="padding:0;">
+      <h1>Plan 2020 / Cierre</h1>
     </div>
   </div>
+  <hr>
+  <app-sm-plan-anual></app-sm-plan-anual>
+
+  <div class="p-grid p-justify-center" style="padding: 1rem">
+
+    <div class="p-col-12 p-md-12 p-lg-10">
+      <p-card header="Fechas de Cierre"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+
+          <div class="p-field p-grid p-justify-center" style="padding-top: 1rem">
+              <div class="p-col-10">
+                <p-table [value]="cierre" dataKey="name" class="ui-table-responsive" style="text-align: center">
+                  <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th>Mes</th>
+                      <th>Inicio de Cierre</th>
+                      <th>Fin de Cierre</th>
+                      <th>Editar</th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-rowData let-columns="columns" let-ri="rowIndex">
+                    <tr>
+                        <td>
+                                {{rowData.name}}
+                        </td>
+                        <td>
+                                {{rowData.fechaInicio}}
+                        </td>
+                        <td>
+                                {{rowData.fechaFin}}
+                        </td>
+                        <td style="text-align:center">
+                          <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+                        </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+          </div>
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-12 p-lg-10">
+      <p-card header="Correo de Aviso del Inicio de Periodo "  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="ui-fluid">
+          <div class="p-field p-grid">
+              <label for="resultado" class="p-col-12 p-md-4 p-lg-2">Enviar correo cuando falten:</label>
+              <div class="p-col-12 p-md-2 p-lg-1">
+                <p-inputNumber [(ngModel)]="aviso" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
+              </div>
+              <label for="resultado" class="p-col-12 p-md-6 p-lg-9">dias para el inicio de cierre</label>
+          </div>
+          <div class="p-field p-grid">
+              <label for="mensajeAviso" class="p-col-12 p-md-4 p-lg-2">Mensaje:</label>
+              <div class="p-col-12 p-md-8 p-lg-10">
+                <textarea id="mensajeAviso" [(ngModel)]="msjaviso" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+              </div>
+          </div>
+        </div>
+
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-12 p-lg-10">
+      <p-card header="Correo de Recordatorio del Fin de Periodo "  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="ui-fluid">
+          <div class="p-grid">
+              <label for="resultado" class="p-col-12 p-md-4 p-lg-2">Enviar correo cuando falten:</label>
+              <div class="p-col-12 p-md-2 p-lg-1">
+                <p-inputNumber  [(ngModel)]="noti" [showButtons]="true" [min]="0" [max]="5"></p-inputNumber>
+              </div>
+              <label for="resultado" class="p-col-12 p-md-6 p-lg-9">dias para el fin de cierre</label>
+          </div>
+          <div class="p-field p-grid">
+              <label for="mensajeRecordatorio" class="p-col-12 p-md-4 p-lg-2">Mensaje:</label>
+              <div class="p-col-12 p-md-8 p-lg-10">
+                <textarea id="mensajeRecordatorio" [(ngModel)]="msjnoti" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+              </div>
+          </div>
+        </div>
+
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-12 p-lg-10">
+      <button type="button" pButton [routerLink]="['/listaActividades']" label="Guardar"></button>
+      <button type="button" pButton [routerLink]="['/listaActividades']" label="Cancelar" class="ui-button-secondary"></button>
+    </div>
+
+    <p-dialog header="Editar Cierre" [(visible)]="editar" [modal]="true" [baseZIndex]="10000">
+      <div class="p-grid" style="padding-top:1rem;">
+        <div class="p-col-12 p-md-12  ui-fluid">
+          <div class="p-field p-grid">
+            <label for="mesCierre" class="p-col-fixed" style="width:100px">Mes:</label>
+            <div class="p-col">
+              <input id="mesCierre" [(ngModel)]="mes" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+            </div>
+          </div>
+          <div class="p-field p-grid">
+            <label for="inicioCierre" class="p-col-fixed" style="width:100px">Inicio:</label>
+            <div class="p-col">
+              <p-calendar [(ngModel)]="date6" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" [locale]="es" dateFormat="dd/mm/yy" class="ui-calendar "></p-calendar>
+            </div>
+          </div>
+          <div class="p-field p-grid">
+            <label for="finCierre" class="p-col-fixed" style="width:100px">Fin:</label>
+            <div class="p-col">
+              <p-calendar [(ngModel)]="date" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" [locale]="es" dateFormat="dd/mm/yy" class="ui-calendar "></p-calendar>
+            </div>
+          </div>
+        </div>
+        </div>
+      <p-footer>
+        <button type="button" pButton (click)="editar=false" label="Guardar"></button>
+        <button type="button" pButton (click)="editar=false" label="Cancelar" class="ui-button-secondary"></button>
+      </p-footer>
+    </p-dialog>
+
+  </div>
+
 </div>

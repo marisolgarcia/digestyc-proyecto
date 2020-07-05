@@ -24,3 +24,17 @@ i{
     padding-left: 1.5em;
     padding-right: 1.5em;
 }
+
+.mydialog {
+    width: 50vw;
+}
+
+@media screen and (max-width: 30em) {
+    .mydialog {
+        width: 50vw;
+    }
+}
+
+p-dialog{
+  height: 50%
+}

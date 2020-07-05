@@ -45,7 +45,7 @@
               <div class="p-field p-grid">
                   <label for="mes" class="p-col-12 p-md-3">Mes:</label>
                   <div class="p-col-12 p-md-9">
-                    <p-dropdown inputId="mes" [options]="mes" placeholder="Seleccionar" optionLabel="name">Junio</p-dropdown>
+                    <p-dropdown inputId="mes" [(ngModel)]="selectedMes" [options]="mes" optionLabel="name"></p-dropdown>
                   </div>
               </div>
               <div class="p-field p-grid">
@@ -63,7 +63,7 @@
               <div class="p-field p-grid">
                   <label for="ejecucion" class="p-col-12 p-md-3">Ejecución:</label>
                   <div class="p-col-12 p-md-9">
-                    <p-inputNumber id="ejecutado" [(formControl)]="ejecutado" ></p-inputNumber>
+                    <p-inputNumber id="ejecutado" [(formControl)]="ejecutado"></p-inputNumber>
                   </div>
               </div>
               <div class="p-field p-grid">
@@ -84,7 +84,7 @@
             <div class="p-field p-grid">
                 <label for="Logro" class="p-col-12 p-md-3">Logro:</label>
                 <div class="p-col-12 p-md-9">
-                  <textarea id="Logro" type="text" rows="6" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+                  <textarea id="Logro" type="text" rows="6" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget">Un informe del estado situacional de la cartografia de la DIGESTYC, el cual tiene un avance del 75%</textarea>
                 </div>
             </div>
           </div>
@@ -104,9 +104,10 @@
                            customUpload="true"
                            maxFileSize="{{maxFileSize}}"
                            (uploadHandler)="myUploader($event, form)"
+
                   ></p-fileUpload>
-                  <div *ngIf="contents">
-                    <u><h4>{{ filename }}</h4></u>
+                  <div>
+                    <u><h4>archivo.pdf</h4></u>
                   </div>
                 </div>
             </div>
@@ -115,14 +116,14 @@
         </p-card>
       </div>
 
-      <div class="p-col-12" *ngIf = "value > 0 && value < 100">
+      <!--div class="p-col-12" *ngIf = "value >= 0 && value =< 100">
         <p-card header="Justificación por incumplimiento"  styleClass="ui-card" [style]="{height: '100%'}">
           <hr>
           <div class="ui-fluid">
             <div class="p-field p-grid">
                 <label for="tipoJustificacio" class="p-col-12 p-md-3 p-lg-2">Tipo de Justificacion:</label>
                 <div class="p-col-12 p-md-9 p-lg-10">
-                  <p-dropdown inputId="tipoJustificacio" [options]="tipoJustificacion" placeholder="Seleccionar" optionLabel="name"></p-dropdown>
+                  <p-dropdown inputId="tipoJustificacio" placeholder="Seleccionar" optionLabel="name"></p-dropdown>
                 </div>
             </div>
             <div class="ui-fluid">
@@ -136,7 +137,7 @@
           </div>
 
         </p-card>
-      </div>
+      </div-->
 
       <div class="p-col-12">
         <button type="button" pButton [routerLink]="['/ejecucionesActividad']" label="Guardar"></button>
