@@ -109,7 +109,7 @@ export class EditarIndicadorComponent implements OnInit {
 
   showDialogEliminar() {
     this.confirmationService.confirm({
-      message: `¿Desea eliminar el indicador <strong>"${this.indicador.indicador}"</strong>?`,
+      message: `¿Desea eliminar el indicador?`,
       header: 'Confirmación de eliminación',
       icon: 'pi pi-info-circle',
       acceptLabel:'Sí',

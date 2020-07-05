@@ -9,7 +9,8 @@
     <app-tabmenu-plan-estrategico></app-tabmenu-plan-estrategico>
   </div>
 
-  <p-accordion style="padding: 1rem">
+  <div class="p-grid p-justify-center">
+  <p-accordion style="padding: 1rem" class="p-col-12">
     <p-accordionTab header="Datos Generales" [selected]="select1">
       <div class="p-grid" style="padding: 1rem">
         <div class="p-col-12 p-md-12 p-lg-9 ui-fluid">
@@ -258,35 +259,35 @@
               <th>Limite de Control</th>
             </tr>
           </ng-template>
-          <ng-template pTemplate="body" let-rowData>
+          <ng-template pTemplate="body" let-avance>
             <tr>
               <td pEditableColumn class="ui-fluid">
                 <p-cellEditor>
                   <ng-template pTemplate="input">
-                    <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="rowData.fecha" [style]="{'width':'100%'}"></p-calendar>
+                    <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="avance.fecha" [style]="{'width':'100%'}"></p-calendar>
                   </ng-template>
                   <ng-template pTemplate="output">
-                    {{rowData.fecha | date:'dd/MM/yyyy'}}
+                    {{avance.fecha | date:'dd/MM/yyyy'}}
                   </ng-template>
                 </p-cellEditor>
               </td>
               <td pEditableColumn class="ui-fluid">
                 <p-cellEditor>
                   <ng-template pTemplate="input">
-                    <p-inputNumber pInputNumber type="number" [(ngModel)]="rowData.meta" required></p-inputNumber>
+                    <p-inputNumber pInputNumber type="number" [(ngModel)]="avance.meta" required></p-inputNumber>
                   </ng-template>
                   <ng-template pTemplate="output">
-                    {{rowData.meta}}
+                    {{avance.meta}}
                   </ng-template>
                 </p-cellEditor>
               </td>
               <td pEditableColumn class="ui-fluid">
                 <p-cellEditor>
                   <ng-template pTemplate="input">
-                    <p-inputNumber pInputNumber type="number" [(ngModel)]="rowData.limite" required></p-inputNumber>
+                    <p-inputNumber pInputNumber type="number" [(ngModel)]="avance.limite" required></p-inputNumber>
                   </ng-template>
                   <ng-template pTemplate="output">
-                    {{rowData.limite}}
+                    {{avance.limite}}
                   </ng-template>
                 </p-cellEditor>
               </td>
@@ -300,6 +301,7 @@
       </div>
     </p-accordionTab>
   </p-accordion>
+  </div>
 </div>
-<p-toast></p-toast>
+<p-toast position="bottom-center"></p-toast>
 

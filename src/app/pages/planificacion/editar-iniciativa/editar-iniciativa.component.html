@@ -5,8 +5,8 @@
       <h1 *ngIf="!disabled">Iniciativas 2020-2024 / Editar Iniciativa</h1>
     </div>
     <div class="p-col-6 group-right" style="padding:0;" *ngIf="disabled">
-      <a class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square" (click)="disabled=false"></i></a>
-      <a class="layout-config-button" style="color: #B90B00;" (click)="showDialogEliminar()"><i class="fa fa-trash"></i></a>
+      <a class="layout-config-button" style="color: #008100;cursor: pointer"><i class="fa fa-pencil-square" (click)="disabled=false"></i></a>
+      <a class="layout-config-button" style="color: #B90B00;cursor: pointer" (click)="showDialogEliminar()"><i class="fa fa-trash"></i></a>
     </div>
   </div>
 
@@ -116,5 +116,5 @@
   </div>
 </div>
 
-<p-toast></p-toast>
+<p-toast position="bottom-center"></p-toast>
 <p-confirmDialog></p-confirmDialog>

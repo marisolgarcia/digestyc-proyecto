@@ -4,8 +4,8 @@
       <h1>Objetivos Estratégicos 2020-2024</h1>
     </div>
     <div class="p-col-6 group-right" style="padding:0;">
-      <a class="layout-config-button" style="color: #008100;" (click)="showDialog()"><i class="fa fa-plus-circle"></i></a>
-      <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-search" (click)="showDialogFiltrar()"></i></a>
+      <a class="layout-config-button" style="color: #008100;cursor: pointer" (click)="showDialog()"><i class="fa fa-plus-circle"></i></a>
+      <a class="layout-config-button" style="color: #3E59AB;cursor: pointer"><i class="fa fa-search" (click)="showDialogFiltrar()"></i></a>
     </div>
   </div>
 
@@ -36,8 +36,8 @@
               </div>
             </div>
             <div class="margen" style="padding:0;">
-              <a class="layout-config-button" style="color: #008100;" (click)="showDialog(objetivos.indexOf(obj))"><i class="fa fa-pencil-square"></i></a>
-              <a class="layout-config-button" style="color: #B90B00;" (click)="showDialogEliminar(objetivos.indexOf(obj))"><i class="fa fa-trash"></i></a>
+              <a class="layout-config-button" style="color: #008100;cursor: pointer" (click)="showDialog(objetivos.indexOf(obj))"><i class="fa fa-pencil-square"></i></a>
+              <a class="layout-config-button" style="color: #B90B00;cursor: pointer" (click)="showDialogEliminar(objetivos.indexOf(obj))"><i class="fa fa-trash"></i></a>
             </div>
           </p-card>
         </div>
@@ -103,5 +103,5 @@
   </p-footer>
 </p-dialog>
 
-<p-toast></p-toast>
+<p-toast position="bottom-center"></p-toast>
 <p-confirmDialog></p-confirmDialog>

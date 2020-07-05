@@ -44,7 +44,7 @@ export class EditarIniciativaComponent implements OnInit {
 
   showDialogEliminar() {
     this.confirmationService.confirm({
-      message: `¿Desea eliminar la iniciativa <strong>"${this.iniciativa.iniciativa}"</strong>?`,
+      message: `¿Desea eliminar la iniciativa?`,
       header: 'Confirmación de eliminación',
       icon: 'pi pi-info-circle',
       acceptLabel:'Sí',
