@@ -106,7 +106,7 @@
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" (click)="eliminarDialog()" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
           <a class="layout-config-button" (click)="confirm2()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
