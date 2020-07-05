@@ -58,6 +58,15 @@ import { CreaUsuarioComponent } from './pages/seguridad/crea-usuario/crea-usuari
 import { EditarUsuarioComponent } from './pages/seguridad/editar-usuario/editar-usuario.component';
 import { VerUsuarioComponent } from './pages/seguridad/ver-usuario/ver-usuario.component';
 
+import { ListaPlanesEstrategicosComponent } from './pages/planificacion/lista-planes-estrategicos/lista-planes-estrategicos.component';
+import { ListaObjetivosEstrategicosComponent } from './pages/planificacion/lista-objetivos-estrategicos/lista-objetivos-estrategicos.component';
+import { ListaIniciativasComponent } from './pages/planificacion/lista-iniciativas/lista-iniciativas.component';
+import { ListaIndicadoresComponent } from './pages/planificacion/lista-indicadores/lista-indicadores.component';
+import { TabmenuPlanEstrategicoComponent } from './components/tabmenu-plan-estrategico/tabmenu-plan-estrategico.component';
+import { ListaPerspectivasComponent } from './pages/planificacion/lista-perspectivas/lista-perspectivas.component';
+import { CrearIniciativaComponent } from './pages/planificacion/crear-iniciativa/crear-iniciativa.component';
+import { CrearIndicadorComponent } from './pages/planificacion/crear-indicador/crear-indicador.component';
+import { EditarIniciativaComponent } from './pages/planificacion/editar-iniciativa/editar-iniciativa.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +100,15 @@ import { VerUsuarioComponent } from './pages/seguridad/ver-usuario/ver-usuario.c
     CreaUsuarioComponent,
     EditarUsuarioComponent,
     VerUsuarioComponent,
+    ListaPlanesEstrategicosComponent,
+    ListaObjetivosEstrategicosComponent,
+    ListaIniciativasComponent,
+    ListaIndicadoresComponent,
+    TabmenuPlanEstrategicoComponent,
+    ListaPerspectivasComponent,
+    CrearIniciativaComponent,
+    CrearIndicadorComponent,
+    EditarIniciativaComponent,
   ],
   imports: [
     BrowserAnimationsModule,

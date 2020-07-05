@@ -1,0 +1,107 @@
+<div style="padding: 1rem">
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-6" style="padding:0;">
+      <h1>Objetivos Estratégicos 2020-2024</h1>
+    </div>
+    <div class="p-col-6 group-right" style="padding:0;">
+      <a class="layout-config-button" style="color: #008100;cursor: pointer" (click)="showDialog()"><i class="fa fa-plus-circle"></i></a>
+      <a class="layout-config-button" style="color: #3E59AB;cursor: pointer"><i class="fa fa-search" (click)="showDialogFiltrar()"></i></a>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="p-grid p-justify-center" style="padding-top:1rem">
+    <app-tabmenu-plan-estrategico></app-tabmenu-plan-estrategico>
+  </div>
+
+  <div class="p-col-12" style="padding:1rem;" *ngFor="let p of perspectivas">
+    <h2>{{p.codigo}}. {{p.nombre}}</h2>
+    <hr>
+
+    <div class="p-grid" style="padding:0">
+      <ng-container *ngFor="let obj of objetivos">
+        <div class="p-col-12 p-md-6 p-lg-4" *ngIf="p.codigo==obj.persp.codigo">
+          <p-card header="Objetivo Estratégico {{obj.persp.codigo}}.{{obj.co}}" styleClass="ui-card-shadow" [style]="{height:'100%'}">
+            <hr>
+            <div class="p-field p-grid margen">
+              <div class="p-col" style="text-align:center">
+                <p class="p-col-fixed">{{obj.objetivo}}</p>
+              </div>
+            </div>
+            <div class="p-field p-grid margen">
+              <label class="p-col-fixed" style="width:100px">Peso:</label>
+              <div class="p-col" style="text-align:right">
+                <label class="p-col-fixed">{{obj.peso}}%</label>
+              </div>
+            </div>
+            <div class="margen" style="padding:0;">
+              <a class="layout-config-button" style="color: #008100;cursor: pointer" (click)="showDialog(objetivos.indexOf(obj))"><i class="fa fa-pencil-square"></i></a>
+              <a class="layout-config-button" style="color: #B90B00;cursor: pointer" (click)="showDialogEliminar(objetivos.indexOf(obj))"><i class="fa fa-trash"></i></a>
+            </div>
+          </p-card>
+        </div>
+      </ng-container>
+
+    </div>
+
+  </div>
+
+</div>
+
+<p-dialog header="{{accion}} Objetivo Estratégico" [(visible)]="display" [modal]="true" [style]="{width: 'auto'}">
+  <div class="p-grid p-justify-center ui-fluid" style="padding-top:1rem" *ngIf="objetivo">
+    <div class="p-col-11">
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:100px">Perspectiva:</label>
+        <div class="p-col">
+          <p-dropdown inputId="perspectivas" [options]="perspectivas" optionLabel="nombre" placeholder="Seleccione" [(ngModel)]="objetivo.persp" appendTo="body"></p-dropdown>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label for="objetivo" class="p-col-fixed" style="width:100px">Objetivo Estratégico:</label>
+        <div class="p-col">
+          <textarea id="objetivo" type="text" rows="2" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" [(ngModel)]="objetivo.objetivo"></textarea>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:100px">Codigo:</label>
+        <div class="p-col">
+          <p-inputNumber name="codigo" mode="decimal" [showButtons]="false" [min]="0" class="ui-inputnumber ui-corner-all ui-state-default ui-widget" [(ngModel)]="objetivo.co"></p-inputNumber>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:100px">Peso:</label>
+        <div class="p-col">
+          <p-inputNumber name="peso" min="0" max="101" suffix=" %" class="ui-inputnumber ui-corner-all ui-state-default ui-widget" [(ngModel)]="objetivo.peso"></p-inputNumber>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div style="text-align:left">
+      <button type="button" pButton (click)="guardar()" label="Guardar"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<p-dialog header="Filtrar Objetivo Estratégico" [(visible)]="displayFiltrar" [modal]="true" [style]="{width:'auto'}">
+  <div class="p-grid p-justify-center ui-fluid" style="padding-top:1rem">
+    <div class="p-col-11">
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:100px">Perspectiva:</label>
+        <div class="p-col">
+          <p-dropdown inputId="perspectiva" [options]="perspectivas" optionLabel="nombre" placeholder="Todas" appendTo="body"></p-dropdown>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div style="text-align:left">
+      <button type="button" pButton (click)="filtrar()" label="Filtrar"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<p-toast position="bottom-center"></p-toast>
+<p-confirmDialog></p-confirmDialog>

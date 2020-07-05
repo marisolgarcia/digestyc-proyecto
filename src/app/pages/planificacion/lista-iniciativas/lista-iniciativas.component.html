@@ -1,0 +1,90 @@
+<div style="padding: 1rem">
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-6" style="padding:0;">
+      <h1>Iniciativas 2020-2024</h1>
+    </div>
+    <div class="p-col-6 group-right" style="padding:0;">
+      <a href="/listaIniciativas/crearIniciativa" class="layout-config-button" style="color: #008100;"><i class="fa fa-plus-circle"></i></a>
+      <a class="layout-config-button" style="color: #3E59AB;cursor: pointer" (click)="showDialogFiltrar()"><i class="fa fa-search"></i></a>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="p-grid p-justify-center" style="padding-top:1rem">
+    <app-tabmenu-plan-estrategico></app-tabmenu-plan-estrategico>
+  </div>
+
+  <div class="p-col-12" style="padding:1rem" *ngFor="let p of perspectivas">
+    <h2>{{p.codigo}}. {{p.nombre}}</h2>
+    <hr>
+
+    <div class="p-grid" style="padding:0">
+      <ng-container *ngFor="let inic of iniciativas">
+        <div class="p-col-12 p-md-6 p-lg-4" *ngIf="p.codigo==inic.cp">
+          <p-card header="Iniciativa {{inic.cp}}.{{inic.co}}.{{inic.codigo}}" styleClass="ui-card-shadow" [style]="{height:'100%'}">
+            <hr>
+            <!--<label class="p-col-fixed margen" style="width:100px">Iniciativa:</label>-->
+            <div class="p-field p-grid margen">
+              <div class="p-col" style="text-align:center">
+                <p class="p-col-fixed" style="font-weight: bold">{{inic.iniciativa}}</p>
+              </div>
+            </div>
+            <label class="p-col-fixed margen" style="width:100px">Objetivo Estratégico:</label>
+            <div class="p-field p-grid margen">
+              <div class="p-col" style="text-align:center">
+                <p class="p-col-fixed">{{inic.objetivo}}</p>
+              </div>
+            </div>
+            <div class="p-field p-grid margen">
+              <label class="p-col-fixed" style="width:100px">Líder:</label>
+              <div class="p-col" style="text-align:right">
+                <label class="p-col-fixed">{{inic.lider}}</label>
+              </div>
+            </div>
+            <div class="margen" style="padding:0;">
+              <a href="/listaIniciativas/editarIniciativa" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+              <a class="layout-config-button" style="color: #B90B00;cursor: pointer" (click)="showDialogEliminar(iniciativas.indexOf(inic))"><i class="fa fa-trash"></i></a>
+            </div>
+          </p-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+</div>
+
+<p-dialog header="Filtrar Iniciativa" [(visible)]="displayFiltrar" [modal]="true" [style]="{width: 'auto'}">
+  <div class="p-grid p-justify-center ui-fluid" style="padding-top:1rem">
+    <div class="p-col-11">
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:110px">Perspectiva:</label>
+        <div class="p-col">
+          <p-dropdown inputId="perspectiva" [options]="perspectivas" optionLabel="nombre" placeholder="Todas" appendTo="body"></p-dropdown>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:110px">Objetivo Estratégico:</label>
+        <div class="p-col">
+          <p-dropdown inputId="objetivo" [options]="objetivos" optionLabel="objetivo" placeholder="Todas" appendTo="body"></p-dropdown>
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label class="p-col-fixed" style="width:110px">Unidad Líder:</label>
+        <div class="p-col">
+          <p-dropdown inputId="lider" [options]="unidades" optionLabel="nombre" placeholder="Todas" appendTo="body"></p-dropdown>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div style="text-align:left">
+      <button type="button" pButton (click)="filtrar()" label="Filtrar"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<p-toast position="bottom-center"></p-toast>
+<p-confirmDialog></p-confirmDialog>
+
+
