@@ -1,1 +1,110 @@
-<p>reportes works!</p>
+<div style="padding: 1rem" >
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-6" style="padding:0;">
+      <h1>Reportes</h1>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="p-grid" style="padding: 1rem">
+    <div class="p-col-12 p-md-6 p-lg-4 p-sm-6  ui-fluid" *ngFor="let repo of reportes">
+      <p-card class="puntero" styleClass="ui-card-shadow" [style]="{height: '75%',width: '95%'}" (click)="showDialog(repo.reporte)">
+        <div class="p-field p-grid margen">
+          <div class="p-align-center" style="font-size: 1.5rem; text-align: center">
+            <i class="fa fa-file-text-o fa-10x" style="width:100px"></i>
+          </div>
+          <div class="p-col" style="text-align:left; cursor: pointer">
+            <label class="p-col-align-start, puntero" style="width:100px"><h3>{{repo.reporte}}</h3></label>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 1" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="planesEstrategicos" [(ngModel)]="planEstrategico" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Filtrar" (click)="closeDialog()" ></button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 2" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="planesEstrategicos" [(ngModel)]="planEstrategico" (onChange)="cambioPlanAnual(planEstrategico)"></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Plan de Trabajo: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="planesAnuales1" [(ngModel)]="planAnual" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Filtrar" (click)="closeDialog()" ></button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 3" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="planesEstrategicos" [(ngModel)]="planEstrategico" (onChange)="cambioPlanAnual(planEstrategico)"></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Plan de Trabajo: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="planesAnuales1" [(ngModel)]="planAnual" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Mes: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="meses" [(ngModel)]="mes" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Filtrar" (click)="closeDialog()" ></button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 4" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="planesEstrategicos" [(ngModel)]="planEstrategico" (onChange)="cambioPlanAnual(planEstrategico)"></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Plan de Trabajo: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="planesAnuales1" [(ngModel)]="planAnual" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Trimestre: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="trimestres" [(ngModel)]="trimestre" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Filtrar" (click)="closeDialog()" ></button>
+      </div>
+    </div>
+  </p-dialog>
+</div>

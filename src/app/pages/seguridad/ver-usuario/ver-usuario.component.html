@@ -1,0 +1,86 @@
+<div style="padding: 1rem" >
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-8" style="padding:0;">
+      <h1>Detalle de Usuario</h1>
+    </div>
+    <div class="p-col-4 group-right" style="padding:0;">
+      <a [routerLink]="['/editarUsuario',usuario.id]" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-pencil-square"></i></a>
+
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="p-grid p-justify-center">
+    <div class="p-col-12 p-md-12 p-lg-5  ui-fluid">
+      <p-card header="Datos Personales"  styleClass="ui-card-shadow" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-field p-grid">
+          <label  class="p-col-fixed" style="width:100px">Nombre:</label>
+          <div class="p-col">
+            <input disabled="true" type="text" pInputText [(ngModel)]="nombre" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:100px">Apellido:</label>
+          <div class="p-col">
+            <input disabled="true" type="text" pInputText  [(ngModel)]="apellido" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label  class="p-col-fixed" style="width:100px">Correo:</label>
+          <div class="p-col">
+            <input disabled="true" type="text" pInputText [(ngModel)]=" correo" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+          </div>
+        </div>
+      </p-card>
+    </div>
+    <div class="p-col-12 p-md-12 p-lg-5  ui-fluid">
+      <p-card header="Datos del Puesto"  styleClass="ui-card-shadow" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:100px">Unidad Organizativa:</label>
+          <div class="p-col">
+            <p-dropdown [disabled]="true"  appendTo="body"  [options]="unidadOrg" [(ngModel)]="unidad" (onChange)="cambioPuestos(unidad)"></p-dropdown>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:100px">Cargo</label>
+          <div class="p-col">
+            <p-dropdown [disabled]="true" appendTo="body"  [options]="cargos" [(ngModel)]="cargo"></p-dropdown>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label class="p-col-fixed" style="width:100px">Estado</label>
+          <div class="p-col">
+            <p-dropdown [disabled]="true" appendTo="body"  [options]="estado" ></p-dropdown>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <div class="p-grid p-justify-center">
+    <div class="p-col-12 p-md-12 p-lg-10  ui-fluid" style="margin-top: 2rem">
+      <p-card header="Roles"  styleClass="ui-card-shadow" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-field p-grid p-justify-center">
+          <div class="p-col-12 p-md-12 p-lg-8  ui-fluid" style="margin-top: 2rem">
+            <p-pickList [disabled]="true" [source]="roles" [target]="rolesSeleccionados" sourceHeader="Disponibles" targetHeader="Seleccionados"
+                        [responsive]="true" filterBy="nombre" [showSourceControls]="false" [showTargetControls]="false">
+              <ng-template let-rol pTemplate="item">
+                <div class="ui-helper-clearfix">
+                  <label>{{rol.nombre}}</label>
+                </div>
+              </ng-template>
+            </p-pickList>
+
+
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+

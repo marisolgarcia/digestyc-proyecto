@@ -1,0 +1,201 @@
+<div style="padding: 1rem">
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-8" style="padding:0;">
+      <h1>Unidad Organizativa</h1>
+    </div>
+  </div>
+  <hr>
+  <div class="p-grid ui-fluid " style="padding:1rem;">
+    <div class="p-col-8" style="padding:0;">
+      <h2>Direccion General</h2>
+    </div>
+    <div class="p-col-4 group-right" style="padding:1rem;">
+      <a (click)="showDialogUnidadEditar()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-pencil-square"></i></a>
+      <a (click)="confirm2()" class="layout-config-button" style="color: #c3002f; cursor: pointer"><i class="fa fa-trash"></i></a>
+    </div>
+  </div>
+  <div class="p-grid ui-fluid p-justify-center" style="padding:0.5rem">
+    <div class="p-col-11" style="padding:0;">
+  <p-accordion [multiple]="true" activeIndex="0,1,2">
+    <p-accordionTab header="Cargos">
+      <div class="p-grid ui-fluid p-justify-end" style="padding:0.5rem">
+        <div class="p-col-1" style="padding:0;">
+          <a (click)="showDialog()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
+        </div>
+      </div>
+      <p-table [value]="cargos" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-cargo>
+          <tr (click)="showDialogEditar(cargo.nombre)" style="cursor: pointer">
+            <td>{{cargo.nombre}}</td>
+            <td>{{cargo.estado}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+    </p-accordionTab>
+    <p-accordionTab header="Unidades de Apoyo">
+      <div class="p-grid ui-fluid p-justify-end" style="padding:0.5rem">
+        <div class="p-col-1" style="padding:0;">
+          <a (click)="showDialogUnidad()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
+        </div>
+      </div>
+      <p-table [value]="unidadesApoyo" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-apoyo>
+          <tr [routerLink]="['/unidadSecundaria']" style="cursor: pointer">
+            <td>{{apoyo.nombre}}</td>
+            <td>{{apoyo.estado}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-accordionTab>
+    <p-accordionTab header="Unidades Subordinadas">
+      <div class="p-grid ui-fluid p-justify-end" style="padding:0.5rem">
+        <div class="p-col-1" style="padding:0;">
+          <a (click)="showDialogUnidadSubo()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
+        </div>
+      </div>
+      <p-table [value]="unidadesSubordinadas" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-subo>
+          <tr [routerLink]="['/unidadSecundaria']" style="cursor: pointer">
+            <td>{{subo.nombre}}</td>
+            <td>{{subo.estado}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-accordionTab>
+  </p-accordion>
+    </div>
+  </div>
+
+
+  <p-dialog header="Añadir Cargo" [(visible)]="display" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Nombre: </label>
+      <div class="p-col">
+        <input type="text" [(ngModel)]="nombreCAgregar" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Estado: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field-checkbox">
+      <p-checkbox name="esJefe" value="true"  inputId="esJefe"></p-checkbox>
+      <label>Es jefe de la Unidad</label>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Guardar" (click)="agregarPuesto(nombreCAgregar)" ></button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog header="Añadir Unidad Organizativa" [(visible)]="displayAgregar" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Unidad Organizativa: </label>
+      <div class="p-col">
+        <input type="text" [(ngModel)]="nombreUnidad" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Estado: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Guardar" (click)="agregarUnidad(nombreUnidad,1)" ></button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog header="Añadir Unidad Organizativa" [(visible)]="displayAgregarSubo" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Unidad Organizativa: </label>
+      <div class="p-col">
+        <input type="text" [(ngModel)]="nombreUnidad" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Estado: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Guardar" (click)="agregarUnidad(nombreUnidad,2)" ></button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog header="Editar Unidad Organizativa" [(visible)]="displayUnidad" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Unidad Organizativa: </label>
+      <div class="p-col">
+        <input type="text" pInputText [(ngModel)]="nombreUnidad" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Estado: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Guardar" (click)="showSuccess('Se ha editado la Unidad Organizativa')" ></button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog header="Editar Cargo" [(visible)]="displayEditar" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Nombre: </label>
+      <div class="p-col">
+        <input type="text" [(ngModel)]="nombreCargo" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Estado: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field-checkbox">
+      <p-checkbox name="esJefe" value="true"  inputId="esJefe"></p-checkbox>
+      <label>Es jefe de la Unidad</label>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Editar"
+                (click)="showSuccess('Se ha editado el puesto')" ></button>
+      </div>
+    </div>
+  </p-dialog>
+  <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+  <p-toast position="bottom-center" [showTransitionOptions]="'0ms'"></p-toast>
+
+
+</div>

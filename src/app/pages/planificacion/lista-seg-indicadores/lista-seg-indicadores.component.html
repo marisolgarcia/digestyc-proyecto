@@ -1,0 +1,194 @@
+<div style="padding: 1rem">
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-6" style="padding:0;">
+      <h1>Seguimiento de Indicadores Junio</h1>
+    </div>
+    <div class="p-col-6 group-right" style="padding:0;">
+      <a (click)="showDialog()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-search"></i></a>
+    </div>
+  </div>
+
+  <hr>
+  <div class="p-grid p-justify-center">
+    <p-tabMenu #tab [model]="items1" [activeItem]="items1[0]" (click)="cambio(tab)">
+    </p-tabMenu>
+  </div>
+  <h2>Perspectiva 1</h2>
+  <hr>
+
+  <p-dialog header="Filtrar Indicadores" [(visible)]="display" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Perspectiva: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body" [options]="perpectivas" [(ngModel)]="perpectiva" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Periodicidad: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body" [options]="periodicidades" [(ngModel)]="periodicidad" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Filtrar" (click)="closeDialog()" ></button>
+      </div>
+    </div>
+
+  </p-dialog>
+
+  <div class="p-grid" style="padding: 1rem" *ngIf="tipoTemplate==false">
+    <div class="p-col-12 p-md-4 p-lg-4  ui-fluid" *ngFor="let indicador of indicadores1" >
+      <p-card header="Indicador"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-field p-grid margen">
+          <div class="p-col" style="text-align:center">
+            <label class="p-col-fixed" style="width:100px">
+              <b>{{indicador.indicador}}</b>
+            </label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label  class="p-col-fixed" style="width:100px">Peso:</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.peso}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Periodicidad</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.periodicidad}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Periodo</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.periodo}}</label>
+          </div>
+        </div>
+        <div class="margen" style="padding:0;">
+          <a [routerLink]="['/ejecucionesIndicador',indicador.id]" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-circle"></i></a>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <div class="p-grid" style="padding: 1rem" *ngIf="tipoTemplate==true">
+    <div class="p-col-12 p-md-4 p-lg-4  ui-fluid" *ngFor="let indicador of indicadores3" >
+      <p-card header="Indicador"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-field p-grid margen">
+          <div class="p-col" style="text-align:center">
+            <label class="p-col-fixed" style="width:100px">
+              <b>{{indicador.indicador}}</b>
+            </label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label  class="p-col-fixed" style="width:100px">Peso:</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.peso}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Periodicidad</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.periodicidad}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Periodo</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.periodo}}</label>
+          </div>
+        </div>
+        <div class="margen" style="padding:0;">
+          <a [routerLink]="['/ejecucionesIndicador',indicador.id]" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-circle"></i></a>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+
+  <h2>Perspectiva 2</h2>
+  <hr>
+
+
+  <div class="p-grid" style="padding: 1rem" *ngIf="tipoTemplate==false">
+
+    <div class="p-col-12 p-md-4 p-lg-4  ui-fluid" *ngFor="let indicador of indicadores2" >
+      <p-card header="Indicador"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-field p-grid margen">
+          <div class="p-col" style="text-align:center">
+            <label class="p-col-fixed" style="width:100px">
+              <b>{{indicador.indicador}}
+            </b></label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label  class="p-col-fixed" style="width:100px">Peso:</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.peso}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Periodicidad</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.periodicidad}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Periodo</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.periodo}}</label>
+          </div>
+        </div>
+        <div class="margen" style="padding:0;">
+          <a [routerLink]="['/ejecucionesIndicador',indicador.id]" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-circle"></i></a>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <div class="p-grid" style="padding: 1rem" *ngIf="tipoTemplate==true">
+
+    <div class="p-col-12 p-md-4 p-lg-4  ui-fluid" *ngFor="let indicador of indicadores4" >
+      <p-card header="Indicador"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="p-field p-grid margen">
+          <div class="p-col" style="text-align:center">
+            <label class="p-col-fixed" style="width:100px">
+              <b>{{indicador.indicador}}</b>
+            </label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label  class="p-col-fixed" style="width:100px">Peso:</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.peso}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Periodicidad</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.periodicidad}}</label>
+          </div>
+        </div>
+        <div class="p-field p-grid margen">
+          <label class="p-col-fixed" style="width:100px">Periodo</label>
+          <div class="p-col" style="text-align:right">
+            <label class="p-col-fixed" style="width:100px">{{indicador.periodo}}</label>
+          </div>
+        </div>
+        <p-footer>
+          <a [routerLink]="['/ejecucionesIndicador',indicador.id]" class="layout-config-button" style="color: #3E59AB"><i class="fa fa-eye"></i></a>
+          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-circle"></i></a>
+        </p-footer>
+      </p-card>
+    </div>
+  </div>
+</div>

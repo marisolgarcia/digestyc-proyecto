@@ -15,6 +15,18 @@ import { ListaActividadSegTodasComponent } from './pages/planificacion/lista-act
 import { EjecucionesActSegComponent } from './pages/planificacion/ejecuciones-act-seg/ejecuciones-act-seg.component';
 import { IngresoEjecucionActSegComponent } from './pages/planificacion/ingreso-ejecucion-act-seg/ingreso-ejecucion-act-seg.component';
 import { DetalleEjecucionActSegComponent } from './pages/planificacion/detalle-ejecucion-act-seg/detalle-ejecucion-act-seg.component';
+import { ListaSegIndicadoresComponent } from './pages/planificacion/lista-seg-indicadores/lista-seg-indicadores.component';
+import {EjecucionesIndicadorComponent } from './pages/planificacion/ejecuciones-indicador/ejecuciones-indicador.component';
+import {InformarIndicadorComponent} from './pages/planificacion/informar-indicador/informar-indicador.component';
+import {VerEjecucionIndicadorComponent} from './pages/planificacion/ver-ejecucion-indicador/ver-ejecucion-indicador.component';
+import {EditarEjecucionIndicadorComponent} from './pages/planificacion/editar-ejecucion-indicador/editar-ejecucion-indicador.component';
+import {UnidadesOrganizativasVaciaComponent} from './pages/organizacion/unidades-organizativas-vacia/unidades-organizativas-vacia.component';
+import {UnidadOrganizativaRaizComponent} from './pages/organizacion/unidad-organizativa-raiz/unidad-organizativa-raiz.component';
+import {UnidadOrganiSecunComponent} from './pages/organizacion/unidad-organi-secun/unidad-organi-secun.component';
+import {ListaUsuariosComponent} from './pages/seguridad/lista-usuarios/lista-usuarios.component';
+import {CreaUsuarioComponent} from './pages/seguridad/crea-usuario/crea-usuario.component';
+import {EditarUsuarioComponent} from './pages/seguridad/editar-usuario/editar-usuario.component';
+import {VerUsuarioComponent} from './pages/seguridad/ver-usuario/ver-usuario.component';
 
 import { ListaPlanesEstrategicosComponent } from './pages/planificacion/lista-planes-estrategicos/lista-planes-estrategicos.component';
 import { ListaObjetivosEstrategicosComponent } from './pages/planificacion/lista-objetivos-estrategicos/lista-objetivos-estrategicos.component';
@@ -45,6 +57,18 @@ const routes: Routes = [];
       {path: 'ejecucionesActividad', component: EjecucionesActSegComponent},
       {path: 'ejecucionesActividad/ingresoEjecucion', component: IngresoEjecucionActSegComponent},
       {path: 'ejecucionesActividad/detalleEjecucion', component: DetalleEjecucionActSegComponent},
+      {path: 'segumientoIndicadores', component: ListaSegIndicadoresComponent},
+      {path: 'ejecucionesIndicador/:id', component: EjecucionesIndicadorComponent},
+      {path: 'informaIndicador/:id', component: InformarIndicadorComponent},
+      {path: 'verIndicadorEje/:id', component: VerEjecucionIndicadorComponent },
+      {path: 'editarIndicadorEje/:id', component: EditarEjecucionIndicadorComponent },
+      {path: 'unidadesVacias', component: UnidadesOrganizativasVaciaComponent},
+      {path: 'unidadRaiz', component: UnidadOrganizativaRaizComponent},
+      {path: 'unidadSecundaria', component: UnidadOrganiSecunComponent},
+      {path: 'listaUsuario', component: ListaUsuariosComponent},
+      {path: 'crearUsuario', component: CreaUsuarioComponent},
+      {path: 'editarUsuario/:id', component: EditarUsuarioComponent},
+      {path: 'verUsuario/:id', component: VerUsuarioComponent},
 
       {path: 'listaPlanesEstrategicos', component: ListaPlanesEstrategicosComponent},
       {path: 'listaPerspectivas', component: ListaPerspectivasComponent},
