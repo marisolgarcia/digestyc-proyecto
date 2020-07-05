@@ -1,7 +1,7 @@
 <div class="layout-wrapper">
 
   <div class="layout-topbar">
-      <a href="#" class="menu-button">
+      <a href="#" class="menu-button" (click)="onMenuButtonClick($event)">
           <i class="pi pi-bars"></i>
       </a>
 
@@ -10,13 +10,13 @@
       </a>
 
       <ul class="topbar-menu">
-                <li><a [routerLink]="['./']">Nombre de Usuario</a></li>
-                <li><a [routerLink]="['./']">Cerrar Sesion</a></li>
-    </ul>
+        <li><a [routerLink]="['./']">Nombre de Usuario</a></li>
+        <li><a [routerLink]="['./']">Cerrar Sesion</a></li>
+      </ul>
 
   </div>
 
-  <div class="layout-sidebar">
+  <div class="layout-sidebar" [ngClass]="{'active': menuActive}">
     <app-sidebar></app-sidebar>
   </div>
 
@@ -26,7 +26,7 @@
     </div>
 
     <div class="content-section layout-footer clearfix">
-      <span>PrimeNG 9.1.1 on Angular 9.1.3</span>
+      <span>DIGESTYC-2020</span>
       <div class="footer-links">
       </div>
     </div>

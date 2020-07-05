@@ -86,7 +86,7 @@ h1 {
  text-indent:1.7em
 }
 
-img.avatar {
+a img.avatar {
     /* cambia estos dos valores para definir el tamaño de tu círculo */
     height: 40px;
     width: 40px;
@@ -95,4 +95,11 @@ img.avatar {
     background-position: 50%;
     border-radius: 50%;
     background-size: 100% auto;
+    padding: 0;
+    margin: 0;
+}
+
+a h1 {
+    padding: 0;
+    margin: 0;
 }

@@ -1,1 +1,212 @@
-<p>editar-actividad works!</p>
+<div style="padding: 1rem">
+  <div class="p-grid ui-fluid" style="padding:1rem;">
+    <div class="p-col-12" style="padding:0;">
+      <h1>Plan 2020 / Editar Actividad</h1>
+    </div>
+  </div>
+  <hr>
+  <app-sm-plan-anual></app-sm-plan-anual>
+
+  <div class="p-grid p-justify-center" style="padding: 1rem">
+
+    <div class="p-col-12 p-md-12 p-lg-5">
+      <p-card header="Datos"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="ui-fluid">
+            <div class="p-field p-grid">
+                <label for="iniciativa" class="p-col-12 p-md-3">Iniciativa:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-dropdown inputId="iniciativa" [options]="iniciativa" [(ngModel)]="selectedIniciativas" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="actividad" class="p-col-12 p-md-3">Actividad:</label>
+                <div class="p-col-12 p-md-9">
+                  <textarea id="actividad" [(ngModel)]="act" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="fechaInicio" class="p-col-12 p-md-3">Fecha Inicio:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-calendar [(ngModel)]="date6" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" [locale]="es" dateFormat="dd/mm/yy" class="ui-calendar "></p-calendar>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="fechaFin" class="p-col-12 p-md-3">Fecha Fin:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-calendar [(ngModel)]="date" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" [locale]="es" dateFormat="dd/mm/yy" class="ui-calendar "></p-calendar>
+                </div>
+            </div>
+        </div>
+
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-12 p-lg-5">
+      <p-card header="Resultados"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="ui-fluid">
+          <div class="p-field p-grid">
+              <label for="resultado" class="p-col-12 p-md-3">Resultado:</label>
+              <div class="p-col-12 p-md-9">
+                <textarea id="resultado" type="text" rows="4" pInputTextarea [(ngModel)]="res" class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+              </div>
+          </div>
+          <div class="p-field p-grid">
+              <label for="unidadMedida" class="p-col-12 p-md-3">Unidad de Medida:</label>
+              <div class="p-col-12 p-md-9">
+                <p-dropdown inputId="unidadMedida" [options]="unidadMedida" [(ngModel)]="selectedUM" optionLabel="name"></p-dropdown>
+              </div>
+          </div>
+          <div class="p-field p-grid">
+              <label for="medioVerificacion" class="p-col-12 p-md-3">Medio de Verificación:</label>
+              <div class="p-col-12 p-md-9">
+                <textarea id="medioVerificacion" type="text" rows="4" pInputTextarea [(ngModel)]="veri" class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+              </div>
+          </div>
+        </div>
+
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-12 p-lg-5">
+      <p-card header="Ejecución Gradual"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="ui-fluid">
+            <div class="p-field p-grid">
+                <label for="enero" class="p-col-12 p-md-3">Enero:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber [(ngModel)]="val"></p-inputNumber>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="febrero" class="p-col-12 p-md-3">Febrero:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber [(ngModel)]="val"></p-inputNumber>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="marzo" class="p-col-12 p-md-3">Marzo:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber></p-inputNumber>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="abril" class="p-col-12 p-md-3">Abril:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber [(ngModel)]="val"></p-inputNumber>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="mayo" class="p-col-12 p-md-3">Mayo:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber></p-inputNumber>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="junio" class="p-col-12 p-md-3">Junio:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber [(ngModel)]="val"></p-inputNumber>
+                </div>
+            </div>
+        </div>
+
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-12 p-lg-5">
+      <p-card header="Ejecución Gradual"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="ui-fluid">
+            <div class="p-field p-grid">
+                <label for="julio" class="p-col-12 p-md-3">Julio:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber></p-inputNumber>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="agosto" class="p-col-12 p-md-3">Agosto:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber></p-inputNumber>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="septiembre" class="p-col-12 p-md-3">Septiembre:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber></p-inputNumber>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="octubre" class="p-col-12 p-md-3">Octubre:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber></p-inputNumber>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="noviembre" class="p-col-12 p-md-3">Noviembre:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber></p-inputNumber>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="diciembre" class="p-col-12 p-md-3">Diciembre:</label>
+                <div class="p-col-12 p-md-9">
+                  <p-inputNumber></p-inputNumber>
+                </div>
+            </div>
+        </div>
+
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-12 p-lg-5">
+      <p-card header="Recursos Financieros"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="ui-fluid">
+          <div class="p-field p-grid">
+              <label for="fuenteFinanciamiento" class="p-col-12 p-md-3">Fuente de Financiamiento:</label>
+              <div class="p-col-12 p-md-9">
+                <p-dropdown inputId="fuenteFinanciamiento" [options]="fuenteFinanciamiento" [(ngModel)]="selectedfuenteFinanciamiento" optionLabel="name"></p-dropdown>
+              </div>
+          </div>
+          <div class="p-field p-grid">
+              <label for="monto" class="p-col-12 p-md-3">Monto:</label>
+              <div class="p-col-12 p-md-9">
+                <p-inputNumber mode="currency" currency="USD" locale="en-US" [(ngModel)]="monto"></p-inputNumber>
+              </div>
+          </div>
+        </div>
+
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-12 p-lg-5">
+      <p-card header="Responsable"  styleClass="ui-card" [style]="{height: '100%'}">
+        <hr>
+        <div class="ui-fluid">
+          <div class="p-field p-grid">
+              <label for="iniciativa" class="p-col-12 p-md-3">Unidad Organizativa:</label>
+              <div class="p-col-12 p-md-9">
+                <p-dropdown inputId="iniciativa" [options]="unidadOrganizativa" [(ngModel)]="selectedunidadOrganizativa" optionLabel="name"></p-dropdown>
+              </div>
+          </div>
+          <div class="p-field p-grid">
+              <label for="iniciativa" class="p-col-12 p-md-3">Cargo:</label>
+              <div class="p-col-12 p-md-9">
+                <p-dropdown inputId="iniciativa" [options]="cargo" [(ngModel)]="selectedCargo" optionLabel="name"></p-dropdown>
+              </div>
+          </div>
+        </div>
+
+      </p-card>
+    </div>
+
+    <div class="p-col-10">
+      <button type="button" pButton [routerLink]="['/listaActividades']" label="Guardar"></button>
+      <button type="button" pButton [routerLink]="['/listaActividades']" label="Cancelar" class="ui-button-secondary"></button>
+    </div>
+
+
+  </div>
+
+</div>

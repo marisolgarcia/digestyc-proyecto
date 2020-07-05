@@ -67,6 +67,8 @@ import { ListaPerspectivasComponent } from './pages/planificacion/lista-perspect
 import { CrearIniciativaComponent } from './pages/planificacion/crear-iniciativa/crear-iniciativa.component';
 import { CrearIndicadorComponent } from './pages/planificacion/crear-indicador/crear-indicador.component';
 import { EditarIniciativaComponent } from './pages/planificacion/editar-iniciativa/editar-iniciativa.component';
+import { SmPlanAnualComponent } from './components/sm-plan-anual/sm-plan-anual.component';
+import { EditarEjecucionActSegComponent } from './pages/planificacion/editar-ejecucion-act-seg/editar-ejecucion-act-seg.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +111,9 @@ import { EditarIniciativaComponent } from './pages/planificacion/editar-iniciati
     CrearIniciativaComponent,
     CrearIndicadorComponent,
     EditarIniciativaComponent,
+    SmPlanAnualComponent,
+    EditarEjecucionActSegComponent,
+
   ],
   imports: [
     BrowserAnimationsModule,

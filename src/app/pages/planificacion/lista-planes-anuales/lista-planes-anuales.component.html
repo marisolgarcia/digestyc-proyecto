@@ -4,271 +4,343 @@
       <h1>Planes Anuales</h1>
     </div>
     <div class="p-col-6 group-right" style="padding:0;">
-      <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-plus-circle"></i></a>
-      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-search"></i></a>
+      <a class="layout-config-button" style="color: #008100;" (click)="crearDialog()"><i class="fa fa-plus-circle"></i></a>
+      <a class="layout-config-button" style="color: #3E59AB;" (click)="filtrarDialog()"><i class="fa fa-search"></i></a>
     </div>
-  </div>
+    <p-dialog header="Crear Plan Anual" [(visible)]="crear" [modal]="true" [baseZIndex]="10000">
+      <div class="p-grid" style="padding-top:1rem;">
+        <div class="p-col-12 p-md-12  ui-fluid">
+          <div class="p-field p-grid">
+            <label for="anio" class="p-col-fixed" style="width:100px">Año:</label>
+            <div class="p-col">
+              <input id="anio" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+            </div>
+          </div>
+        </div>
+      </div>
+      <p-footer>
+        <button type="button" pButton (click)="crear=false" label="Guardar"></button>
+        <button type="button" pButton (click)="crear=false" label="Cancelar" class="ui-button-secondary"></button>
+      </p-footer>
+    </p-dialog>
+
+    <p-dialog header="Filtrar" [(visible)]="filtrar" [modal]="true" [baseZIndex]="10000" [contentStyle]="{'overflow':'visible'}">
+      <div class="p-col-12 p-md-12  ui-fluid" style="padding-top:1rem; padding-bottom:2rem;">
+        <div class="p-field p-grid">
+          <label for="anioInicio" class="p-col-fixed" style="width:100px">Año Inicio:</label>
+          <div class="p-col">
+            <input id="anioInicio" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label for="anioFin" class="p-col-fixed" style="width:100px">Año Fin:</label>
+          <div class="p-col">
+            <input id="anioFin" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+          </div>
+        </div>
+        <div class="p-field p-grid">
+          <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+          <div class="p-col">
+            <!--
+            <p-dropdown inputId="state" [options]="states" [(ngModel)]="selectedState" placeholder="Select" optionLabel="name"></p-dropdown>
+          -->
+          <p-dropdown inputId="estado" [options]="estado" placeholder="Seleccionar" optionLabel="name"></p-dropdown>
+        </div>
+      </div>
+    </div>
+
+    <p-footer>
+      <button type="button" pButton (click)="filtrar=false" label="Filtrar"></button>
+      <button type="button" pButton (click)="filtrar=false" label="Cancelar" class="ui-button-secondary"></button>
+    </p-footer>
+  </p-dialog>
+</div>
 
 <hr>
 
-  <div class="p-grid" style="padding: 1rem">
+<div class="p-grid" style="padding: 1rem">
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
-      <p-card header="2020"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid margen">
-          <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-          </div>
+  <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <p-card header="2020"  styleClass="ui-card-shadow">
+      <hr>
+      <div class="p-field p-grid margen">
+        <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+        <div class="p-col" style="text-align:right">
+          <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
         </div>
-        <div class="p-field p-grid margen">
-          <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-          </div>
+      </div>
+      <div class="p-field p-grid margen">
+        <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
+        <div class="p-col" style="text-align:right">
+          <label for="estado" class="p-col-fixed" style="width:100px">15</label>
         </div>
-        <div class="p-field p-grid margen">
-          <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-          </div>
+      </div>
+      <div class="p-field p-grid margen">
+        <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
+        <div class="p-col" style="text-align:right">
+          <label for="estado" class="p-col-fixed" style="width:100px">48</label>
         </div>
-        <div class="margen" style="padding:0;">
-          <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square"></i></a>
-          <!--
-          <a href="" class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-          -->
-        </div>
-      </p-card>
+      </div>
+      <div class="margen" style="padding:0;">
+        <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+        <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+        <!--
+        <a href="" class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+      -->
     </div>
+  </p-card>
+</div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
-      <p-card header="2020"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid margen">
-          <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-          </div>
-        </div>
-        <div class="margen" style="padding:0;">
-          <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square"></i></a>
-        </div>
-      </p-card>
+<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+  <p-card header="2021"  styleClass="ui-card-shadow">
+    <hr>
+    <div class="p-field p-grid margen">
+      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">A programar</label>
+      </div>
     </div>
+    <div class="p-field p-grid margen">
+      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
+      </div>
+    </div>
+    <div class="p-field p-grid margen">
+      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
+      </div>
+    </div>
+    <div class="margen" style="padding:0;">
+      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+    </div>
+  </p-card>
+</div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
-      <p-card header="2020"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid margen">
-          <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-          </div>
-        </div>
-        <div class="margen" style="padding:0;">
-          <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square"></i></a>
-        </div>
-      </p-card>
+<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+  <p-card header="2022"  styleClass="ui-card-shadow">
+    <hr>
+    <div class="p-field p-grid margen">
+      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">A programar</label>
+      </div>
     </div>
+    <div class="p-field p-grid margen">
+      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
+      </div>
+    </div>
+    <div class="p-field p-grid margen">
+      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
+      </div>
+    </div>
+    <div class="margen" style="padding:0;">
+      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+    </div>
+  </p-card>
+</div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
-      <p-card header="2020"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid margen">
-          <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-          </div>
-        </div>
-        <div class="margen" style="padding:0;">
-          <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square"></i></a>
-        </div>
-      </p-card>
+<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+  <p-card header="2023"  styleClass="ui-card-shadow">
+    <hr>
+    <div class="p-field p-grid margen">
+      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">A programar</label>
+      </div>
     </div>
+    <div class="p-field p-grid margen">
+      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
+      </div>
+    </div>
+    <div class="p-field p-grid margen">
+      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
+      </div>
+    </div>
+    <div class="margen" style="padding:0;">
+      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+    </div>
+  </p-card>
+</div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
-      <p-card header="2020"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid margen">
-          <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-          </div>
-        </div>
-        <div class="margen" style="padding:0;">
-          <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square"></i></a>
-        </div>
-      </p-card>
+<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+  <p-card header="2024"  styleClass="ui-card-shadow">
+    <hr>
+    <div class="p-field p-grid margen">
+      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">A programar</label>
+      </div>
     </div>
+    <div class="p-field p-grid margen">
+      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
+      </div>
+    </div>
+    <div class="p-field p-grid margen">
+      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
+      </div>
+    </div>
+    <div class="margen" style="padding:0;">
+      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+    </div>
+  </p-card>
+</div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
-      <p-card header="2020"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid margen">
-          <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-          </div>
-        </div>
-        <div class="margen" style="padding:0;">
-          <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square"></i></a>
-        </div>
-      </p-card>
+<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+  <p-card header="2019"  styleClass="ui-card-shadow">
+    <hr>
+    <div class="p-field p-grid margen">
+      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">No Vigente</label>
+      </div>
     </div>
+    <div class="p-field p-grid margen">
+      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
+      </div>
+    </div>
+    <div class="p-field p-grid margen">
+      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
+      </div>
+    </div>
+    <div class="margen" style="padding:0;">
+      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+    </div>
+  </p-card>
+</div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
-      <p-card header="2020"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid margen">
-          <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-          </div>
-        </div>
-        <div class="margen" style="padding:0;">
-          <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square"></i></a>
-        </div>
-      </p-card>
+<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+  <p-card header="2018"  styleClass="ui-card-shadow">
+    <hr>
+    <div class="p-field p-grid margen">
+      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">No Vigente</label>
+      </div>
     </div>
+    <div class="p-field p-grid margen">
+      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
+      </div>
+    </div>
+    <div class="p-field p-grid margen">
+      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
+      </div>
+    </div>
+    <div class="margen" style="padding:0;">
+      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+    </div>
+  </p-card>
+</div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
-      <p-card header="2020"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid margen">
-          <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-          </div>
-        </div>
-        <div class="margen" style="padding:0;">
-          <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square"></i></a>
-        </div>
-      </p-card>
+<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+  <p-card header="2017"  styleClass="ui-card-shadow">
+    <hr>
+    <div class="p-field p-grid margen">
+      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">No Vigente</label>
+      </div>
     </div>
+    <div class="p-field p-grid margen">
+      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
+      </div>
+    </div>
+    <div class="p-field p-grid margen">
+      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
+      </div>
+    </div>
+    <div class="margen" style="padding:0;">
+      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+    </div>
+  </p-card>
+</div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
-      <p-card header="2020"  styleClass="ui-card-shadow">
-        <hr>
-        <div class="p-field p-grid margen">
-          <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-          </div>
-        </div>
-        <div class="p-field p-grid margen">
-          <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-          <div class="p-col" style="text-align:right">
-            <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-          </div>
-        </div>
-        <div class="margen" style="padding:0;">
-          <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a href="" class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square"></i></a>
-        </div>
-      </p-card>
+<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+  <p-card header="2020"  styleClass="ui-card-shadow">
+    <hr>
+    <div class="p-field p-grid margen">
+      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
+      </div>
     </div>
+    <div class="p-field p-grid margen">
+      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
+      </div>
+    </div>
+    <div class="p-field p-grid margen">
+      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
+      <div class="p-col" style="text-align:right">
+        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
+      </div>
+    </div>
+    <div class="margen" style="padding:0;">
+      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+    </div>
+  </p-card>
+</div>
 
 </div>
 
+<p-dialog header="Editar Plan Anual" [(visible)]="editar" [modal]="true" [baseZIndex]="10000" [contentStyle]="{'overflow':'visible'}">
+  <div class="p-grid" style="padding-top:1rem;">
+    <div class="p-col-12 p-md-12  ui-fluid">
+      <div class="p-field p-grid">
+        <label for="anio" class="p-col-fixed" style="width:100px">Año:</label>
+        <div class="p-col">
+          <input id="anio" [(ngModel)]="val" type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
+        <div class="p-col">
+          <!--
+          <p-dropdown inputId="state" [options]="states" [(ngModel)]="selectedState" placeholder="Select" optionLabel="name"></p-dropdown>
+        -->
+        <p-dropdown inputId="estado" [options]="estado" optionLabel="name" [(ngModel)]="selectedEstado"></p-dropdown>
+      </div>
+    </div>
+    </div>
+  </div>
+  <p-footer>
+    <button type="button" pButton (click)="editar=false" label="Guardar"></button>
+    <button type="button" pButton (click)="editar=false" label="Cancelar" class="ui-button-secondary"></button>
+  </p-footer>
+</p-dialog>
 
 </div>
