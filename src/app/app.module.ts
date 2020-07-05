@@ -28,7 +28,7 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
 import { TabMenuModule } from 'primeng/tabmenu';
 import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
-import {InputSwitch, InputSwitchModule} from 'primeng/inputswitch';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 import { EjemploComponent } from './pages/ejemplo/ejemplo.component';
 import { EditarIndicadorComponent } from './pages/planificacion/editar-indicador/editar-indicador.component';
@@ -114,7 +114,6 @@ import { EditarEjecucionActSegComponent } from './pages/planificacion/editar-eje
     EditarIniciativaComponent,
     SmPlanAnualComponent,
     EditarEjecucionActSegComponent,
-    InputSwitch,
 
   ],
   imports: [
@@ -144,7 +143,8 @@ import { EditarEjecucionActSegComponent } from './pages/planificacion/editar-eje
     CheckboxModule,
     AccordionModule,
     PickListModule,
-    ToastModule
+    ToastModule,
+    InputSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
