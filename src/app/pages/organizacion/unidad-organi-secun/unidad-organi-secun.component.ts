@@ -2,18 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import {ConfirmationService} from 'primeng/api';
 import {Message} from 'primeng/api';
 import {Router} from '@angular/router';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-unidad-organi-secun',
   templateUrl: './unidad-organi-secun.component.html',
   styleUrls: ['./unidad-organi-secun.component.css'],
-  providers: [ConfirmationService]
+  providers: [ConfirmationService, MessageService]
 })
 export class UnidadOrganiSecunComponent implements OnInit {
 
   display = false;
   displayUnidad = false;
   displayEditar = false;
+  displayAgregar = false;
   estados: any[] = [];
   estado: string;
   cargos: any[] = [];
@@ -22,8 +24,11 @@ export class UnidadOrganiSecunComponent implements OnInit {
   nombreUnidad: string;
   nombreCargo: string;
   msgs: Message[] = [];
+  nombreCAgregar: string;
+  displayAgregarSubo = false;
 
-  constructor(private confirmationService: ConfirmationService, private router: Router) { }
+  constructor(private confirmationService: ConfirmationService, private router: Router,
+              private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.cargos = [
@@ -49,7 +54,10 @@ export class UnidadOrganiSecunComponent implements OnInit {
     this.display = true;
   }
   showDialogUnidad() {
-    this.displayUnidad = true;
+    this.displayAgregar = true;
+  }
+  showDialogUnidadSubo() {
+    this.displayAgregarSubo = true;
   }
   showDialogUnidadEditar() {
     this.nombreUnidad = 'Gerencia de Administración y Finanzas';
@@ -74,9 +82,37 @@ export class UnidadOrganiSecunComponent implements OnInit {
         this.router.navigateByUrl('/unidadesVacias');
       },
       reject: () => {
-        this.msgs = [{severity: 'info', summary: 'Rejected', detail: 'You have rejected'}];
+        this.showError();
       }
     });
+  }
+  showError() {
+    this.messageService.add({severity: 'error', summary: 'Error', detail: 'Canceló la Eliminación'});
+  }
+
+  showSuccess(mensaje) {
+    this.messageService.add({severity: 'success', summary: 'Éxito', detail: mensaje});
+    this.displayEditar = false;
+    this.display = false;
+    this.displayUnidad = false;
+    this.displayAgregar = false;
+    this.displayAgregarSubo = false;
+  }
+
+  agregarPuesto(nombreC) {
+    this.cargos.push({nombre: nombreC, estado: 'Activo'});
+    this.showSuccess(`Se ha añadido el cargo ${nombreC}`);
+
+  }
+
+  agregarUnidad(nombreU, tipo) {
+    if (tipo === 1){
+      this.unidadesApoyo.push({nombre: nombreU, estado: 'Activo'});
+      this.showSuccess(`Se ha añadido la unidad de Apoyo ${nombreU}`);
+    }else if (tipo === 2){
+      this.unidadesSubordinadas.push({nombre: nombreU, estado: 'Activo'});
+      this.showSuccess(`Se ha añadido la unidad Subordinada ${nombreU}`);
+    }
   }
 
 }

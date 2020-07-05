@@ -23,7 +23,7 @@
               <a (click)="showDialog()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
             </div>
           </div>
-          <p-table [value]="cargos" style="padding: 2rem">
+          <p-table [value]="cargos" [paginator]="true" [rows]="10">
             <ng-template pTemplate="header">
               <tr>
                 <th>Nombre</th>
@@ -45,15 +45,17 @@
               <a (click)="showDialogUnidad()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
             </div>
           </div>
-          <p-table [value]="" style="padding: 2rem">
+          <p-table [value]="unidadesApoyo" [paginator]="true" [rows]="10">
             <ng-template pTemplate="header">
               <tr>
                 <th>Nombre</th>
                 <th>Estado</th>
               </tr>
             </ng-template>
-            <ng-template pTemplate="body" let>
+            <ng-template pTemplate="body" let-apo>
               <tr [routerLink]="['/unidadSecundaria']" style="cursor: pointer">
+                <td>{{apo.nombre}}</td>
+                <td>{{apo.estado}}</td>
               </tr>
             </ng-template>
           </p-table>
@@ -61,10 +63,10 @@
         <p-accordionTab header="Unidades Subordinadas">
           <div class="p-grid ui-fluid p-justify-end" style="padding:0.5rem">
             <div class="p-col-1" style="padding:0;">
-              <a (click)="showDialogUnidad()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
+              <a (click)="showDialogUnidadSubo()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
             </div>
           </div>
-          <p-table [value]="unidadesSubordinadas" style="padding: 2rem">
+          <p-table [value]="unidadesSubordinadas" [paginator]="true" [rows]="10">
             <ng-template pTemplate="header">
               <tr>
                 <th>Nombre</th>
@@ -84,11 +86,11 @@
   </div>
 
 
-  <p-dialog header="Añadir Cargo" [(visible)]="display">
+  <p-dialog header="Añadir Cargo" [(visible)]="display" [modal]="true">
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Nombre: </label>
+      <label class="p-col-fixed"  style="width:100px">Nombre: </label>
       <div class="p-col">
-        <input type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+        <input type="text"  [(ngModel)]="nombreCAgregar" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
       </div>
     </div>
     <div class="p-field p-grid">
@@ -103,16 +105,16 @@
     </div>
     <div class="p-field p-grid">
       <div class="p-col">
-        <button pButton type="button" label="Guardar" (click)="closeDialog()" ></button>
+        <button pButton type="button" label="Guardar" (click)="agregarPuesto(nombreCAgregar)" ></button>
       </div>
     </div>
   </p-dialog>
 
-  <p-dialog header="Añadir Unidad Organizativa" [(visible)]="displayUnidad">
+  <p-dialog header="Añadir Unidad Organizativa" [(visible)]="displayAgregar" [modal]="true">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Unidad Organizativa: </label>
       <div class="p-col">
-        <input type="text" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+        <input type="text" [(ngModel)]="nombreUnidad" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
       </div>
     </div>
     <div class="p-field p-grid">
@@ -123,12 +125,32 @@
     </div>
     <div class="p-field p-grid">
       <div class="p-col">
-        <button pButton type="button" label="Guardar" (click)="closeDialog()" ></button>
+        <button pButton type="button" label="Guardar" (click)="agregarUnidad(nombreUnidad,1)" ></button>
       </div>
     </div>
   </p-dialog>
 
-  <p-dialog header="Editar Unidad Organizativa" [(visible)]="displayUnidad">
+  <p-dialog header="Añadir Unidad Organizativa" [(visible)]="displayAgregarSubo" [modal]="true">
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Unidad Organizativa: </label>
+      <div class="p-col">
+        <input type="text" [(ngModel)]="nombreUnidad" pInputText class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label class="p-col-fixed" style="width:100px">Estado: </label>
+      <div class="p-col">
+        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <div class="p-col">
+        <button pButton type="button" label="Guardar" (click)="agregarUnidad(nombreUnidad,2)" ></button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog header="Editar Unidad Organizativa" [(visible)]="displayUnidad" [modal]="true">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Unidad Organizativa: </label>
       <div class="p-col">
@@ -143,12 +165,12 @@
     </div>
     <div class="p-field p-grid">
       <div class="p-col">
-        <button pButton type="button" label="Guardar" (click)="closeDialog()" ></button>
+        <button pButton type="button" label="Guardar" (click)="showSuccess('Se ha editado la Unidad Organizativa')" ></button>
       </div>
     </div>
   </p-dialog>
 
-  <p-dialog header="Editar Cargo" [(visible)]="displayEditar">
+  <p-dialog header="Editar Cargo" [(visible)]="displayEditar" [modal]="true">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Nombre: </label>
       <div class="p-col">
@@ -167,12 +189,12 @@
     </div>
     <div class="p-field p-grid">
       <div class="p-col">
-        <button pButton type="button" label="Guardar" (click)="closeDialog()" ></button>
+        <button pButton type="button" label="Editar" (click)="showSuccess('Se ha editado el puesto')" ></button>
       </div>
     </div>
   </p-dialog>
   <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
-  <p-messages [value]="msgs"></p-messages>
+  <p-toast position="bottom-center" [showTransitionOptions]="'0ms'"></p-toast>
 
 
 </div>

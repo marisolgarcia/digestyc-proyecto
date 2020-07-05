@@ -9,14 +9,14 @@
   </div>
 
   <hr>
-  <div class="menu">
+  <div class="p-grid p-justify-center">
     <p-tabMenu #tab [model]="items1" [activeItem]="items1[0]" (click)="cambio(tab)">
     </p-tabMenu>
   </div>
   <h2>Perspectiva 1</h2>
   <hr>
 
-  <p-dialog header="Filtrar Indicadores" [(visible)]="display">
+  <p-dialog header="Filtrar Indicadores" [(visible)]="display" [modal]="true">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Perspectiva: </label>
       <div class="p-col">

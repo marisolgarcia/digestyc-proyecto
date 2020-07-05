@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 1">
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 1" [modal]="true">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
       <div class="p-col">
@@ -36,7 +36,7 @@
     </div>
   </p-dialog>
 
-  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 2">
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 2" [modal]="true">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
       <div class="p-col">
@@ -44,7 +44,7 @@
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
+      <label class="p-col-fixed" style="width:100px">Plan de Trabajo: </label>
       <div class="p-col">
         <p-dropdown appendTo="body"  [options]="planesAnuales1" [(ngModel)]="planAnual" ></p-dropdown>
       </div>
@@ -56,7 +56,7 @@
     </div>
   </p-dialog>
 
-  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 3">
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 3" [modal]="true">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
       <div class="p-col">
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
+      <label class="p-col-fixed" style="width:100px">Plan de Trabajo: </label>
       <div class="p-col">
         <p-dropdown appendTo="body"  [options]="planesAnuales1" [(ngModel)]="planAnual" ></p-dropdown>
       </div>
@@ -82,7 +82,7 @@
     </div>
   </p-dialog>
 
-  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 4">
+  <p-dialog header="{{nombreReporte}}" [(visible)]="display" *ngIf="tipoDialog == 4" [modal]="true">
     <div class="p-field p-grid">
       <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
       <div class="p-col">
@@ -90,7 +90,7 @@
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Plan Estrategico: </label>
+      <label class="p-col-fixed" style="width:100px">Plan de Trabajo: </label>
       <div class="p-col">
         <p-dropdown appendTo="body"  [options]="planesAnuales1" [(ngModel)]="planAnual" ></p-dropdown>
       </div>

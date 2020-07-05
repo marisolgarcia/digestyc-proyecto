@@ -2,6 +2,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
 import {CalendarModule} from 'primeng/calendar';
 import {TableModule} from 'primeng/table';
 import {ProgressBarModule} from 'primeng/progressbar';
@@ -13,10 +16,6 @@ import {InputNumberModule} from 'primeng/inputnumber';
 import {CheckboxModule} from 'primeng/checkbox';
 import { AccordionModule } from 'primeng/accordion';
 import {PickListModule} from 'primeng/picklist';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
 import {ToolbarModule} from 'primeng/toolbar';
 import {ButtonModule} from 'primeng/button';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -28,6 +27,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import { TabMenuModule } from 'primeng/tabmenu';
 import {DialogModule} from 'primeng/dialog';
+import {ToastModule} from 'primeng/toast';
 
 import { EjemploComponent } from './pages/ejemplo/ejemplo.component';
 import { EditarIndicadorComponent } from './pages/planificacion/editar-indicador/editar-indicador.component';
@@ -118,7 +118,8 @@ import { VerUsuarioComponent } from './pages/seguridad/ver-usuario/ver-usuario.c
     InputNumberModule,
     CheckboxModule,
     AccordionModule,
-    PickListModule
+    PickListModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

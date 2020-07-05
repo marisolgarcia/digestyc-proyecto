@@ -3,12 +3,13 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl} from '@angular/forms';
 import {ConfirmationService} from 'primeng/api';
 import {Message} from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-editar-ejecucion-indicador',
   templateUrl: './editar-ejecucion-indicador.component.html',
   styleUrls: ['./editar-ejecucion-indicador.component.css'],
-  providers: [ConfirmationService]
+  providers: [ConfirmationService, MessageService]
 })
 export class EditarEjecucionIndicadorComponent implements OnInit {
   indicador: any;
@@ -34,7 +35,7 @@ export class EditarEjecucionIndicadorComponent implements OnInit {
   justificacion: string;
 
   constructor(private activateRoute: ActivatedRoute, private confirmationService: ConfirmationService,
-              private router: Router) {
+              private router: Router, private messageService: MessageService) {
     this.indicadores = [
       {
         id: 1,
@@ -458,9 +459,13 @@ export class EditarEjecucionIndicadorComponent implements OnInit {
         this.router.navigateByUrl(`ejecucionesIndicador/${this.indicador.id}`);
       },
       reject: () => {
-        this.msgs = [{severity: 'info', summary: 'Rejected', detail: 'You have rejected'}];
+        this.showError();
       }
     });
+  }
+
+  showError() {
+    this.messageService.add({severity: 'error', summary: 'Error', detail: 'Canceló la Eliminación'});
   }
 
 }

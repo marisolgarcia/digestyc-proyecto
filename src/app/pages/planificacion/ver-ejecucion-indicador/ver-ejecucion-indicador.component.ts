@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, RouterLink, Router} from '@angular/router';
-import {ConfirmationService} from 'primeng/api';
+import {MessageService} from 'primeng/api';
 import {Message} from 'primeng/api';
 import {FormControl} from '@angular/forms';
-
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-ver-ejecucion-indicador',
   templateUrl: './ver-ejecucion-indicador.component.html',
   styleUrls: ['./ver-ejecucion-indicador.component.css'],
-  providers: [ConfirmationService]
+  providers: [MessageService, ConfirmationService]
 })
 export class VerEjecucionIndicadorComponent implements OnInit {
   indicador: any;
@@ -35,8 +35,8 @@ export class VerEjecucionIndicadorComponent implements OnInit {
   value = 0;
   backgroundColor: any;
 
-  constructor(private activateRoute: ActivatedRoute, private confirmationService: ConfirmationService,
-              private router: Router) {
+  constructor(private activateRoute: ActivatedRoute, private messageService: MessageService,
+              private router: Router, private confirmationService: ConfirmationService) {
     this.indicadores = [
       {
         id: 1,
@@ -463,10 +463,12 @@ export class VerEjecucionIndicadorComponent implements OnInit {
         this.router.navigateByUrl(`ejecucionesIndicador/${this.indicador.id}`);
       },
       reject: () => {
-        this.msgs = [{severity: 'info', summary: 'Rejected', detail: 'You have rejected'}];
+       this.showError();
       }
     });
   }
-
+  showError() {
+    this.messageService.add({severity: 'error', summary: 'Error', detail: 'Canceló la Eliminación'});
+  }
 
 }
