@@ -28,7 +28,7 @@ export class TipoJustificacionComponent implements OnInit {
 		for(let i = 0; i < 15; i++){
 			this.tipos.push({
 				id: i + 1,
-				nombre: 'Tipo Justificacion ' + (i + 1),
+				nombre: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio commodi, dolor consequuntur, dolorem dicta omnis cumque sed voluptatem eius adipisci cupiditate numquam repellendus alias magni, reiciendis labore aspernatur ab excepturi. ' + (i + 1),
 				activo: Math.floor(Math.random() * 10) + 1 > 3 
 			});
 		}

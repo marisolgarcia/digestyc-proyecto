@@ -62,7 +62,7 @@
 			</ng-template>
 			<ng-template pTemplate="body" let-tipo>
 				<tr>
-					<td>{{tipo.nombre}}</td>
+					<td>{{tipo.nombre | trimString}}</td>
 					<td>{{tipo.activo ? 'Activo' : 'Inactivo'}}</td>
 					<td>
 						<button

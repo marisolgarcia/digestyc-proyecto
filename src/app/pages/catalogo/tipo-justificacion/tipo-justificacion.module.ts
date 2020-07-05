@@ -11,6 +11,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
 
+import { PipesModule } from '../../../pipes/pipes.module'
+
 import { TipoJustificacionRoutingModule } from './tipo-justificacion-routing.module';
 import { TipoJustificacionComponent } from './tipo-justificacion.component';
 
@@ -28,6 +30,7 @@ import { TipoJustificacionComponent } from './tipo-justificacion.component';
 		InputTextModule,
 		InputTextareaModule,
 		InputSwitchModule,
+		PipesModule,
 	]
 })
 export class TipoJustificacionModule { }
