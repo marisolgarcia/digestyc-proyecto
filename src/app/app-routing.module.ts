@@ -68,7 +68,7 @@ const routes: Routes = [];
       {path: 'listaUsuario', component: ListaUsuariosComponent},
       {path: 'crearUsuario', component: CreaUsuarioComponent},
       {path: 'editarUsuario/:id', component: EditarUsuarioComponent},
-      {path: 'verUsuario/:id', component: VerUsuarioComponent}
+      {path: 'verUsuario/:id', component: VerUsuarioComponent},
 
       {path: 'listaPlanesEstrategicos', component: ListaPlanesEstrategicosComponent},
       {path: 'listaPerspectivas', component: ListaPerspectivasComponent},
