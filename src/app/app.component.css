@@ -1,16 +1,204 @@
-.box,
-.sample-layout > div {
+
+.layout-topbar {
+  background-color:#353c46;
+  box-sizing: border-box;
+  display: block;
   padding: 0;
+  height: 64px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9997;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
+.layout-topbar .menu-button {
+  display:block;
+  color: #ffffff;
+  font-size: 24px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  line-height: 58px;
+  text-align: center;
+  transition: background-color .2s;
+}
 
-img.avatar {
-    /* cambia estos dos valores para definir el tamaño de tu círculo */
-    height: 40px;
-    width: 40px;
-    /* los siguientes valores son independientes del tamaño del círculo */
-    background-repeat: no-repeat;
-    background-position: 50%;
-    border-radius: 50%;
-    background-size: 100% auto;
+.layout-topbar .menu-button:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.layout-topbar	.menu-button i {
+  line-height: inherit;
+}
+
+.layout-topbar	.logo {
+  margin-left: 25px;
+  margin-top: 11px;
+  display: inline-block;
+}
+
+.layout-topbar	.logo	img {
+  height: 42px;
+}
+
+.topbar-menu {
+  background-color:#353c46;
+  display:inline-block;
+  list-style-type:none;
+  float:right;
+  margin:15px 60px 0 0;
+  padding:0
+}
+.topbar-menu li {
+  display:inline-block;
+  position:relative;
+  margin-left:.25rem
+}
+.topbar-menu li a {
+  text-decoration:none;
+  color:#fff;
+  transition:background-color .2s;
+  min-width:120px;
+  display:block;
+  text-align:center;
+  font-size:16px;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  padding:6px;
+  border-radius:3px;
+  height:34px;
+  cursor:pointer
+}
+.topbar-menu li a:hover {
+  background-color:hsla(0,0%,100%,.1)
+}
+.topbar-menu li a:focus {
+  background-color:hsla(0,0%,100%,.2);
+  outline:0 none
+}
+.topbar-menu li ul {
+  position:absolute;
+  top:40px;
+  background-color:#fff;
+  box-shadow:0 0 10px 0 rgba(0,0,0,.3);
+  overflow:auto;
+  margin:0;
+  border-radius:3px;
+  padding:.5rem;
+  right:0;
+  max-height:366px;
+  min-width:250px
+}
+.topbar-menu li ul li.topbar-submenu-header {
+  padding:.5rem;
+  font-weight:700;
+  text-align:left;
+  background-color:#f8f9fa;
+  color:#6c757c;
+  margin:.5rem 0;
+  border-radius:3px
+}
+.topbar-menu li ul li.topbar-submenu-header:first-child {
+  margin-top:0
+}
+.topbar-menu li ul li.topbar-submenu-header:last-child {
+  margin-bottom:0
+}
+.topbar-menu li ul a {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  text-decoration:none;
+  color:#404c51;
+  display:-ms-flexbox;
+  display:flex;
+  -ms-flex-align:center;
+  align-items:center;
+  transition:all .5s ease;
+  padding:.5rem;
+  border-radius:3px;
+  cursor:pointer
+}
+.topbar-menu li ul a:hover {
+  background-color:#e9ecef;
+  cursor:pointer
+}
+.topbar-menu li ul a img {
+  width:32px;
+  vertical-align:middle
+}
+.topbar-menu li ul a .topbar-submenu-icon {
+  font-size:18px;
+  margin-right:.25rem
+}
+.topbar-menu li ul a .ui-text {
+  line-height:1;
+  margin-left:.5rem
+}
+.topbar-menu li ul.topbar-submenu-versions {
+  min-width:100%
+}
+.topbar-menu li a {
+  cursor:pointer
+}
+.topbar-menu li a.topbar-submenu-versions-header {
+  min-width:40px
+}
+.topbar-menu li.topbar-menu-active ul {
+  display:block
+}
+
+@media screen and (max-width: 1024px) {
+  .layout-topbar {
+    text-align: center;
+    height: 100px;
+  }
+
+  .layout-topbar	.menu-button {
+    display: block;
+  }
+
+  .layout-topbar .logo {
+    margin-left: 0;
+  }
+
+
+  .topbar-menu {
+    float: none;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    margin-top: 6px;
+  }
+
+  .topbar-menu li {
+    width: 25%;
+    margin-left: 0;
+    display: block;
+  }
+
+  .topbar-menu li a {
+    min-width: 0px;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 0;
+  }
+
+  .topbar-menu li ul {
+    width: 100vw;
+    position: fixed;
+    left: 0px;
+    top: 100px;
+    right: auto;
+  }
+
 }
