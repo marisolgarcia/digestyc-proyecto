@@ -56,7 +56,6 @@ export class UnidadMedidaComponent implements OnInit {
 	}
 
 	cancelar(){
-		this.showToast('error', 'Error', 'Canceló la operacion');
 		this.displayModal = false;
 	}
 
@@ -77,8 +76,7 @@ export class UnidadMedidaComponent implements OnInit {
             accept: () => {
             	this.unidades.splice(this.unidades.indexOf(param), 1);
                 this.showToast('success', 'Eliminado', 'Unidad eliminada correctamente');
-            },
-            reject: () => this.cancelar()
+            }
         });
 	}
 

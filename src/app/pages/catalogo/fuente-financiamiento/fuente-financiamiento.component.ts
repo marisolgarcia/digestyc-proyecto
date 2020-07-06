@@ -56,7 +56,6 @@ export class FuenteFinanciamientoComponent implements OnInit {
 	}
 
 	cancelar(){
-		this.showToast('error', 'Error', 'Canceló la operacion');
 		this.displayModal = false;
 	}
 
@@ -77,8 +76,7 @@ export class FuenteFinanciamientoComponent implements OnInit {
             accept: () => {
             	this.fuentes.splice(this.fuentes.indexOf(param), 1);
                 this.showToast('success', 'Eliminado', 'Fuente de Financiamiento eliminada correctamente');
-            },
-            reject: () => this.cancelar()
+            }
         });
 	}
 
