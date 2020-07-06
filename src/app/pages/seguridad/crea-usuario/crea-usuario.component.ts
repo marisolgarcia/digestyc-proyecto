@@ -14,6 +14,7 @@ export class CreaUsuarioComponent implements OnInit {
   rolesSeleccionados: any[] = [];
   unidad: number;
   cargo: number;
+  activo = true;
 
   constructor() { }
 

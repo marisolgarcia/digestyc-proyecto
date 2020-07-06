@@ -17,7 +17,7 @@ export class UnidadOrganiSecunComponent implements OnInit {
   displayEditar = false;
   displayAgregar = false;
   estados: any[] = [];
-  estado: string;
+  estado = true;
   cargos: any[] = [];
   unidadesSubordinadas: any[] = [];
   unidadesApoyo: any[] = [];
@@ -32,17 +32,17 @@ export class UnidadOrganiSecunComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargos = [
-      {nombre: 'Gerente de Finanzas', estado: 'Activo'},
-      {nombre: 'Secretaria Administrativa', estado: 'Activo'},
-      {nombre: 'Analista Contable', estado: 'Activo'},
+      {nombre: 'Gerente de Finanzas', estado: true},
+      {nombre: 'Secretaria Administrativa', estado: true},
+      {nombre: 'Analista Contable', estado: false},
     ];
     this.unidadesApoyo = [];
     this.unidadesSubordinadas = [
-      {nombre: 'Departamento Financiero', estado: 'Activo'},
-      {nombre: 'Departamento Impresiones', estado: 'Activo'},
-      {nombre: 'Departamento Almacen', estado: 'Activo'},
-      {nombre: 'Departamento Activo Fijo', estado: 'Activo'},
-      {nombre: 'Departamento Transporte', estado: 'Activo'},
+      {nombre: 'Departamento Financiero', estado: true},
+      {nombre: 'Departamento Impresiones', estado: true},
+      {nombre: 'Departamento Almacen', estado: true},
+      {nombre: 'Departamento Activo Fijo', estado: true},
+      {nombre: 'Departamento Transporte', estado: false},
     ];
     this.estados = [
       {label: 'Activo', value: {id: 1, name: 'Activo'}},
@@ -99,20 +99,21 @@ export class UnidadOrganiSecunComponent implements OnInit {
     this.displayAgregarSubo = false;
   }
 
-  agregarPuesto(nombreC) {
-    this.cargos.push({nombre: nombreC, estado: 'Activo'});
+  agregarPuesto(nombreC, estadoC) {
+    this.cargos.push({nombre: nombreC, estado: estadoC});
     this.showSuccess(`Se ha añadido el cargo ${nombreC}`);
-
+    this.nombreCAgregar = '';
   }
 
-  agregarUnidad(nombreU, tipo) {
+  agregarUnidad(nombreU, tipo, estadoU) {
     if (tipo === 1){
-      this.unidadesApoyo.push({nombre: nombreU, estado: 'Activo'});
+      this.unidadesApoyo.push({nombre: nombreU, estado: estadoU});
       this.showSuccess(`Se ha añadido la unidad de Apoyo ${nombreU}`);
     }else if (tipo === 2){
-      this.unidadesSubordinadas.push({nombre: nombreU, estado: 'Activo'});
+      this.unidadesSubordinadas.push({nombre: nombreU, estado: estadoU});
       this.showSuccess(`Se ha añadido la unidad Subordinada ${nombreU}`);
     }
+    this.nombreUnidad = '';
   }
 
 }

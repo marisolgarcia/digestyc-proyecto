@@ -31,9 +31,13 @@
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-cargo>
-          <tr (click)="showDialogEditar(cargo.nombre)" style="cursor: pointer">
+          <tr (click)="showDialogEditar(cargo.nombre)" style="cursor: pointer" *ngIf="cargo.estado===true">
             <td>{{cargo.nombre}}</td>
-            <td>{{cargo.estado}}</td>
+            <td>Activo</td>
+          </tr>
+          <tr (click)="showDialogEditar(cargo.nombre)" style="cursor: pointer" *ngIf="cargo.estado===false">
+            <td>{{cargo.nombre}}</td>
+            <td>Inactivo</td>
           </tr>
         </ng-template>
       </p-table>
@@ -45,7 +49,7 @@
           <a (click)="showDialogUnidad()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
         </div>
       </div>
-      <p-table [value]="unidadesApoyo" [paginator]="true" [rows]="10">
+      <p-table [value]="unidadesApoyo" [paginator]="true" [rows]="2">
         <ng-template pTemplate="header">
           <tr>
             <th>Nombre</th>
@@ -53,9 +57,13 @@
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-apoyo>
-          <tr [routerLink]="['/unidadSecundaria']" style="cursor: pointer">
+          <tr [routerLink]="['/unidadSecundaria']" style="cursor: pointer" *ngIf="apoyo.estado===true">
             <td>{{apoyo.nombre}}</td>
-            <td>{{apoyo.estado}}</td>
+            <td>Activo</td>
+          </tr>
+          <tr [routerLink]="['/unidadSecundaria']" style="cursor: pointer" *ngIf="apoyo.estado===false">
+            <td>{{apoyo.nombre}}</td>
+            <td>Inactivo</td>
           </tr>
         </ng-template>
       </p-table>
@@ -74,9 +82,13 @@
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-subo>
-          <tr [routerLink]="['/unidadSecundaria']" style="cursor: pointer">
+          <tr [routerLink]="['/unidadSecundaria']" style="cursor: pointer" *ngIf="subo.estado===true">
             <td>{{subo.nombre}}</td>
-            <td>{{subo.estado}}</td>
+            <td>Activo</td>
+          </tr>
+          <tr [routerLink]="['/unidadSecundaria']" style="cursor: pointer" *ngIf="subo.estado===false">
+            <td>{{subo.nombre}}</td>
+            <td>Inactivo</td>
           </tr>
         </ng-template>
       </p-table>
@@ -94,9 +106,9 @@
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Estado: </label>
-      <div class="p-col">
-        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      <label class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col-4">
+        <p-inputSwitch [(ngModel)]="estado"></p-inputSwitch>
       </div>
     </div>
     <div class="p-field-checkbox">
@@ -105,7 +117,7 @@
     </div>
     <div class="p-field p-grid">
       <div class="p-col">
-        <button pButton type="button" label="Guardar" (click)="agregarPuesto(nombreCAgregar)" ></button>
+        <button pButton type="button" label="Guardar" (click)="agregarPuesto(nombreCAgregar, estado)" ></button>
       </div>
     </div>
   </p-dialog>
@@ -118,14 +130,14 @@
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Estado: </label>
-      <div class="p-col">
-        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      <label class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col-4">
+        <p-inputSwitch [(ngModel)]="estado"></p-inputSwitch>
       </div>
     </div>
     <div class="p-field p-grid">
       <div class="p-col">
-        <button pButton type="button" label="Guardar" (click)="agregarUnidad(nombreUnidad,1)" ></button>
+        <button pButton type="button" label="Guardar" (click)="agregarUnidad(nombreUnidad,1, estado)" ></button>
       </div>
     </div>
   </p-dialog>
@@ -138,14 +150,14 @@
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Estado: </label>
-      <div class="p-col">
-        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      <label class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col-4">
+        <p-inputSwitch [(ngModel)]="estado"></p-inputSwitch>
       </div>
     </div>
     <div class="p-field p-grid">
       <div class="p-col">
-        <button pButton type="button" label="Guardar" (click)="agregarUnidad(nombreUnidad,2)" ></button>
+        <button pButton type="button" label="Guardar" (click)="agregarUnidad(nombreUnidad,2, estado)" ></button>
       </div>
     </div>
   </p-dialog>
@@ -158,9 +170,9 @@
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Estado: </label>
-      <div class="p-col">
-        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      <label class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col-4">
+        <p-inputSwitch [(ngModel)]="estado"></p-inputSwitch>
       </div>
     </div>
     <div class="p-field p-grid">
@@ -178,9 +190,9 @@
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Estado: </label>
-      <div class="p-col">
-        <p-dropdown appendTo="body"  [options]="estados" [(ngModel)]="estado" ></p-dropdown>
+      <label class="p-col-fixed" style="width:100px">Estado:</label>
+      <div class="p-col-4">
+        <p-inputSwitch [(ngModel)]="estado"></p-inputSwitch>
       </div>
     </div>
     <div class="p-field-checkbox">

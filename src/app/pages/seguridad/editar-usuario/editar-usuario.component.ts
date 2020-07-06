@@ -20,6 +20,7 @@ export class EditarUsuarioComponent implements OnInit {
   correo: string;
   usuario: any;
   lugar: number;
+  activo = true;
 
   constructor(private activateRoute: ActivatedRoute) { }
 
