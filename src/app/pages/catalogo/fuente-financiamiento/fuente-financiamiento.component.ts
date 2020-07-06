@@ -19,6 +19,9 @@ export class FuenteFinanciamientoComponent implements OnInit {
 	public modalTitle: string;
 	public fuente: FuenteFinanciamiento = {nombre: '', activo: true}; // A editar o eliminar
 
+	// Si el modal se comportará como creador de filas
+	private modoCreacion: boolean;
+
 	constructor(
 		private mService: MessageService,
 		private cService: ConfirmationService,
@@ -39,12 +42,14 @@ export class FuenteFinanciamientoComponent implements OnInit {
 	}
 
 	nuevo(){
+		this.modoCreacion = true;
 		this.modalTitle = 'Nueva Fuente de Financiamiento';
 		this.fuente = {nombre: '', activo: true};
 		this.displayModal = true;
 	}
 
 	edit(param: FuenteFinanciamiento){
+		this.modoCreacion = false;
 		this.modalTitle = 'Editar Fuente de Financiamiento';
 		this.fuente = param;
 		this.displayModal = true;
@@ -56,9 +61,10 @@ export class FuenteFinanciamientoComponent implements OnInit {
 	}
 
 	guardar(){
-		// Aqui hay un bug, repite el elemento en la lista, corregirlo
-		this.fuentes.push(this.fuente);
-		this.fuente = {nombre: '', activo: true};
+		if(this.modoCreacion){
+			this.fuentes.push(this.fuente);
+			this.fuente = {nombre: '', activo: true};
+		}
 		this.showToast('success', 'Guardado', 'Fuente de Financiamiento guardada correctamente');
 		this.displayModal = false;
 	}

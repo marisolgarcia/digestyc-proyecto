@@ -19,6 +19,9 @@ export class UnidadMedidaComponent implements OnInit {
 	public modalTitle: string;
 	public unidad: Unidad = {nombre: '', activo: true}; // Unidad a editar o eliminar
 
+	// Si el modal se comportará como creador de filas
+	private modoCreacion: boolean;
+
 	constructor(
 		private mService: MessageService,
 		private cService: ConfirmationService,
@@ -39,12 +42,14 @@ export class UnidadMedidaComponent implements OnInit {
 	}
 
 	nuevo(){
+		this.modoCreacion = true;
 		this.modalTitle = 'Nueva Unidad';
 		this.unidad = {nombre: '', activo: true};
 		this.displayModal = true;
 	}
 
 	edit(param: Unidad){
+		this.modoCreacion = false;
 		this.modalTitle = 'Editar Unidad';
 		this.unidad = param;
 		this.displayModal = true;
@@ -56,9 +61,10 @@ export class UnidadMedidaComponent implements OnInit {
 	}
 
 	guardar(){
-		// Aqui hay un bug, repite el elemento en la lista, corregirlo
-		this.unidades.push(this.unidad);
-		this.unidad = {nombre: '', activo: true};
+		if(this.modoCreacion){
+			this.unidades.push(this.unidad);
+			this.unidad = {nombre: '', activo: true};
+		}
 		this.showToast('success', 'Guardado', 'Unidad guardada correctamente');
 		this.displayModal = false;
 	}

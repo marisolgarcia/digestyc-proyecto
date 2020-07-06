@@ -19,6 +19,9 @@ export class TipoJustificacionComponent implements OnInit {
 	public modalTitle: string;
 	public tipo: TipoJustificacion = {nombre: '', activo: true}; // A editar o eliminar
 
+	// Si el modal se comportará como creador de filas
+	private modoCreacion: boolean;
+
 	constructor(
 		private mService: MessageService,
 		private cService: ConfirmationService,
@@ -39,12 +42,14 @@ export class TipoJustificacionComponent implements OnInit {
 	}
 
 	nuevo(){
+		this.modoCreacion = true;
 		this.modalTitle = 'Nuevo Tipo de Justificacion';
 		this.tipo = {nombre: '', activo: true};
 		this.displayModal = true;
 	}
 
 	edit(param: TipoJustificacion){
+		this.modoCreacion = false;
 		this.modalTitle = 'Editar Tipo de Justificacion';
 		this.tipo = param;
 		this.displayModal = true;
@@ -57,8 +62,10 @@ export class TipoJustificacionComponent implements OnInit {
 
 	guardar(){
 		// Aqui hay un bug, repite el elemento en la lista, corregirlo
-		this.tipos.push(this.tipo);
-		this.tipo = {nombre: '', activo: true};
+		if(this.modoCreacion){
+			this.tipos.push(this.tipo);
+			this.tipo = {nombre: '', activo: true};
+		}
 		this.showToast('success', 'Guardado', 'Tipo de Justificacion guardado correctamente');
 		this.displayModal = false;
 	}
