@@ -14,15 +14,3 @@ img.avatar {
     border-radius: 50%;
     background-size: 100% auto;
 }
-
-.sample-layout, div.p-col-12{
-  padding-bottom: 0px;
-}
-
-.layout-sidebar {
- position:fixed;
- left:0;
- height:100%;
- background-color:#fff;
- box-shadow:0 0 5px 0 rgba(0,0,0,.3)
-}
