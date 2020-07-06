@@ -1,8 +1,7 @@
 <div style="padding: 1rem">
   <div class="p-grid ui-fluid" style="padding:1rem;">
     <div class="p-col-6" style="padding:0;">
-      <h1 *ngIf="disabled">Iniciativas 2020-2024 / Detalle de Iniciativa</h1>
-      <h1 *ngIf="!disabled">Iniciativas 2020-2024 / Editar Iniciativa</h1>
+      <h1>Plan Estratégico 2020-2024</h1>
     </div>
     <div class="p-col-6 group-right" style="padding:0;" *ngIf="disabled">
       <a class="layout-config-button" style="color: #008100;cursor: pointer"><i class="fa fa-pencil-square" (click)="disabled=false"></i></a>
@@ -16,8 +15,12 @@
     <app-tabmenu-plan-estrategico></app-tabmenu-plan-estrategico>
   </div>
 
-  <div class="p-grid p-justify-center" style="padding: 1rem">
-    <div class="p-col-12 p-md-12 p-lg-9 ui-fluid">
+  <div class="p-grid p-justify-center">
+    <div class="p-col-11">
+      <h2 *ngIf="disabled">Detalle de Iniciativa</h2>
+      <h2 *ngIf="!disabled">Editar Iniciativa</h2>
+    </div>
+    <div class="p-col-11 p-md-11 p-lg-8 ui-fluid">
       <p-card header="Datos"  styleClass="ui-card-shadow" [style]="{height:'100%'}">
         <hr>
         <div class="p-field p-grid">
@@ -52,7 +55,7 @@
         </div>
       </p-card>
     </div>
-    <div class="p-col-12 p-md-12 p-lg-3 ui-fluid">
+    <div class="p-col-11 p-md-11 p-lg-3 ui-fluid">
       <p-card header="Progresión Gradual"  styleClass="ui-card-shadow" [style]="{height:'100%'}">
         <hr>
         <div class="p-field p-grid">
@@ -87,7 +90,7 @@
         </div>
       </p-card>
     </div>
-    <div class="p-col-12 p-md-12 p-lg-8 ui-fluid">
+    <div class="p-col-11 p-md-11 p-lg-7 ui-fluid">
       <p-card header="Resultado"  styleClass="ui-card-shadow" [style]="{height:'100%'}">
         <hr>
         <div class="p-field p-grid">
@@ -110,7 +113,7 @@
         </div>
       </p-card>
     </div>
-    <div class="p-col-12" style="text-align:left" *ngIf="!disabled">
+    <div class="p-col-11" style="text-align:left" *ngIf="!disabled">
       <button type="button" pButton label="Guardar" (click)="guardar()"></button>
     </div>
   </div>
