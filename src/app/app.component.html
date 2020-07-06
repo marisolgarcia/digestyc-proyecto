@@ -8,12 +8,10 @@
       <a class="logo" [routerLink]="['/']">
           <img alt="logo" src="assets/logo1.svg" />
       </a>
-
-      <ul class="topbar-menu" #topbarMenu>
-        <li><a [routerLink]="['./']">Nombre de Usuario</a></li>
+      <ul class="topbar-menu">
+        <li><a [routerLink]="['/seguridad/mi-cuenta/mis-datos']">Nombre de Usuario</a></li>
         <li><a [routerLink]="['./']">Cerrar Sesion</a></li>
       </ul>
-
   </div>
 
   <div class="layout-sidebar" [ngClass]="{'active': menuActive}">
