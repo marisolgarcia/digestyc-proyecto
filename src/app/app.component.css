@@ -12,6 +12,7 @@
   width: 100%;
   z-index: 9997;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  justify-content: center;
 }
 
 .layout-topbar .menu-button {
@@ -19,13 +20,13 @@
   color: #ffffff;
   font-size: 24px;
   position: absolute;
-  left: 0;
   top: 0;
   width: 60px;
   height: 60px;
   line-height: 58px;
   text-align: center;
   transition: background-color .2s;
+  justify-content: center;
 }
 
 .layout-topbar .menu-button:hover {
@@ -52,7 +53,10 @@
   list-style-type:none;
   float:right;
   margin:15px 60px 0 0;
-  padding:0
+  padding:0;
+  justify-content: center;
+text-align: center;
+
 }
 .topbar-menu li {
   display:inline-block;
