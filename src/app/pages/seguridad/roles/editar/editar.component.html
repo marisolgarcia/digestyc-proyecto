@@ -1,22 +1,12 @@
 <div style="padding: 1rem">
 	
-	<div class="p-grid p-justify-between ui-fluid" style="padding:1rem;">
-		<div class="p-col-8">
+	<div class="p-grid ui-fluid" style="padding:1rem;">
+		<div class="p-col-6" style="padding:0;">
 			<h1>Editar Rol</h1>
 		</div>
-		<div class="p-col-4 group-right">
-			<button
-			(click)="disabled = !disabled"
-			pButton type="button" class="ui-button-rounded ui-button-info"
-			style="width: 40px; height: 40px">
-				<i class="fa fa-pencil-square"></i>
-			</button>
-			<button 
-			(click)="delete()"
-			pButton type="button" class="ui-button-rounded ui-button-secondary"
-			style="width: 40px; height: 40px; color: #B90B00;">
-				<i class="fa fa-trash"></i>
-			</button>
+		<div class="p-col-6 group-right">
+			<a class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square" (click)="disabled = !disabled"></i></a>
+			<a class="layout-config-button" style="color: #B90B00;" (click)="delete()"><i class="fa fa-trash"></i></a>
 		</div>
 	</div>
 
