@@ -17,7 +17,7 @@ export class UnidadOrganizativaRaizComponent implements OnInit {
   displayEditar = false;
   displayAgregar = false;
   estados: any[] = [];
-  estado: string;
+  estado = true;
   cargos: any[] = [];
   unidadesSubordinadas: any[] = [];
   unidadesApoyo: any[] = [];
@@ -32,21 +32,21 @@ export class UnidadOrganizativaRaizComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargos = [
-      {nombre: 'Gerente General', estado: 'Activo'},
-      {nombre: 'Asistente de Gerente', estado: 'Activo'},
-      {nombre: 'Planificador', estado: 'Activo'},
+      {nombre: 'Gerente General', estado: true},
+      {nombre: 'Asistente de Gerente', estado: false},
+      {nombre: 'Planificador', estado: true},
     ];
     this.unidadesApoyo = [
-      {nombre: 'Subdireccion General', estado: 'Activo'},
-      {nombre: 'Asesoria de Jefatura', estado: 'Activo'},
-      {nombre: 'Unidad de Planificación y Desarrollo Institucional', estado: 'Activo'},
+      {nombre: 'Subdireccion General', estado: true},
+      {nombre: 'Asesoria de Jefatura', estado: true},
+      {nombre: 'Unidad de Planificación y Desarrollo Institucional', estado: false},
     ];
     this.unidadesSubordinadas = [
-      {nombre: 'Gerencia de Administración y Finanzas', estado: 'Activo'},
-      {nombre: 'Gerencia de Estadisticas Sociales', estado: 'Activo'},
-      {nombre: 'Gerencia de Estadisticas Economicas', estado: 'Activo'},
-      {nombre: 'Gerencia de Estadisticas de Genero', estado: 'Activo'},
-      {nombre: 'Gerencia de Sistemas', estado: 'Activo'},
+      {nombre: 'Gerencia de Administración y Finanzas', estado: true },
+      {nombre: 'Gerencia de Estadisticas Sociales', estado: false},
+      {nombre: 'Gerencia de Estadisticas Economicas', estado: true},
+      {nombre: 'Gerencia de Estadisticas de Genero', estado: true},
+      {nombre: 'Gerencia de Sistemas', estado: false},
     ];
     this.estados = [
       {label: 'Activo', value: {id: 1, name: 'Activo'}},
@@ -103,20 +103,22 @@ export class UnidadOrganizativaRaizComponent implements OnInit {
     this.displayAgregarSubo = false;
   }
 
-  agregarPuesto(nombreC) {
-    this.cargos.push({nombre: nombreC, estado: 'Activo'});
+  agregarPuesto(nombreC, estadoU) {
+    this.cargos.push({nombre: nombreC, estado: estadoU});
     this.showSuccess(`Se ha añadido el cargo ${nombreC}`);
+    this.nombreCAgregar = '';
 
   }
 
-  agregarUnidad(nombreU, tipo) {
+  agregarUnidad(nombreU, tipo, estadoU) {
     if (tipo === 1){
-      this.unidadesApoyo.push({nombre: nombreU, estado: 'Activo'});
+      this.unidadesApoyo.push({nombre: nombreU, estado: estadoU});
       this.showSuccess(`Se ha añadido la unidad de Apoyo ${nombreU}`);
     }else if (tipo === 2){
-      this.unidadesSubordinadas.push({nombre: nombreU, estado: 'Activo'});
+      this.unidadesSubordinadas.push({nombre: nombreU, estado: estadoU});
       this.showSuccess(`Se ha añadido la unidad Subordinada ${nombreU}`);
     }
+    this.nombreUnidad = '';
   }
 
 }

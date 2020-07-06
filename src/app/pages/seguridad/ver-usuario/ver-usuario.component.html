@@ -52,8 +52,8 @@
         </div>
         <div class="p-field p-grid">
           <label class="p-col-fixed" style="width:100px">Estado</label>
-          <div class="p-col">
-            <p-dropdown [disabled]="true" appendTo="body"  [options]="estado" ></p-dropdown>
+          <div class="p-col-8">
+            <p-inputSwitch [(ngModel)]="estado" [disabled]="true"></p-inputSwitch>
           </div>
         </div>
       </p-card>

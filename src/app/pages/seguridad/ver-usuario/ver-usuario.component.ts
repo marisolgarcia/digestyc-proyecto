@@ -20,15 +20,12 @@ export class VerUsuarioComponent implements OnInit {
   correo: string;
   usuario: any;
   lugar: number;
+  activo = true;
 
 
   constructor(private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.estado = [
-      {label: 'Activo', value: {id: 1, name: 'Activo'}},
-      {label: 'Desactivado', value: {id: 2, name: 'Desactivado'}}
-    ];
     this.unidadOrg = [
       {label: 'Gerencia General', value: {id: 1, name: 'Gerencia General'}},
       {label: 'Gerencia de Administración y Finanzas', value: {id: 2, name: 'Gerencia de Administración y Finanzas'}}
