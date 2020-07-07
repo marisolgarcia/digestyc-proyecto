@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ConfirmationService} from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 interface fechasCierre {
   name: string;
@@ -9,7 +11,8 @@ interface fechasCierre {
 @Component({
   selector: 'app-cierre',
   templateUrl: './cierre.component.html',
-  styleUrls: ['./cierre.component.css']
+  styleUrls: ['./cierre.component.css'],
+  providers: [ConfirmationService, MessageService]
 })
 export class CierreComponent implements OnInit {
 
@@ -17,8 +20,8 @@ export class CierreComponent implements OnInit {
   notificacionDias: number = 1;
   editar: boolean;
 
-  date6: Date = new Date('02/07/2020');
-  date: Date = new Date('08/07/2020');
+  date6: Date = new Date('07/02/2020');
+  date: Date = new Date('07/08/2020');
   mes: string = 'Junio';
 
   aviso: number = 0;
@@ -37,7 +40,7 @@ export class CierreComponent implements OnInit {
 
   cols: any[];
 
-  constructor() { }
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) { }
 
   ngOnInit() {
 
@@ -85,6 +88,10 @@ export class CierreComponent implements OnInit {
 
   editarDialog() {
     this.editar = true;
+  }
+  showSuccess() {
+    this.editar = false;
+    this.messageService.add({severity:'success', summary: 'Guardado', detail:'Cierre guardado correctamente'});
   }
 
 }

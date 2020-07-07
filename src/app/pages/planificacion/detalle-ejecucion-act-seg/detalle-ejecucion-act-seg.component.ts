@@ -4,6 +4,8 @@ import {ConfirmationService} from 'primeng/api';
 import {MessageService} from 'primeng/api';
 import {Message} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
+import {Router} from '@angular/router';
+
 
 interface mes {
   name: string;
@@ -35,7 +37,7 @@ export class DetalleEjecucionActSegComponent implements OnInit {
   contents: any = null;
   filename: string;
 
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {
+  constructor(private router:Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
     this.mes = [
       {name: 'Junio', code: '1'},
       {name: 'Febreo', code: '2'},
@@ -105,7 +107,8 @@ export class DetalleEjecucionActSegComponent implements OnInit {
         });
     }
     showSuccess() {
-        this.messageService.add({key: 'tr', severity:'success', summary: 'Mensaje de Exito', detail:'La ejecución seleccionada ha sido eliminada exitosamente'});
+        this.messageService.add({severity:'success', summary: 'Eliminado', detail:'Ejecución eliminada correctamente'});
+        setTimeout(()=>this.router.navigate(['/ejecucionesActividad']), 2000 );
     }
 
 }

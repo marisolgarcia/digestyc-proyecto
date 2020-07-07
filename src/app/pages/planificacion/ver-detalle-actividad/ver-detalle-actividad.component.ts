@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ConfirmationService} from 'primeng/api';
+import {MessageService} from 'primeng/api';
+import {Router} from '@angular/router';
 
 interface iniciativas {
   name: string;
@@ -27,14 +30,15 @@ interface cargos {
 @Component({
   selector: 'app-ver-detalle-actividad',
   templateUrl: './ver-detalle-actividad.component.html',
-  styleUrls: ['./ver-detalle-actividad.component.css']
+  styleUrls: ['./ver-detalle-actividad.component.css'],
+  providers: [ConfirmationService, MessageService]
 })
 export class VerDetalleActividadComponent implements OnInit {
 
   eliminar: boolean;
 
   date6: Date = new Date('01/01/2020');
-  date: Date = new Date('30/06/2020');
+  date1: Date = new Date('06/30/2020');
   act: string = 'Revisión de antecentes de los borradores de anteproyecto de Ley del ISE';
   res: string = 'Un informe de la revisión de los borradores de ley del ISE existente';
   veri: string = 'El informe de revisión de los borrados de ley del ISE existentes';
@@ -60,7 +64,7 @@ export class VerDetalleActividadComponent implements OnInit {
   val: number = 2;
   monto: number = 320;
 
-  constructor() {
+  constructor(private router:Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
     this.iniciativa = [
       {name: 'Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.', code: '1'},
     ];
@@ -109,8 +113,20 @@ export class VerDetalleActividadComponent implements OnInit {
 
   }
 
-  eliminarDialog() {
-    this.eliminar = true;
-  }
+  confirmEliminar() {
+        this.confirmationService.confirm({
+            message: 'Está a punto de eliminar la actividad' +
+            ' "Revisión de antecentes de los borradores de anteproyecto de Ley del ISE"',
+            header: '¿Desea Eliminar la actividad?',
+            icon: 'pi pi-info-circle',
+            accept: () => {
+                this.showSuccess();
+            }
+        });
+    }
+    showSuccess() {
+        this.messageService.add({severity:'success', summary: 'Eliminado', detail:'Actividad eliminada correctamente'});
+        setTimeout(()=>this.router.navigate(['/listaActividades']), 2000 );
+    }
 
 }

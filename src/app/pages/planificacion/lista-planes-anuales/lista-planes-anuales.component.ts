@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ConfirmationService} from 'primeng/api';
+import {MessageService} from 'primeng/api';
+import {Message} from 'primeng/api';
+import {MenuItem} from 'primeng/api';
 
 interface estados {
   name: string;
@@ -8,7 +12,8 @@ interface estados {
 @Component({
   selector: 'app-lista-planes-anuales',
   templateUrl: './lista-planes-anuales.component.html',
-  styleUrls: ['./lista-planes-anuales.component.css']
+  styleUrls: ['./lista-planes-anuales.component.css'],
+  providers: [ConfirmationService, MessageService]
 })
 export class ListaPlanesAnualesComponent implements OnInit {
 
@@ -22,7 +27,7 @@ export class ListaPlanesAnualesComponent implements OnInit {
 
   val: string = "2020";
 
-  constructor() {
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {
 
     this.estado = [
       {name: 'Vigente', code: '1'},
@@ -45,6 +50,14 @@ export class ListaPlanesAnualesComponent implements OnInit {
 
   filtrarDialog() {
     this.filtrar = true;
+  }
+  showSuccessCrear() {
+    this.crear = false;
+    this.messageService.add({severity:'success', summary: 'Guardado', detail:'Plan Anual guardado correctamente'});
+  }
+  showSuccessEditar() {
+    this.editar = false;
+    this.messageService.add({severity:'success', summary: 'Guardado', detail:'Plan Anual guardado correctamente'});
   }
 
 }

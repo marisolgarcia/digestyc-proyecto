@@ -1,3 +1,5 @@
+<p-toast position="bottom-center"></p-toast>
+
 <div style="padding: 1rem">
   <div class="p-grid ui-fluid" style="padding:1rem;">
     <div class="p-col-12" style="padding:0;">
@@ -16,36 +18,36 @@
       <p-card header="Fechas de Cierre"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
 
-          <div class="p-field p-grid p-justify-center" style="padding-top: 1rem">
-              <div class="p-col-10" style="text-align:center">
-                <p-table [value]="cierre" dataKey="name" [responsive]="true">
-                  <ng-template pTemplate="header" let-columns>
-                    <tr>
-                      <th>Mes</th>
-                      <th>Inicio de Cierre</th>
-                      <th>Fin de Cierre</th>
-                      <th>Editar</th>
-                    </tr>
-                  </ng-template>
-                  <ng-template pTemplate="body" let-rowData let-columns="columns" let-ri="rowIndex">
-                    <tr>
-                        <td>
-                                {{rowData.name}}
-                        </td>
-                        <td>
-                                {{rowData.fechaInicio}}
-                        </td>
-                        <td>
-                                {{rowData.fechaFin}}
-                        </td>
-                        <td style="text-align:center">
-                          <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
-                        </td>
-                    </tr>
-                  </ng-template>
-                </p-table>
-              </div>
+        <div class="p-field p-grid p-justify-center" style="padding-top: 1rem">
+          <div class="p-col-10" style="text-align:center">
+            <p-table [value]="cierre" dataKey="name" [responsive]="true">
+              <ng-template pTemplate="header" let-columns>
+                <tr>
+                  <th>Mes</th>
+                  <th>Inicio de Cierre</th>
+                  <th>Fin de Cierre</th>
+                  <th>Editar</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns" let-ri="rowIndex">
+                <tr>
+                  <td>
+                    {{rowData.name}}
+                  </td>
+                  <td>
+                    {{rowData.fechaInicio}}
+                  </td>
+                  <td>
+                    {{rowData.fechaFin}}
+                  </td>
+                  <td style="text-align:center">
+                    <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
           </div>
+        </div>
       </p-card>
     </div>
 
@@ -54,17 +56,17 @@
         <hr>
         <div class="ui-fluid">
           <div class="p-field p-grid">
-              <label for="resultado" class="p-col-12 p-md-4 p-lg-2">Enviar correo cuando falten:</label>
-              <div class="p-col-12 p-md-2 p-lg-1">
-                <p-inputNumber [(ngModel)]="aviso" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
-              </div>
-              <label for="resultado" class="p-col-12 p-md-6 p-lg-9">dias para el inicio de cierre</label>
+            <label for="resultado" class="p-col-12 p-md-4 p-lg-2">Enviar correo cuando falten:</label>
+            <div class="p-col-12 p-md-2 p-lg-1">
+              <p-inputNumber [(ngModel)]="aviso" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
+            </div>
+            <label for="resultado" class="p-col-12 p-md-6 p-lg-9">dias para el inicio de cierre</label>
           </div>
           <div class="p-field p-grid">
-              <label for="mensajeAviso" class="p-col-12 p-md-4 p-lg-2">Mensaje:</label>
-              <div class="p-col-12 p-md-8 p-lg-10">
-                <textarea id="mensajeAviso" [(ngModel)]="msjaviso" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
-              </div>
+            <label for="mensajeAviso" class="p-col-12 p-md-4 p-lg-2">Mensaje:</label>
+            <div class="p-col-12 p-md-8 p-lg-10">
+              <textarea id="mensajeAviso" [(ngModel)]="msjaviso" type="text" rows="8" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+            </div>
           </div>
         </div>
 
@@ -76,17 +78,17 @@
         <hr>
         <div class="ui-fluid">
           <div class="p-grid">
-              <label for="resultado" class="p-col-12 p-md-4 p-lg-2">Enviar correo cuando falten:</label>
-              <div class="p-col-12 p-md-2 p-lg-1">
-                <p-inputNumber  [(ngModel)]="noti" [showButtons]="true" [min]="0" [max]="5"></p-inputNumber>
-              </div>
-              <label for="resultado" class="p-col-12 p-md-6 p-lg-9">dias para el fin de cierre</label>
+            <label for="resultado" class="p-col-12 p-md-4 p-lg-2">Enviar correo cuando falten:</label>
+            <div class="p-col-12 p-md-2 p-lg-1">
+              <p-inputNumber  [(ngModel)]="noti" [showButtons]="true" [min]="0" [max]="5"></p-inputNumber>
+            </div>
+            <label for="resultado" class="p-col-12 p-md-6 p-lg-9">dias para el fin de cierre</label>
           </div>
           <div class="p-field p-grid">
-              <label for="mensajeRecordatorio" class="p-col-12 p-md-4 p-lg-2">Mensaje:</label>
-              <div class="p-col-12 p-md-8 p-lg-10">
-                <textarea id="mensajeRecordatorio" [(ngModel)]="msjnoti" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
-              </div>
+            <label for="mensajeRecordatorio" class="p-col-12 p-md-4 p-lg-2">Mensaje:</label>
+            <div class="p-col-12 p-md-8 p-lg-10">
+              <textarea id="mensajeRecordatorio" [(ngModel)]="msjnoti" type="text" rows="8" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+            </div>
           </div>
         </div>
 
@@ -94,8 +96,7 @@
     </div>
 
     <div class="p-col-12 p-md-12 p-lg-10">
-      <button type="button" pButton [routerLink]="['/listaActividades']" label="Guardar"></button>
-      <button type="button" pButton [routerLink]="['/listaActividades']" label="Cancelar" class="ui-button-secondary"></button>
+      <button type="button" pButton (click)="showSuccess()" label="Guardar"></button>
     </div>
 
     <p-dialog header="Editar Cierre" [(visible)]="editar" [modal]="true" [baseZIndex]="10000" [contentStyle]="{'overflow':'visible'}">
@@ -120,13 +121,11 @@
             </div>
           </div>
         </div>
-        </div>
+      </div>
       <p-footer>
-        <button type="button" pButton (click)="editar=false" label="Guardar"></button>
-        <button type="button" pButton (click)="editar=false" label="Cancelar" class="ui-button-secondary"></button>
+        <button type="button" pButton (click)="showSuccess()" label="Guardar"></button>
       </p-footer>
     </p-dialog>
-
   </div>
 
 </div>

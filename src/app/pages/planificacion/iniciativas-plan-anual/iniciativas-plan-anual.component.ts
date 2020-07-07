@@ -88,23 +88,24 @@ export class IniciativasPlanAnualComponent implements OnInit {
     this.filtrar = true;
   }
 
-  confirm2() {
-        this.confirmationService.confirm({
-            message: 'Está a punto de eliminar la iniciativa' +
-            ' "Elaborar e implementar el Plan de transición de la DIGESTYC es ISE."'+
-            ' Del Plan Anual 2020',
-            header: '¿Eliminar?',
-            icon: 'pi pi-info-circle',
-            accept: () => {
-                this.showSuccess();
-            },
-            reject: () => {
-                this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
-            }
-        });
-    }
+    confirmDelete() {
+          this.confirmationService.confirm({
+              message: 'Está a punto de eliminar la iniciativa' +
+              ' "Elaborar e implementar el Plan de transición de la DIGESTYC es ISE."',              header: '¿Eliminar?',
+              icon: 'pi pi-info-circle',
+              accept: () => {
+                  this.showSuccessDelete();
+              }
+          });
+      }
+
     showSuccess() {
-        this.messageService.add({key: 'tr', severity:'success', summary: 'Mensaje de Exito', detail:'La iniciativa seleccionada a sido eliminada exitosamente'});
+      this.crear = false;
+      this.messageService.add({severity:'success', summary: 'Agregado', detail:'Iniciativa agregada correctamente'});
+    }
+
+    showSuccessDelete() {
+      this.messageService.add({severity:'success', summary: 'Eliminado', detail:'Iniciativa eliminada correctamente'});
     }
 
 }

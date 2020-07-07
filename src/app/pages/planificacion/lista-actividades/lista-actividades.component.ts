@@ -1,20 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfirmationService} from 'primeng/api';
 import {MessageService} from 'primeng/api';
-import {Message} from 'primeng/api';
-import {MenuItem} from 'primeng/api';
 
 interface perspectivas {
   name: string;
   code: string;
 }
 
-interface objetivos {
-  name: string;
-  code: string;
-}
-
-interface iniciativas {
+interface cargos {
   name: string;
   code: string;
 }
@@ -32,24 +25,19 @@ interface unidadLider {
 })
 export class ListaActividadesComponent implements OnInit {
 
-  crear: boolean;
   filtrar: boolean;
-  eliminar: boolean;
-  msgs: Message[] = [];
   date6: Date;
+  date: Date;
   es: any;
 
   perspectiva: perspectivas[];
   selectedPerspectiva: perspectivas;
 
-  objetivo: objetivos[];
-  selectedObjetivos: objetivos;
-
-  iniciativa: iniciativas[];
-  selectedIniciativas: iniciativas;
-
   unidadLider: unidadLider[];
   selectedUnidadLider: unidadLider;
+
+  cargo: cargos[];
+  selectedCargo: string = 'Secretaría General';
 
   constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {
 
@@ -57,21 +45,19 @@ export class ListaActividadesComponent implements OnInit {
       {name: '1. Ciudadania Satisfecha con Nuestro Servicio', code: '1'},
       {name: '2. Eficacia de los Procesos Organizacionales', code: '2'},
       {name: '3. Desarrollo y Mordenización Organizacional y del Talento Humano', code: '3'},
-      {name: '4. Eficacia en la Movilización y Manejo de los Recursosno', code: '4'}
-    ];
-
-    this.objetivo = [
-      {name: 'Realizar las gestiones necesarias para transformar a la DIGESTYC en el Instituto  Salvadoreño de Estadística.', code: '1'},
-    ];
-
-    this.iniciativa = [
-      {name: 'Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.', code: '1'},
+      {name: '4. Eficacia en la Movilización y Manejo de los Recursos', code: '4'}
     ];
 
     this.unidadLider = [
       {name: 'Dirección y Subdirección General', code: '1'},
       {name: 'Unidad de comunicaciones', code: '2'},
       {name: 'Gerencia de Tecnología de la Información', code: '3'}
+    ];
+
+    this.cargo = [
+      {name: 'Director General', code: '1'},
+      {name: 'Sub-Director', code: '2'},
+      {name: 'Secretaría General', code: '3'},
     ];
 
   }
@@ -97,14 +83,6 @@ export class ListaActividadesComponent implements OnInit {
 
   }
 
-  crearDialog() {
-    this.crear = true;
-  }
-
-  eliminarDialog() {
-    this.eliminar = true;
-  }
-
   filtrarDialog() {
     this.filtrar = true;
   }
@@ -112,20 +90,16 @@ export class ListaActividadesComponent implements OnInit {
   confirm2() {
         this.confirmationService.confirm({
             message: 'Está a punto de eliminar la actividad' +
-            ' "Revisión de antecentes de los borradores de anteproyecto de Ley del ISE"'+
-            ' Que tiene por unidad responsable a Secretaria General',
-            header: '¿Eliminar?',
+            ' "Revisión de antecentes de los borradores de anteproyecto de Ley del ISE"',
+            header: '¿Desea Eliminar la actividad?',
             icon: 'pi pi-info-circle',
             accept: () => {
                 this.showSuccess();
-            },
-            reject: () => {
-                this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
             }
         });
     }
     showSuccess() {
-        this.messageService.add({key: 'tr', severity:'success', summary: 'Mensaje de Exito', detail:'La actividad seleccionada a sido eliminada exitosamente'});
+        this.messageService.add({severity:'success', summary: 'Eliminado', detail:'Actividad eliminada correctamente'});
     }
 
 }
