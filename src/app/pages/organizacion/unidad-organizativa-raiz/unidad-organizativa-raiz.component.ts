@@ -86,7 +86,6 @@ export class UnidadOrganizativaRaizComponent implements OnInit {
         this.router.navigateByUrl('/unidadesVacias');
       },
       reject: () => {
-        this.showError();
       }
     });
   }
@@ -95,7 +94,7 @@ export class UnidadOrganizativaRaizComponent implements OnInit {
   }
 
   showSuccess(mensaje) {
-    this.messageService.add({severity: 'success', summary: 'Éxito', detail: mensaje});
+    this.messageService.add({severity: 'success', summary: 'Guardado', detail: mensaje});
     this.displayEditar = false;
     this.display = false;
     this.displayUnidad = false;
@@ -105,7 +104,7 @@ export class UnidadOrganizativaRaizComponent implements OnInit {
 
   agregarPuesto(nombreC, estadoU) {
     this.cargos.push({nombre: nombreC, estado: estadoU});
-    this.showSuccess(`Se ha añadido el cargo ${nombreC}`);
+    this.showSuccess(`${nombreC} guardado correctamente`);
     this.nombreCAgregar = '';
 
   }
@@ -113,10 +112,10 @@ export class UnidadOrganizativaRaizComponent implements OnInit {
   agregarUnidad(nombreU, tipo, estadoU) {
     if (tipo === 1){
       this.unidadesApoyo.push({nombre: nombreU, estado: estadoU});
-      this.showSuccess(`Se ha añadido la unidad de Apoyo ${nombreU}`);
+      this.showSuccess(`${nombreU} guardado correctamente`);
     }else if (tipo === 2){
       this.unidadesSubordinadas.push({nombre: nombreU, estado: estadoU});
-      this.showSuccess(`Se ha añadido la unidad Subordinada ${nombreU}`);
+      this.showSuccess(`${nombreU} guardado correctamente`);
     }
     this.nombreUnidad = '';
   }
