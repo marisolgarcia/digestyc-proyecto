@@ -4,7 +4,7 @@
       <h1>Seguimiento de Indicadores Junio</h1>
     </div>
     <div class="p-col-6 group-right" style="padding:0;">
-      <a (click)="showDialog()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-search"></i></a>
+      <a (click)="showDialog()" class="layout-config-button" style="color: #3E59AB"><i class="fa fa-search"></i></a>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
         <div class="p-field p-grid margen">
           <div class="p-col" style="text-align:center">
             <label class="p-col-fixed" style="width:100px">
-              <b>{{indicador.indicador}}</b>
+              <b>{{indicador.indicador | trimString}}</b>
             </label>
           </div>
         </div>
@@ -81,7 +81,7 @@
         <div class="p-field p-grid margen">
           <div class="p-col" style="text-align:center">
             <label class="p-col-fixed" style="width:100px">
-              <b>{{indicador.indicador}}</b>
+              <b>{{indicador.indicador | trimString}}</b>
             </label>
           </div>
         </div>
@@ -124,7 +124,7 @@
         <div class="p-field p-grid margen">
           <div class="p-col" style="text-align:center">
             <label class="p-col-fixed" style="width:100px">
-              <b>{{indicador.indicador}}
+              <b>{{indicador.indicador | trimString}}
             </b></label>
           </div>
         </div>
@@ -162,7 +162,7 @@
         <div class="p-field p-grid margen">
           <div class="p-col" style="text-align:center">
             <label class="p-col-fixed" style="width:100px">
-              <b>{{indicador.indicador}}</b>
+              <b>{{indicador.indicador | trimString}}</b>
             </label>
           </div>
         </div>

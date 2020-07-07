@@ -36,7 +36,7 @@ export class EditarIniciativaComponent implements OnInit {
               indicador:"Presentación de la iniciativa  de la ley de creación del  Instituto Salvadoreño de Estadística"};
 
   guardar(){
-    this.messageService.add({severity:'success', summary:'Guardado', detail:'Iniciativa editada correctamente'});
+    this.messageService.add({severity:'success', summary:'Guardado', detail:'Iniciativa guardada correctamente'});
     setTimeout(()=>this.router.navigate(['/listaIniciativas']), 2000 );
   }
 
@@ -52,10 +52,7 @@ export class EditarIniciativaComponent implements OnInit {
       accept: () => {
         this.messageService.add({severity:'success', summary:'Eliminado', detail:'Iniciativa eliminada correctamente'});
         setTimeout(()=>this.router.navigate(['/listaIniciativas']), 2000 );
-      },
-      /*reject: () => {
-        this.messageService.add({severity:'error', summary:'Cancelado', detail:'Se canceló la operación'});
-      }*/
+      }
     });
   }
 

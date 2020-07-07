@@ -10,8 +10,8 @@
       <h2>Direccion General</h2>
     </div>
     <div class="p-col-4 group-right" style="padding:1rem;">
-      <a (click)="showDialogUnidadEditar()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-pencil-square"></i></a>
-      <a (click)="confirm2()" class="layout-config-button" style="color: #c3002f; cursor: pointer"><i class="fa fa-trash"></i></a>
+      <a (click)="showDialogUnidadEditar()" class="layout-config-button" style="color: #008100; cursor: pointer"><i class="fa fa-pencil-square"></i></a>
+      <a (click)="confirm2()" class="layout-config-button" style="color: #B90B00; cursor: pointer"><i class="fa fa-trash"></i></a>
     </div>
   </div>
   <div class="p-grid ui-fluid p-justify-center" style="padding:0.5rem">
@@ -20,7 +20,7 @@
     <p-accordionTab header="Cargos">
       <div class="p-grid ui-fluid p-justify-end" style="padding:0.5rem">
         <div class="p-col-1" style="padding:0;">
-          <a (click)="showDialog()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
+          <a (click)="showDialog()" class="layout-config-button" style="color:  #008100; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
         </div>
       </div>
       <p-table [value]="cargos" [paginator]="true" [rows]="10">
@@ -46,7 +46,7 @@
     <p-accordionTab header="Unidades de Apoyo">
       <div class="p-grid ui-fluid p-justify-end" style="padding:0.5rem">
         <div class="p-col-1" style="padding:0;">
-          <a (click)="showDialogUnidad()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
+          <a (click)="showDialogUnidad()" class="layout-config-button" style="color:  #008100; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
         </div>
       </div>
       <p-table [value]="unidadesApoyo" [paginator]="true" [rows]="2">
@@ -71,7 +71,7 @@
     <p-accordionTab header="Unidades Subordinadas">
       <div class="p-grid ui-fluid p-justify-end" style="padding:0.5rem">
         <div class="p-col-1" style="padding:0;">
-          <a (click)="showDialogUnidadSubo()" class="layout-config-button" style="color: #3E59AB; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
+          <a (click)="showDialogUnidadSubo()" class="layout-config-button" style="color:  #008100; cursor: pointer"><i class="fa fa-plus-circle "></i></a>
         </div>
       </div>
       <p-table [value]="unidadesSubordinadas" [paginator]="true" [rows]="10">
@@ -177,7 +177,7 @@
     </div>
     <div class="p-field p-grid">
       <div class="p-col">
-        <button pButton type="button" label="Guardar" (click)="showSuccess('Se ha editado la Unidad Organizativa')" ></button>
+        <button pButton type="button" label="Guardar" (click)="showSuccess('Guardado Correctamente')" ></button>
       </div>
     </div>
   </p-dialog>

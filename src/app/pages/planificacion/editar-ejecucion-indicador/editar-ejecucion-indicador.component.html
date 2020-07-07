@@ -4,7 +4,7 @@
       <h1>Editar Informe de Indicador {{ejecucion.planificadoPara}} </h1>
     </div>
     <div class="p-col-4 group-right" style="padding:0;">
-      <a (click)="confirm2()" class="layout-config-button" style="color: #c3002f; cursor: pointer"><i class="fa fa-trash"></i></a>
+      <a (click)="confirm2()" class="layout-config-button" style="color: #B90B00; cursor: pointer"><i class="fa fa-trash"></i></a>
     </div>
   </div>
   <hr>
@@ -99,7 +99,7 @@
       <p-card header="Justificación por incumplimiento"  styleClass="ui-card-shadow">
         <hr>
         <div class="p-field p-grid">
-          <label class="p-col-4" style="width:100px">Tipo de Justificación:</label>
+          <label class="p-col-12" style="width:100px">Tipo de Justificación:</label>
           <div class="p-col">
             <p-dropdown appendTo="body" [options]="tipoJustificacion" [(ngModel)]="tipo" ></p-dropdown>
           </div>
@@ -107,7 +107,7 @@
         <div class="p-field p-grid">
           <label class="p-col-fixed" style="width:100px">Justificación:</label>
           <div class="p-col">
-            <textarea [(ngModel)]="justificacion" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" style="width: 100%"></textarea>
+            <textarea [(ngModel)]="justificacion" type="text" rows="5" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" style="width: 100%"></textarea>
           </div>
         </div>
       </p-card>

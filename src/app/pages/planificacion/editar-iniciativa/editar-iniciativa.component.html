@@ -3,9 +3,9 @@
     <div class="p-col-6" style="padding:0;">
       <h1>Plan Estratégico 2020-2024</h1>
     </div>
-    <div class="p-col-6 group-right" style="padding:0;" *ngIf="disabled">
-      <a class="layout-config-button" style="color: #008100;cursor: pointer"><i class="fa fa-pencil-square" (click)="disabled=false"></i></a>
-      <a class="layout-config-button" style="color: #B90B00;cursor: pointer" (click)="showDialogEliminar()"><i class="fa fa-trash"></i></a>
+    <div class="p-col-6 group-right" style="padding:0;">
+      <a class="layout-config-button" style="color: #008100;" *ngIf="disabled"><i class="fa fa-pencil-square" (click)="disabled=false"></i></a>
+      <a class="layout-config-button" style="color: #B90B00;" (click)="showDialogEliminar()"><i class="fa fa-trash"></i></a>
     </div>
   </div>
 
@@ -21,26 +21,24 @@
       <h2 *ngIf="!disabled">Editar Iniciativa</h2>
     </div>
     <div class="p-col-11 p-md-11 p-lg-8 ui-fluid">
-      <p-card header="Datos"  styleClass="ui-card-shadow" [style]="">
+      <p-card header="Datos"  styleClass="ui-card-shadow">
         <hr>
         <div class="p-field p-grid">
           <label class="p-col-12">Perspectiva:</label>
           <div class="p-col-12">
-            <p-dropdown inputId="perspectiva" [options]="perspectivas" optionLabel="nombre" [(ngModel)]="iniciativa.persp" [disabled]="disabled"></p-dropdown>
+            <p-dropdown inputId="perspectiva" [options]="perspectivas" optionLabel="nombre" [(ngModel)]="iniciativa.persp" [disabled]="disabled" [style]="{display:'block'}"></p-dropdown>
           </div>
         </div>
         <div class="p-field p-grid">
           <label class="p-col-12">Objetivo Estratégico:</label>
           <div class="p-col-12">
-            <div class="ui-dropdown-label-container">
-            <p-dropdown inputId="objetivo" [options]="objetivos" optionLabel="objetivo" [(ngModel)]="iniciativa.objetivo" [disabled]="disabled"></p-dropdown>
-            </div>
+            <p-dropdown inputId="objetivo" [options]="objetivos" optionLabel="objetivo" [(ngModel)]="iniciativa.objetivo" [disabled]="disabled" [style]="{display:'block'}"></p-dropdown>
           </div>
         </div>
         <div class="p-field p-grid">
           <label class="p-col-12">Unidad Líder:</label>
           <div class="p-col-12">
-            <p-dropdown inputId="unidad" [options]="unidades" optionLabel="nombre" [(ngModel)]="iniciativa.lider" [disabled]="disabled"></p-dropdown>
+            <p-dropdown inputId="unidad" [options]="unidades" optionLabel="nombre" [(ngModel)]="iniciativa.lider" [disabled]="disabled" [style]="{display:'block'}"></p-dropdown>
           </div>
         </div>
         <div class="p-field p-grid">
@@ -58,7 +56,7 @@
       </p-card>
     </div>
     <div class="p-col-11 p-md-11 p-lg-3 ui-fluid">
-      <p-card header="Progresión Gradual"  styleClass="ui-card-shadow" [style]="">
+      <p-card header="Progresión Gradual"  styleClass="ui-card-shadow">
         <hr>
         <div class="p-field p-grid">
           <label class="p-col-fixed" style="width:60px">2020</label>
@@ -92,8 +90,8 @@
         </div>
       </p-card>
     </div>
-    <div class="p-col-11 p-md-11 p-lg-7 ui-fluid">
-      <p-card header="Resultado"  styleClass="ui-card-shadow" [style]="{height:'100%'}">
+    <div class="p-col-11 p-md-11 p-lg-8 ui-fluid">
+      <p-card header="Resultado"  styleClass="ui-card-shadow">
         <hr>
         <div class="p-field p-grid">
           <label for="indicador" class="p-col-fixed" style="width:170px">Indicador de impacto:</label>

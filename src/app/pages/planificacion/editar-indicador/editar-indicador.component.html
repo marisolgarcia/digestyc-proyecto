@@ -3,9 +3,9 @@
     <div class="p-col-6" style="padding:0;">
       <h1>Plan Estratégico 2020-2024</h1>
     </div>
-    <div class="p-col-6 group-right" style="padding:0;" *ngIf="disabled">
-      <a class="layout-config-button" style="color: #008100;cursor: pointer"><i class="fa fa-pencil-square" (click)="disabled=false"></i></a>
-      <a class="layout-config-button" style="color: #B90B00;cursor: pointer" (click)="showDialogEliminar()"><i class="fa fa-trash"></i></a>
+    <div class="p-col-6 group-right" style="padding:0;">
+      <a class="layout-config-button" style="color: #008100;" *ngIf="disabled"><i class="fa fa-pencil-square" (click)="disabled=false"></i></a>
+      <a class="layout-config-button" style="color: #B90B00;" (click)="showDialogEliminar()"><i class="fa fa-trash"></i></a>
     </div>
   </div>
 
@@ -22,20 +22,21 @@
     </div>
   <p-accordion class="p-col-11">
     <p-accordionTab header="Datos Generales" [selected]="select1">
-      <div class="p-grid" style="padding: 1rem">
-        <div class="p-col-12 p-md-12 p-lg-9 ui-fluid">
+      <div class="p-grid p-justify-center" style="padding: 1rem">
+        <div class="p-col-12 p-md-12 p-lg-11 ui-fluid">
           <p-card header="Datos"  styleClass="ui-card-shadow">
             <hr>
             <div class="p-field p-grid">
-              <label class="p-col-fixed" style="width:160px">Perspectiva:</label>
-              <div class="p-col">
-                <p-dropdown inputId="perspectiva" [options]="perspectivas" placeholder="Seleccione" optionLabel="nombre" [(ngModel)]="indicador.pers" [disabled]="disabled"></p-dropdown>
+              <label class="p-col-12">Perspectiva:</label>
+              <div class="p-col-12">
+                <p-dropdown inputId="perspectiva" [options]="perspectivas" placeholder="Seleccione" optionLabel="nombre" [(ngModel)]="indicador.pers" [disabled]="disabled" [style]="{display:'block'}"></p-dropdown>
               </div>
             </div>
             <div class="p-field p-grid">
-              <label class="p-col-fixed" style="width:160px">Objetivo Estratégico:</label>
-              <div class="p-col">
-                <p-dropdown inputId="objetivo" class="text-wrap" [options]="objetivos" placeholder="Seleccione" optionLabel="objetivo" [(ngModel)]="indicador.objetivo" [disabled]="disabled"></p-dropdown>
+
+              <label class="p-col-12">Objetivo Estratégico:</label>
+              <div class="p-col-12">
+                <p-dropdown inputId="objetivo" [options]="objetivos" placeholder="Seleccione" optionLabel="objetivo" [(ngModel)]="indicador.objetivo" [disabled]="disabled" [style]="{display:'block'}"></p-dropdown>
               </div>
             </div>
             <div class="p-field p-grid">
@@ -45,65 +46,61 @@
               </div>
             </div>
             <div class="p-field p-grid">
-              <label for="indicador" class="p-col-fixed" style="width:160px">Indicador:</label>
-              <div class="p-col">
-                <textarea id="indicador" type="text" rows="2" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" [(ngModel)]="indicador.indicador" [disabled]="disabled"></textarea>
+              <label for="indicador" class="p-col-12">Indicador:</label>
+              <div class="p-col-12">
+                <textarea id="indicador" type="text" rows="5" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" [(ngModel)]="indicador.indicador" [disabled]="disabled"></textarea>
               </div>
             </div>
             <div class="p-field p-grid">
-              <label class="p-col-fixed" style="width:160px">Codigo:</label>
-              <div class="p-col">
+              <label class="p-col-12">Codigo:</label>
+              <div class="p-col-12">
                 <p-inputNumber name="codigo" mode="decimal" [showButtons]="false" [min]="0" class="ui-inputnumber ui-corner-all ui-state-default ui-widget" [(ngModel)]="indicador.codigo" [disabled]="disabled"></p-inputNumber>
               </div>
             </div>
             <div class="p-field p-grid">
-              <label class="p-col-fixed" style="width:160px">Peso:</label>
-              <div class="p-col">
+              <label class="p-col-12">Peso:</label>
+              <div class="p-col-12">
                 <p-inputNumber name="peso" min="0" max="101" suffix=" %" class="ui-inputnumber ui-corner-all ui-state-default ui-widget" [(ngModel)]="indicador.peso" [disabled]="disabled"></p-inputNumber>
               </div>
             </div>
             <div class="p-field p-grid">
-              <label class="p-col-fixed" style="width:160px">Línea base:</label>
-              <div class="p-col">
+              <label class="p-col-12">Línea base:</label>
+              <div class="p-col-12">
                 <p-inputNumber name="base" mode="decimal" [showButtons]="false" [min]="-1" class="ui-inputnumber ui-corner-all ui-state-default ui-widget" [(ngModel)]="indicador.lineaBase" [disabled]="disabled"></p-inputNumber>
               </div>
             </div>
           </p-card>
         </div>
-        <div class="p-col-12 p-md-12 p-lg-3 ui-fluid">
-          <div class="p-grid">
-            <div class="p-col-12">
+        <div class="p-col-12 p-md-12 p-lg-5 ui-fluid">
               <p-card header="Parámetros"  styleClass="ui-card-shadow">
                 <hr>
                 <div class="p-field p-grid">
-                  <label class="p-col-fixed" style="width:120px">Unidad de medida:</label>
+                  <label class="p-col-fixed" style="width:142px">Unidad de medida:</label>
                   <div class="p-col">
-                    <p-dropdown inputId="unidad" [options]="unidades" placeholder="Seleccione" optionLabel="nombre" [(ngModel)]="indicador.unidad" [disabled]="disabled"></p-dropdown>
+                    <p-dropdown inputId="unidad" [options]="unidades" placeholder="Seleccione" optionLabel="nombre" [(ngModel)]="indicador.unidad" [disabled]="disabled" [style]="{display:'block'}"></p-dropdown>
                   </div>
                 </div>
                 <div class="p-field p-grid">
-                  <label class="p-col-fixed" style="width:120px">Direccionalidad:</label>
+                  <label class="p-col-fixed" style="width:142px">Direccionalidad:</label>
                   <div class="p-col">
                     <p-dropdown inputId="dir" [options]="direccionalidades" placeholder="Seleccione" optionLabel="nombre" [(ngModel)]="indicador.dir" [disabled]="disabled"></p-dropdown>
                   </div>
                 </div>
               </p-card>
-            </div>
-            <div class="p-col-12">
+        </div>
+        <div class="p-col-12 p-md-12 p-lg-6 ui-fluid">
               <p-card header="Fórmula de Medición"  styleClass="ui-card-shadow">
                 <hr>
                 <div class="p-field p-grid">
-                  <label for="formula" class="p-col-fixed" style="width:75px">Fórmula:</label>
-                  <div class="p-col">
-                    <textarea id="formula" type="text" rows="3" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" [(ngModel)]="indicador.formula" [disabled]="disabled"></textarea>
+                  <label for="formula" class="p-col-12">Fórmula:</label>
+                  <div class="p-col-12">
+                    <textarea id="formula" type="text" rows="5" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" [(ngModel)]="indicador.formula" [disabled]="disabled"></textarea>
                   </div>
                 </div>
               </p-card>
-            </div>
-          </div>
         </div>
-        <div class="p-col-12" style="text-align:left" *ngIf="!disabled">
-          <button type="button" pButton label="Guardar" (click)="select1=false;select2=true"></button>
+        <div class="p-col-12 p-md-12 p-lg-11" style="text-align:left" *ngIf="!disabled">
+          <button type="button" pButton label="Guardar" (click)="select1=false;select2=true;mostrarMensaje()"></button>
         </div>
       </div>
     </p-accordionTab>
@@ -124,13 +121,13 @@
           </p-card>
         </div>
         <div class="p-col-12" style="text-align:left" *ngIf="!disabled">
-          <button type="button" pButton label="Guardar" (click)="select2=false;select3=true"></button>
+          <button type="button" pButton label="Guardar" (click)="select2=false;select3=true;mostrarMensaje()"></button>
         </div>
       </div>
     </p-accordionTab>
     <p-accordionTab header="Límites y Metas" [selected]="select3">
       <div class="p-grid p-justify-even" style="padding: 1rem">
-        <div class="p-col-12 p-md-6 p-lg-3  ui-fluid">
+        <div class="p-col-12 p-md-6 p-lg-4  ui-fluid">
           <p-card header="Metas"  styleClass="ui-card-shadow">
             <hr>
             <div class="p-field p-grid">
@@ -165,7 +162,7 @@
             </div>
           </p-card>
         </div>
-        <div class="p-col-12 p-md-6 p-lg-3  ui-fluid">
+        <div class="p-col-12 p-md-6 p-lg-4  ui-fluid">
           <p-card header="Límites de Control"  styleClass="ui-card-shadow">
             <hr>
             <div class="p-field p-grid">
@@ -201,7 +198,7 @@
           </p-card>
         </div>
         <div class="p-col-12" style="text-align:left" *ngIf="!disabled">
-          <button type="button" pButton label="Guardar" (click)="select3=false;select4=true"></button>
+          <button type="button" pButton label="Guardar" (click)="select3=false;select4=true;mostrarMensaje()"></button>
         </div>
       </div>
     </p-accordionTab>
@@ -236,7 +233,7 @@
             <div class="p-field p-grid ui-fluid">
               <label class="p-col-fixed" style="width:100px">Período:</label>
               <div class="p-col">
-                <p-dropdown inputId="periodo" [options]="periodos" placeholder="Seleccione" optionLabel="nombre" [(ngModel)]="indicador.periodicidad" [disabled]="disabled"></p-dropdown>
+                <p-dropdown inputId="periodo" [options]="periodos" placeholder="Seleccione" optionLabel="nombre" [(ngModel)]="indicador.periodicidad" [disabled]="disabled" [style]="{display:'block'}"></p-dropdown>
               </div>
             </div>
             <div class="p-field p-grid ui-fluid">
@@ -260,13 +257,16 @@
       <div class="p-col-12" style="padding:1rem" *ngIf="avancesEsperados.length!=0">
         <h2>Avances Esperados</h2>
         <hr>
-        <div class="p-col-11">
-          <p-table [value]="avancesEsperados" [responsive]="true" [rowsPerPageOptions]="[10,25,50]" [paginator]="true" [rows]="10" class="ui-table">
+        <div class="p-grid p-justify-center">
+          <div class="p-col-11">
+          <p-table [value]="avancesEsperados" [autoLayout]="true" [showCurrentPageReport]="true"
+                   currentPageReportTemplate="Mostrando {first} - {last} de {totalRecords} registros"
+                   [rowsPerPageOptions]="[10,25,50]" [paginator]="true" [rows]="10" class="ui-table">
             <ng-template pTemplate="header">
               <tr>
                 <th>Fecha Programada</th>
-                <th>Meta</th>
-                <th>Limite de Control</th>
+                <th style="width:25%">Meta</th>
+                <th style="width:25%">Límite de Control</th>
               </tr>
             </ng-template>
             <ng-template pTemplate="body" let-avance>
@@ -274,7 +274,7 @@
                 <td pEditableColumn class="ui-fluid" [pEditableColumnDisabled]="disabled">
                   <p-cellEditor>
                     <ng-template pTemplate="input">
-                      <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="avance.fecha" [style]="{'width':'100%'}"></p-calendar>
+                      <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="avance.fecha" appendTo="body"></p-calendar>
                     </ng-template>
                     <ng-template pTemplate="output">
                       {{avance.fecha | date:'dd/MM/yyyy'}}
@@ -304,6 +304,7 @@
               </tr>
             </ng-template>
           </p-table>
+          </div>
         </div>
       </div>
       <div class="p-col-12" style="text-align:left" *ngIf="!disabled">

@@ -66,10 +66,7 @@ export class ListaIndicadoresComponent implements OnInit {
       rejectLabel:'No',
       accept: () => {
         this.messageService.add({severity:'success', summary:'Eliminado', detail:'Indicador eliminado correctamente'});
-      },
-      /*reject: () => {
-        this.messageService.add({severity:'error', summary:'Cancelado', detail:'Se canceló la operación'});
-      }*/
+      }
     });
   }
 

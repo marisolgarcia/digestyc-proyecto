@@ -10,7 +10,7 @@
 
   <hr>
   <div class="p-grid p-justify-center" style="padding:1rem;">
-    <div class="p-col-4" style="padding:0;">
+    <div class="p-md-6 p-lg-4" style="padding:0;">
       <p-card header="Indicador"  styleClass="ui-card" >
         <hr>
         <div class="p-field p-grid margen">
@@ -49,7 +49,7 @@
   </div>
   <hr>
 
-  <p-table [value]="ejecucionesTrimestral">
+  <p-table [value]="ejecucionesTrimestral" [autoLayout]="true" [rows]="5" [paginator]="true">
     <ng-template pTemplate="header">
       <tr>
         <th>Registrado</th>
@@ -63,17 +63,17 @@
     </ng-template>
     <ng-template pTemplate="body" let-eje>
       <tr  >
-          <td>{{eje.registrado}}</td>
+          <td >{{eje.registrado}}</td>
           <td>{{eje.planificadoPara}}</td>
           <td>{{eje.anio}}</td>
           <td>{{eje.meta}}</td>
           <td>{{eje.ejecucion}}</td>
-          <td>
-            <a href="#">
-              <i class="fa fa-download"></i>
+          <td style="text-align: center" >
+            <a href="#" style="color: #008100">
+              <i class="fa fa-download" ></i>
             </a>
           </td>
-          <td>
+          <td style="text-align: center" >
             <a [routerLink]="['/verIndicadorEje',eje.id]">
               <i class="fa fa-eye"></i>
             </a>
