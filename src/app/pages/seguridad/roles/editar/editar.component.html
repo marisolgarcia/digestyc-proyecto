@@ -5,7 +5,7 @@
 			<h1>Editar Rol</h1>
 		</div>
 		<div class="p-col-6 group-right">
-			<a class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square" (click)="disabled = !disabled"></i></a>
+			<a class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square" *ngIf="disabled" (click)="disabled = !disabled"></i></a>
 			<a class="layout-config-button" style="color: #B90B00;" (click)="delete()"><i class="fa fa-trash"></i></a>
 		</div>
 	</div>
