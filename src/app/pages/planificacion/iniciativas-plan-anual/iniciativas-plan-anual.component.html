@@ -1,4 +1,4 @@
-<p-toast position="bottom-center" key="tr"></p-toast>
+<p-toast position="bottom-center"></p-toast>
 
 <div style="padding: 1rem">
   <div class="p-grid ui-fluid" style="padding:1rem;">
@@ -9,14 +9,13 @@
       <a class="layout-config-button" style="color: #008100;" (click)="crearDialog()"><i class="fa fa-plus-circle"></i></a>
       <a class="layout-config-button" style="color: #3E59AB;" (click)="filtrarDialog()"><i class="fa fa-search"></i></a>
     </div>
-    <p-dialog header="Agregar Iniciativa" [(visible)]="crear" [modal]="true" [baseZIndex]="10000" [style]="{width: '50vw'}" [contentStyle]="{'overflow':'visible'}">
+    <p-dialog header="Agregar Iniciativa" [(visible)]="crear" [modal]="true" [baseZIndex]="10000" [style]="{width: '40vw'}" [contentStyle]="{'overflow':'visible'}">
       <div class="p-grid" style="padding-top:1rem;">
-        <div class="p-col-12 p-md-12  ui-fluid">
+        <div class="p-col-12 p-md-12">
           <div class="p-field p-grid">
-            <label for="perspectiva" class="p-col-fixed" style="width:100px">Perspectiva:</label>
-            <div class="p-col">
+            <label for="perspectiva" class="p-col-12">Perspectiva:</label>
+            <div class="p-col-12">
               <p-dropdown
-                  class="ui-dropdown-label-container ui-dropdown.ui-dropdown-clearable ui-dropdown-label ui-dropdown ui-dropdown-label" 
                   inputId="perspectiva"
                   [options]="perspectiva"
                   placeholder="Seleccionar"
@@ -25,51 +24,63 @@
             </div>
           </div>
           <div class="p-field p-grid">
-            <label for="objetivo" class="p-col-fixed" style="width:100px">Objetivo:</label>
-            <div class="p-col">
-              <p-dropdown inputId="objetivo" [options]="objetivo" placeholder="Seleccionar" optionLabel="name"></p-dropdown>
+            <label for="objetivo" class="p-col-12">Objetivo:</label>
+            <div class="p-col-12">
+              <p-dropdown
+                  inputId="objetivo"
+                  [options]="objetivo"
+                  placeholder="Seleccionar"
+                  optionLabel="name">
+              </p-dropdown>
             </div>
           </div>
           <div class="p-field p-grid">
-            <label for="iniciativa" class="p-col-fixed" style="width:100px">Iniciativa:</label>
-            <div class="p-col">
-              <p-dropdown inputId="iniciativa" [options]="iniciativa" placeholder="Seleccionar" optionLabel="name"></p-dropdown>
+            <label for="iniciativa" class="p-col-12">Iniciativa:</label>
+            <div class="p-col-12">
+              <p-dropdown
+                  inputId="iniciativa"
+                  [options]="iniciativa"
+                  placeholder="Seleccionar"
+                  optionLabel="name">
+              </p-dropdown>
             </div>
           </div>
         </div>
       </div>
       <p-footer>
-        <button type="button" pButton (click)="crear=false" label="Agregar"></button>
-        <button type="button" pButton (click)="crear=false" label="Cancelar" class="ui-button-secondary"></button>
+        <div class="alignIzquierda">
+          <button type="button" pButton (click)="showSuccess()" label="Agregar"></button>
+        </div>
       </p-footer>
     </p-dialog>
 
-    <p-dialog header="Filtrar" [(visible)]="filtrar" [modal]="true" [baseZIndex]="10000" [style]="{width: '50vw'}" [contentStyle]="{'overflow':'visible'}">
+    <p-dialog header="Filtrar" [(visible)]="filtrar" [modal]="true" [baseZIndex]="10000" [style]="{width: '40vw'}" [contentStyle]="{'overflow':'visible'}">
       <div class="p-grid" style="padding-top:1rem;">
-        <div class="p-col-12 p-md-12  ui-fluid">
+        <div class="p-col-12 p-md-12 ui-fluid">
           <div class="p-field p-grid">
-            <label for="perspectiva" class="p-col-fixed" style="width:100px">Perspectiva:</label>
-            <div class="p-col">
+            <label for="perspectiva" class="p-col-12">Perspectiva:</label>
+            <div class="p-col-12">
               <p-dropdown inputId="perspectiva" [options]="perspectiva" placeholder="Todas" optionLabel="name"></p-dropdown>
             </div>
           </div>
           <div class="p-field p-grid">
-            <label for="objetivo" class="p-col-fixed" style="width:100px">Objetivo:</label>
-            <div class="p-col">
+            <label for="objetivo" class="p-col-12">Objetivo:</label>
+            <div class="p-col-12">
               <p-dropdown inputId="objetivo" [options]="objetivo" placeholder="Todos" optionLabel="name"></p-dropdown>
             </div>
           </div>
           <div class="p-field p-grid">
-            <label for="unidadLider" class="p-col-fixed" style="width:100px">Unidad Lider:</label>
-            <div class="p-col">
+            <label for="unidadLider" class="p-col-12">Unidad Lider:</label>
+            <div class="p-col-12">
               <p-dropdown inputId="unidadLider" [options]="unidadLider" placeholder="Todas" optionLabel="name"></p-dropdown>
             </div>
           </div>
         </div>
       </div>
       <p-footer>
-        <button type="button" pButton (click)="filtrar=false" label="Filtrar"></button>
-        <button type="button" pButton (click)="filtrar=false" label="Cancelar" class="ui-button-secondary"></button>
+        <div class="alignIzquierda">
+          <button type="button" pButton (click)="filtrar=false" label="Filtrar"></button>
+        </div>
       </p-footer>
     </p-dialog>
   </div>
@@ -88,7 +99,7 @@
 
   <div class="p-grid" style="padding: 1rem">
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" style="height:100%">
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" style="height:100%">
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -105,8 +116,8 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Dirección y Subdirección General
               </p>
@@ -114,12 +125,12 @@
         </div>
         <p-footer>
           <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirm2()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-6 p-lg-3 p-align-stretch vertical-container">
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid">
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -135,21 +146,21 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3 p-xs-12">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Unidad de comunicaciones
               </p>
             </div>
         </div>
         <p-footer styleClass="fondo">
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -165,16 +176,16 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3 p-xs-12">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Gerencia de Tecnología de la Información
               </p>
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
@@ -189,7 +200,7 @@
 
   <div class="p-grid" style="padding: 1rem">
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -206,21 +217,21 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3 p-xs-12">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Dirección y Subdirección General
               </p>
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -237,21 +248,21 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3 p-xs-12">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Dirección y Subdirección General
               </p>
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -268,16 +279,16 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3 p-xs-12">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Dirección y Subdirección General
               </p>
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
@@ -293,7 +304,7 @@
 
   <div class="p-grid" style="padding: 1rem">
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -310,21 +321,21 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Dirección y Subdirección General
               </p>
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -341,21 +352,21 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Dirección y Subdirección General
               </p>
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -372,16 +383,16 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Dirección y Subdirección General
               </p>
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
@@ -397,7 +408,7 @@
 
   <div class="p-grid" style="padding: 1rem">
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -414,21 +425,21 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Dirección y Subdirección General
               </p>
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -445,21 +456,21 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Dirección y Subdirección General
               </p>
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
       <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-grid margen">
@@ -476,16 +487,16 @@
           </p>
         </div>
         <div class="p-grid margen">
-            <label for="actividades" class="p-col-2">Lider:</label>
-            <div class="p-col-10">
+            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
+            <div class="p-col-12 p-md-9 p-lg-9">
               <p for="objetivo" style="text-align:right">
                 Dirección y Subdirección General
               </p>
             </div>
         </div>
         <p-footer>
-          <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
         </p-footer>
       </p-card>
     </div>

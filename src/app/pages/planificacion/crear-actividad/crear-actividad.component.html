@@ -1,3 +1,5 @@
+<p-toast position="bottom-center"></p-toast>
+
 <div style="padding: 1rem">
   <div class="p-grid ui-fluid" style="padding:1rem;">
     <div class="p-col-12" style="padding:0;">
@@ -11,11 +13,11 @@
   </div>
 
   <div class="p-grid p-justify-center">
-    <div class="p-col-12">
+    <div class="p-col-10">
       <h2>Crear Actividad</h2>
     </div>
 
-    <div class="p-col-12 p-md-12 p-lg-5">
+    <div class="p-col-10 p-md-10 p-lg-5">
       <p-card header="Datos"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="ui-fluid">
@@ -28,7 +30,7 @@
             <div class="p-field p-grid">
                 <label for="actividad" class="p-col-12 p-md-3">Actividad:</label>
                 <div class="p-col-12 p-md-9">
-                  <textarea id="actividad" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+                  <textarea id="actividad" type="text" rows="6" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
                 </div>
             </div>
             <div class="p-field p-grid">
@@ -48,14 +50,14 @@
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-12 p-lg-5">
+    <div class="p-col-10 p-md-10 p-lg-5">
       <p-card header="Resultados"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="ui-fluid">
           <div class="p-field p-grid">
               <label for="resultado" class="p-col-12 p-md-3">Resultado:</label>
               <div class="p-col-12 p-md-9">
-                <textarea id="resultado" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+                <textarea id="resultado" type="text" rows="5" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
               </div>
           </div>
           <div class="p-field p-grid">
@@ -67,7 +69,7 @@
           <div class="p-field p-grid">
               <label for="medioVerificacion" class="p-col-12 p-md-3">Medio de Verificación:</label>
               <div class="p-col-12 p-md-9">
-                <textarea id="medioVerificacion" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+                <textarea id="medioVerificacion" type="text" rows="5" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
               </div>
           </div>
         </div>
@@ -75,7 +77,7 @@
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-12 p-lg-5">
+    <div class="p-col-10 p-md-10 p-lg-5">
       <p-card header="Ejecución Gradual"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="ui-fluid">
@@ -120,7 +122,7 @@
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-12 p-lg-5">
+    <div class="p-col-10 p-md-10 p-lg-5">
       <p-card header="Ejecución Gradual"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="ui-fluid">
@@ -165,7 +167,7 @@
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-12 p-lg-5">
+    <div class="p-col-10 p-md-10 p-lg-5">
       <p-card header="Recursos Financieros"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="ui-fluid">
@@ -186,7 +188,7 @@
       </p-card>
     </div>
 
-    <div class="p-col-12 p-md-12 p-lg-5">
+    <div class="p-col-10 p-md-10 p-lg-5">
       <p-card header="Responsable"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="ui-fluid">
@@ -208,8 +210,7 @@
     </div>
 
     <div class="p-col-10">
-      <button type="button" pButton [routerLink]="['/listaActividades']" label="Guardar"></button>
-      <button type="button" pButton [routerLink]="['/listaActividades']" label="Cancelar" class="ui-button-secondary"></button>
+      <button type="button" pButton (click)="guardar()" label="Guardar"></button>
     </div>
 
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ConfirmationService} from 'primeng/api';
+import {MessageService} from 'primeng/api';
+import {Router} from '@angular/router';
 
 interface iniciativas {
   name: string;
@@ -27,7 +30,8 @@ interface cargos {
 @Component({
   selector: 'app-editar-actividad',
   templateUrl: './editar-actividad.component.html',
-  styleUrls: ['./editar-actividad.component.css']
+  styleUrls: ['./editar-actividad.component.css'],
+  providers: [ConfirmationService, MessageService]
 })
 export class EditarActividadComponent implements OnInit {
 
@@ -58,7 +62,7 @@ export class EditarActividadComponent implements OnInit {
   val: number = 2;
   monto: number = 320;
 
-  constructor() {
+  constructor(private router:Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
     this.iniciativa = [
       {name: 'Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.', code: '1'},
     ];
@@ -106,5 +110,23 @@ export class EditarActividadComponent implements OnInit {
         let nextYear = (nextMonth === 0) ? year + 1 : year;
 
   }
-
+  confirmEliminar() {
+        this.confirmationService.confirm({
+            message: 'Está a punto de eliminar la actividad' +
+            ' "Revisión de antecentes de los borradores de anteproyecto de Ley del ISE"',
+            header: '¿Desea Eliminar la actividad?',
+            icon: 'pi pi-info-circle',
+            accept: () => {
+                this.eliminar();
+            }
+        });
+    }
+    eliminar() {
+        this.messageService.add({severity:'success', summary: 'Eliminado', detail:'Actividad eliminada correctamente'});
+        setTimeout(()=>this.router.navigate(['/listaActividades']), 2000 );
+    }
+    guardar() {
+        this.messageService.add({severity:'success', summary: 'Guardado', detail:'Actividad guardada correctamente'});
+        setTimeout(()=>this.router.navigate(['/listaActividades']), 2000 );
+    }
 }

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import {ConfirmationService} from 'primeng/api';
+import {MessageService} from 'primeng/api';
+import {Message} from 'primeng/api';
+import {MenuItem} from 'primeng/api';
+import {Router} from '@angular/router';
 
 
 interface mes {
@@ -10,7 +15,8 @@ interface mes {
 @Component({
   selector: 'app-editar-ejecucion-act-seg',
   templateUrl: './editar-ejecucion-act-seg.component.html',
-  styleUrls: ['./editar-ejecucion-act-seg.component.css']
+  styleUrls: ['./editar-ejecucion-act-seg.component.css'],
+  providers: [ConfirmationService, MessageService]
 })
 export class EditarEjecucionActSegComponent implements OnInit {
 
@@ -31,7 +37,7 @@ export class EditarEjecucionActSegComponent implements OnInit {
   contents: any = null;
   filename: string;
 
-  constructor() {
+  constructor(private router:Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
     this.mes = [
       {name: 'Junio', code: '1'},
       {name: 'Febreo', code: '2'},
@@ -85,5 +91,23 @@ export class EditarEjecucionActSegComponent implements OnInit {
     reader.readAsText(file);
     this.filename = file.name;
   }
+
+  confirm2() {
+        this.confirmationService.confirm({
+            message: 'Está a punto de eliminar la ejecución' +
+            ' correspondiente al mes de "Junio"',
+            header: '¿Eliminar?',
+            icon: 'pi pi-info-circle',
+            accept: () => {
+                this.showSuccess();
+            },
+            reject: () => {
+            }
+        });
+    }
+    showSuccess() {
+        this.messageService.add({severity:'success', summary: 'Eliminado', detail:'Ejecución eliminada correctamente'});
+        setTimeout(()=>this.router.navigate(['/ejecucionesActividad']), 2000 );
+    }
 
 }

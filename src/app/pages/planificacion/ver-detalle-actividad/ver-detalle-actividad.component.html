@@ -1,4 +1,5 @@
-<!--p-toast position="bottom-center" key="tr"></p-toast-->
+<p-toast position="bottom-center"></p-toast>
+<p-confirmDialog [style]="{width: '40vw'}"></p-confirmDialog>
 
 <div style="padding: 1rem">
   <div class="p-grid ui-fluid" style="padding:1rem;">
@@ -7,39 +8,16 @@
     </div>
     <div class="p-col-3 group-right" style="padding:0;">
       <a [routerLink]="['/listaActividades/editarActividad']" class="layout-config-button" style="color: #008100;"><i class="fa fa-pencil-square"></i></a>
-      <a class="layout-config-button" (click)="eliminarDialog()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-      <!--a [routerLink]="['/listaActividades']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-arrow-left"></i></a-->
+      <a class="layout-config-button" (click)="confirmEliminar()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
     </div>
   </div>
 
-  <p-dialog header="¿Eliminar?" [(visible)]="eliminar" [modal]="true" [baseZIndex]="10000" [style]="{width: '50vw'}">
-    <div class="p-grid" style="padding-top:1rem;">
-      <div class="p-col-12 p-md-12  ui-fluid" style="text-align:center;">
-        <i class="fa fa-exclamation-circle"></i>
-      </div>
-      <div class="p-col-12 p-md-12  ui-fluid" style="padding:1.5rem; text-align:center;">
-        <p>
-          Está a punto de eliminar la actividad
-        </p>
-        <p style="padding-top:1rem; font-weight: bold;">
-          "Revisión de antecentes de los borradores de anteproyecto de Ley del ISE"
-        </p>
-        <p style="padding-top:1rem;">
-          Que tiene por unidad responsable a <span style="font-weight: bold;">Secretaria General</span>
-        </p>
-      </div>
-    </div>
-    <p-footer>
-      <button type="button" pButton [routerLink]="['/listaActividades']" label="Eliminar" class="ui-button-danger"></button>
-      <button type="button" pButton (click)="eliminar=false" label="Cancelar" class="ui-button-secondary"></button>
-    </p-footer>
-  </p-dialog>
   <hr>
   <div class="p-grid p-justify-center" style="padding-top:1rem">
     <app-sm-plan-anual></app-sm-plan-anual>
   </div>
   <div class="p-grid p-justify-center">
-    <div class="p-col-12">
+    <div class="p-col-10">
       <h2>Detalle de Actividad</h2>
     </div>
     <div class="p-col-12 p-md-12 p-lg-5">
@@ -55,7 +33,7 @@
             <div class="p-field p-grid">
                 <label for="actividad" class="p-col-12 p-md-3">Actividad:</label>
                 <div class="p-col-12 p-md-9">
-                  <textarea id="actividad" [(ngModel)]="act" type="text" rows="4" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" [disabled]="true"></textarea>
+                  <textarea id="actividad" [(ngModel)]="act" type="text" rows="6" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" [disabled]="true"></textarea>
                 </div>
             </div>
             <div class="p-field p-grid">
@@ -67,7 +45,7 @@
             <div class="p-field p-grid">
                 <label for="fechaFin" class="p-col-12 p-md-3">Fecha Fin:</label>
                 <div class="p-col-12 p-md-9">
-                  <p-calendar [(ngModel)]="date" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" [locale]="es" dateFormat="dd/mm/yy" class="ui-calendar " [disabled]="true"></p-calendar>
+                  <p-calendar [(ngModel)]="date1" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030" [locale]="es" dateFormat="dd/mm/yy" class="ui-calendar " [disabled]="true"></p-calendar>
                 </div>
             </div>
         </div>
@@ -82,7 +60,7 @@
           <div class="p-field p-grid">
               <label for="resultado" class="p-col-12 p-md-3">Resultado:</label>
               <div class="p-col-12 p-md-9">
-                <textarea id="resultado" type="text" rows="4" pInputTextarea [(ngModel)]="res" class="ui-inputtext ui-corner-all ui-state-default ui-widget" [disabled]="true"></textarea>
+                <textarea id="resultado" type="text" rows="5" pInputTextarea [(ngModel)]="res" class="ui-inputtext ui-corner-all ui-state-default ui-widget" [disabled]="true"></textarea>
               </div>
           </div>
           <div class="p-field p-grid">
@@ -94,7 +72,7 @@
           <div class="p-field p-grid">
               <label for="medioVerificacion" class="p-col-12 p-md-3">Medio de Verificación:</label>
               <div class="p-col-12 p-md-9">
-                <textarea id="medioVerificacion" type="text" rows="4" pInputTextarea [(ngModel)]="veri" class="ui-inputtext ui-corner-all ui-state-default ui-widget" [disabled]="true"></textarea>
+                <textarea id="medioVerificacion" type="text" rows="5" pInputTextarea [(ngModel)]="veri" class="ui-inputtext ui-corner-all ui-state-default ui-widget" [disabled]="true"></textarea>
               </div>
           </div>
         </div>

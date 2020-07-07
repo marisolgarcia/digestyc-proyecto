@@ -1,3 +1,5 @@
+<p-toast position="bottom-center"></p-toast>
+
 <div style="padding: 1rem">
   <div class="p-grid ui-fluid" style="padding:1rem;">
     <div class="p-col-6" style="padding:0;">
@@ -19,8 +21,9 @@
         </div>
       </div>
       <p-footer>
-        <button type="button" pButton (click)="crear=false" label="Guardar"></button>
-        <button type="button" pButton (click)="crear=false" label="Cancelar" class="ui-button-secondary"></button>
+        <div class="alignIzquierda">
+          <button type="button" pButton (click)="showSuccessCrear()" label="Guardar"></button>
+        </div>
       </p-footer>
     </p-dialog>
 
@@ -41,17 +44,15 @@
         <div class="p-field p-grid">
           <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
           <div class="p-col">
-            <!--
-            <p-dropdown inputId="state" [options]="states" [(ngModel)]="selectedState" placeholder="Select" optionLabel="name"></p-dropdown>
-          -->
-          <p-dropdown inputId="estado" [options]="estado" placeholder="Seleccionar" optionLabel="name"></p-dropdown>
+            <p-dropdown inputId="estado" [options]="estado" placeholder="Seleccionar" optionLabel="name"></p-dropdown>
+          </div>
         </div>
-      </div>
     </div>
 
     <p-footer>
-      <button type="button" pButton (click)="filtrar=false" label="Filtrar"></button>
-      <button type="button" pButton (click)="filtrar=false" label="Cancelar" class="ui-button-secondary"></button>
+      <div class="alignIzquierda">
+        <button type="button" pButton (click)="filtrar=false" label="Filtrar"></button>
+      </div>
     </p-footer>
   </p-dialog>
 </div>
@@ -60,7 +61,7 @@
 
 <div class="p-grid" style="padding: 1rem">
 
-  <div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+  <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
     <p-card header="2020"  styleClass="ui-card-shadow">
       <hr>
       <div class="p-field p-grid margen">
@@ -91,7 +92,7 @@
   </p-card>
 </div>
 
-<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
   <p-card header="2021"  styleClass="ui-card-shadow">
     <hr>
     <div class="p-field p-grid margen">
@@ -113,13 +114,13 @@
       </div>
     </div>
     <div class="margen" style="padding:0;">
-      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
       <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
     </div>
   </p-card>
 </div>
 
-<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
   <p-card header="2022"  styleClass="ui-card-shadow">
     <hr>
     <div class="p-field p-grid margen">
@@ -141,13 +142,13 @@
       </div>
     </div>
     <div class="margen" style="padding:0;">
-      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
       <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
     </div>
   </p-card>
 </div>
 
-<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
   <p-card header="2023"  styleClass="ui-card-shadow">
     <hr>
     <div class="p-field p-grid margen">
@@ -169,13 +170,13 @@
       </div>
     </div>
     <div class="margen" style="padding:0;">
-      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
       <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
     </div>
   </p-card>
 </div>
 
-<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
   <p-card header="2024"  styleClass="ui-card-shadow">
     <hr>
     <div class="p-field p-grid margen">
@@ -197,13 +198,13 @@
       </div>
     </div>
     <div class="margen" style="padding:0;">
-      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
       <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
     </div>
   </p-card>
 </div>
 
-<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
   <p-card header="2019"  styleClass="ui-card-shadow">
     <hr>
     <div class="p-field p-grid margen">
@@ -225,13 +226,13 @@
       </div>
     </div>
     <div class="margen" style="padding:0;">
-      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
       <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
     </div>
   </p-card>
 </div>
 
-<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
   <p-card header="2018"  styleClass="ui-card-shadow">
     <hr>
     <div class="p-field p-grid margen">
@@ -253,13 +254,13 @@
       </div>
     </div>
     <div class="margen" style="padding:0;">
-      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
       <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
     </div>
   </p-card>
 </div>
 
-<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
   <p-card header="2017"  styleClass="ui-card-shadow">
     <hr>
     <div class="p-field p-grid margen">
@@ -281,13 +282,13 @@
       </div>
     </div>
     <div class="margen" style="padding:0;">
-      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
       <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
     </div>
   </p-card>
 </div>
 
-<div class="p-col-12 p-md-6 p-lg-3  ui-fluid" >
+<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
   <p-card header="2020"  styleClass="ui-card-shadow">
     <hr>
     <div class="p-field p-grid margen">
@@ -309,7 +310,7 @@
       </div>
     </div>
     <div class="margen" style="padding:0;">
-      <a href="" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
       <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
     </div>
   </p-card>
@@ -338,8 +339,9 @@
     </div>
   </div>
   <p-footer>
-    <button type="button" pButton (click)="editar=false" label="Guardar"></button>
-    <button type="button" pButton (click)="editar=false" label="Cancelar" class="ui-button-secondary"></button>
+    <div class="alignIzquierda">
+      <button type="button" pButton (click)="showSuccessEditar()" label="Guardar"></button>
+    </div>
   </p-footer>
 </p-dialog>
 

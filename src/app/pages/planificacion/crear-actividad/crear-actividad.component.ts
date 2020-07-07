@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MessageService} from 'primeng/api';
+import {Router} from '@angular/router';
 
 interface iniciativas {
   name: string;
@@ -27,7 +29,8 @@ interface cargos {
 @Component({
   selector: 'app-crear-actividad',
   templateUrl: './crear-actividad.component.html',
-  styleUrls: ['./crear-actividad.component.css']
+  styleUrls: ['./crear-actividad.component.css'],
+  providers: [MessageService]
 })
 export class CrearActividadComponent implements OnInit {
 
@@ -51,7 +54,7 @@ export class CrearActividadComponent implements OnInit {
 
   val: number;
 
-  constructor() {
+constructor(private messageService: MessageService,private router:Router) {
     this.iniciativa = [
       {name: 'Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.', code: '1'},
     ];
@@ -98,6 +101,11 @@ export class CrearActividadComponent implements OnInit {
         let nextMonth = (month === 11) ? 0 : month + 1;
         let nextYear = (nextMonth === 0) ? year + 1 : year;
 
+  }
+
+  guardar(){
+    this.messageService.add({severity:'success', summary:'Guardado', detail:'Actividad guardada correctamente'});
+    setTimeout(()=>this.router.navigate(['/listaActividades']), 2000 );
   }
 
 }

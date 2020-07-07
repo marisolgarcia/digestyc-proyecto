@@ -55,7 +55,7 @@ const routes: Routes = [];
       {path: 'cierre', component: CierreComponent},
       {path: 'reportes', component: ReportesComponent},
       {path: 'seguimientoActividades', component: ListaActividadSegComponent},
-      {path: 'seguimientoActividades/todas', component: ListaActividadSegTodasComponent},
+      {path: 'seguimientoActividadesTodas', component: ListaActividadSegTodasComponent},
       {path: 'ejecucionesActividad', component: EjecucionesActSegComponent},
       {path: 'ejecucionesActividad/ingresoEjecucion', component: IngresoEjecucionActSegComponent},
       {path: 'ejecucionesActividad/detalleEjecucion', component: DetalleEjecucionActSegComponent},
