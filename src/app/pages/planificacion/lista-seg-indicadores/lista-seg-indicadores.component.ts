@@ -73,8 +73,8 @@ export class ListaSegIndicadoresComponent implements OnInit {
       }
     ];
   this.items1 = [
-      {label: 'Vigentes', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Todos', icon: 'pi pi-fw pi-calendar'},
+      {label: 'Vigentes'},
+      {label: 'Todos'},
     ];
   this.indicadores3 = [
       {

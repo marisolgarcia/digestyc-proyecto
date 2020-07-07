@@ -463,7 +463,6 @@ export class VerEjecucionIndicadorComponent implements OnInit {
         this.router.navigateByUrl(`ejecucionesIndicador/${this.indicador.id}`);
       },
       reject: () => {
-       this.showError();
       }
     });
   }

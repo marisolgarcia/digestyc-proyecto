@@ -30,6 +30,8 @@ import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
 import {InputSwitchModule} from 'primeng/inputswitch';
 
+import {PipesModule} from './pipes/pipes.module';
+
 import { EjemploComponent } from './pages/ejemplo/ejemplo.component';
 import { EditarIndicadorComponent } from './pages/planificacion/editar-indicador/editar-indicador.component';
 import { ListaPlanesAnualesComponent } from './pages/planificacion/lista-planes-anuales/lista-planes-anuales.component';

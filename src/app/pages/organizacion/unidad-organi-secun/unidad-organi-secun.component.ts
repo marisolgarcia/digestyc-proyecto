@@ -82,7 +82,6 @@ export class UnidadOrganiSecunComponent implements OnInit {
         this.router.navigateByUrl('/unidadesVacias');
       },
       reject: () => {
-        this.showError();
       }
     });
   }
@@ -101,17 +100,17 @@ export class UnidadOrganiSecunComponent implements OnInit {
 
   agregarPuesto(nombreC, estadoC) {
     this.cargos.push({nombre: nombreC, estado: estadoC});
-    this.showSuccess(`Se ha añadido el cargo ${nombreC}`);
+    this.showSuccess(`${nombreC} guardado correctamente`);
     this.nombreCAgregar = '';
   }
 
   agregarUnidad(nombreU, tipo, estadoU) {
     if (tipo === 1){
       this.unidadesApoyo.push({nombre: nombreU, estado: estadoU});
-      this.showSuccess(`Se ha añadido la unidad de Apoyo ${nombreU}`);
+      this.showSuccess(`${nombreU} guardado correctamente`);
     }else if (tipo === 2){
       this.unidadesSubordinadas.push({nombre: nombreU, estado: estadoU});
-      this.showSuccess(`Se ha añadido la unidad Subordinada ${nombreU}`);
+      this.showSuccess(`${nombreU} guardado correctamente`);
     }
     this.nombreUnidad = '';
   }
