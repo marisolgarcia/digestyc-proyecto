@@ -91,4 +91,8 @@ export class CrearIndicadorComponent implements OnInit {
     setTimeout(()=>this.router.navigate(['/listaIndicadores']), 2000 );
   }
 
+  mostrarMensaje(){
+    this.messageService.add({severity:'success', summary:'Guardado', detail:'Indicador guardado correctamente'});
+  }
+
 }

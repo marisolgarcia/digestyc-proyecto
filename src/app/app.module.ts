@@ -70,6 +70,7 @@ import { CrearIndicadorComponent } from './pages/planificacion/crear-indicador/c
 import { EditarIniciativaComponent } from './pages/planificacion/editar-iniciativa/editar-iniciativa.component';
 import { SmPlanAnualComponent } from './components/sm-plan-anual/sm-plan-anual.component';
 import { EditarEjecucionActSegComponent } from './pages/planificacion/editar-ejecucion-act-seg/editar-ejecucion-act-seg.component';
+import {PipesModule} from "./pipes/pipes.module";
 
 @NgModule({
   declarations: [
@@ -144,7 +145,8 @@ import { EditarEjecucionActSegComponent } from './pages/planificacion/editar-eje
     AccordionModule,
     PickListModule,
     ToastModule,
-    InputSwitchModule
+    InputSwitchModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

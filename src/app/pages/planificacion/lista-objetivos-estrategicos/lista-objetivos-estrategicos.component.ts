@@ -71,10 +71,7 @@ export class ListaObjetivosEstrategicosComponent implements OnInit {
       rejectLabel:'No',
       accept: () => {
         this.messageService.add({severity:'success', summary:'Eliminado', detail:'Objetivo Estratégico eliminado correctamente'});
-      },
-      /*reject: () => {
-        this.messageService.add({severity:'error', summary:'Cancelado', detail:'Se canceló la operación'});
-      }*/
+      }
     });
   }
 

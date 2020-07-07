@@ -15,20 +15,20 @@
     </div>
   <p-accordion class="p-col-11">
     <p-accordionTab header="Datos Generales" [selected]="select1">
-      <div class="p-grid" style="padding: 1rem">
-        <div class="p-col-12 p-md-12 p-lg-9 ui-fluid">
+      <div class="p-grid p-justify-center" style="padding: 1rem">
+        <div class="p-col-12 p-md-12 p-lg-11 ui-fluid">
           <p-card header="Datos"  styleClass="ui-card-shadow">
             <hr>
             <div class="p-field p-grid">
-              <label class="p-col-fixed" style="width:160px">Perspectiva:</label>
-              <div class="p-col">
-                <p-dropdown inputId="perspectiva" [options]="perspectivas" placeholder="Seleccione" optionLabel="nombre"></p-dropdown>
+              <label class="p-col-12">Perspectiva:</label>
+              <div class="p-col-12">
+                <p-dropdown inputId="perspectiva" [options]="perspectivas" placeholder="Seleccione" optionLabel="nombre" [style]="{display:'block'}"></p-dropdown>
               </div>
             </div>
             <div class="p-field p-grid">
-              <label class="p-col-fixed" style="width:160px">Objetivo Estratégico:</label>
-              <div class="p-col">
-                <p-dropdown inputId="objetivo" [options]="objetivos" placeholder="Seleccione" optionLabel="objetivo"></p-dropdown>
+              <label class="p-col-12">Objetivo Estratégico:</label>
+              <div class="p-col-12">
+                <p-dropdown inputId="objetivo" [options]="objetivos" placeholder="Seleccione" optionLabel="objetivo" [style]="{display:'block'}"></p-dropdown>
               </div>
             </div>
             <div class="p-field p-grid">
@@ -38,65 +38,61 @@
               </div>
             </div>
             <div class="p-field p-grid">
-              <label for="indicador" class="p-col-fixed" style="width:160px">Indicador:</label>
-              <div class="p-col">
-                <textarea id="indicador" type="text" rows="2" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+              <label for="indicador" class="p-col-12">Indicador:</label>
+              <div class="p-col-12">
+                <textarea id="indicador" type="text" rows="5" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
               </div>
             </div>
             <div class="p-field p-grid">
-              <label class="p-col-fixed" style="width:160px">Codigo:</label>
-              <div class="p-col">
+              <label class="p-col-12">Codigo:</label>
+              <div class="p-col-12">
                 <p-inputNumber name="codigo" mode="decimal" [showButtons]="false" [min]="0" class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
               </div>
             </div>
             <div class="p-field p-grid">
-              <label class="p-col-fixed" style="width:160px">Peso:</label>
-              <div class="p-col">
+              <label class="p-col-12">Peso:</label>
+              <div class="p-col-12">
                 <p-inputNumber name="peso" min="0" max="101" suffix=" %" class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
               </div>
             </div>
             <div class="p-field p-grid">
-              <label class="p-col-fixed" style="width:160px">Línea base:</label>
-              <div class="p-col">
+              <label class="p-col-12" style="width:160px">Línea base:</label>
+              <div class="p-col-12">
                 <p-inputNumber name="base" mode="decimal" [showButtons]="false" [min]="-1" class="ui-inputnumber ui-corner-all ui-state-default ui-widget"></p-inputNumber>
               </div>
             </div>
           </p-card>
         </div>
-        <div class="p-col-12 p-md-12 p-lg-3 ui-fluid">
-          <div class="p-grid">
-          <div class="p-col-12">
-            <p-card header="Parámetros"  styleClass="ui-card-shadow">
-              <hr>
-              <div class="p-field p-grid">
-                <label class="p-col-fixed" style="width:120px">Unidad de medida:</label>
-                <div class="p-col">
-                  <p-dropdown inputId="unidad" [options]="unidades" placeholder="Seleccione" optionLabel="nombre"></p-dropdown>
-                </div>
+        <div class="p-col-12 p-md-12 p-lg-5 ui-fluid">
+          <p-card header="Parámetros"  styleClass="ui-card-shadow">
+            <hr>
+            <div class="p-field p-grid">
+              <label class="p-col-fixed" style="width:142px">Unidad de medida:</label>
+              <div class="p-col">
+                <p-dropdown inputId="unidad" [options]="unidades" placeholder="Seleccione" optionLabel="nombre" [style]="{display:'block'}"></p-dropdown>
               </div>
-              <div class="p-field p-grid">
-                <label class="p-col-fixed" style="width:120px">Direccionalidad:</label>
-                <div class="p-col">
-                  <p-dropdown inputId="dir" [options]="direccionalidades" placeholder="Seleccione" optionLabel="nombre"></p-dropdown>
-                </div>
+            </div>
+            <div class="p-field p-grid">
+              <label class="p-col-fixed" style="width:142px">Direccionalidad:</label>
+              <div class="p-col">
+                <p-dropdown inputId="dir" [options]="direccionalidades" placeholder="Seleccione" optionLabel="nombre"></p-dropdown>
               </div>
-            </p-card>
-          </div>
-          <div class="p-col-12">
-            <p-card header="Fórmula de Medición"  styleClass="ui-card-shadow">
-              <hr>
-              <div class="p-field p-grid">
-                <label for="formula" class="p-col-fixed" style="width:75px">Fórmula:</label>
-                <div class="p-col">
-                  <textarea id="formula" type="text" rows="3" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
-                </div>
-              </div>
-            </p-card>
-          </div>
-          </div>
+            </div>
+          </p-card>
         </div>
-        <div class="p-col-12" style="text-align:left">
-          <button type="button" pButton label="Guardar" (click)="select1=false;select2=true"></button>
+        <div class="p-col-12 p-md-12 p-lg-6 ui-fluid">
+          <p-card header="Fórmula de Medición"  styleClass="ui-card-shadow">
+            <hr>
+            <div class="p-field p-grid">
+              <label for="formula" class="p-col-12">Fórmula:</label>
+              <div class="p-col">
+                <textarea id="formula" type="text" rows="5" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget"></textarea>
+              </div>
+            </div>
+          </p-card>
+        </div>
+        <div class="p-col-12 p-md-12 p-lg-11" style="text-align:left">
+          <button type="button" pButton label="Guardar" (click)="select1=false;select2=true;mostrarMensaje()"></button>
         </div>
       </div>
     </p-accordionTab>
@@ -117,13 +113,13 @@
           </p-card>
         </div>
         <div class="p-col-12" style="text-align:left">
-          <button type="button" pButton label="Guardar" (click)="select2=false;select3=true"></button>
+          <button type="button" pButton label="Guardar" (click)="select2=false;select3=true;mostrarMensaje()"></button>
         </div>
       </div>
     </p-accordionTab>
     <p-accordionTab header="Límites y Metas" [selected]="select3">
       <div class="p-grid p-justify-even" style="padding: 1rem">
-        <div class="p-col-12 p-md-6 p-lg-3  ui-fluid">
+        <div class="p-col-12 p-md-6 p-lg-4  ui-fluid">
           <p-card header="Metas"  styleClass="ui-card-shadow">
             <hr>
             <div class="p-field p-grid">
@@ -158,7 +154,7 @@
             </div>
           </p-card>
         </div>
-        <div class="p-col-12 p-md-6 p-lg-3  ui-fluid">
+        <div class="p-col-12 p-md-6 p-lg-4  ui-fluid">
           <p-card header="Límites de Control"  styleClass="ui-card-shadow">
             <hr>
             <div class="p-field p-grid">
@@ -194,7 +190,7 @@
           </p-card>
         </div>
         <div class="p-col-12" style="text-align:left">
-          <button type="button" pButton label="Guardar" (click)="select3=false;select4=true"></button>
+          <button type="button" pButton label="Guardar" (click)="select3=false;select4=true;mostrarMensaje()"></button>
         </div>
       </div>
     </p-accordionTab>
@@ -229,7 +225,7 @@
             <div class="p-field p-grid ui-fluid">
               <label class="p-col-fixed" style="width:100px">Período:</label>
               <div class="p-col">
-                <p-dropdown inputId="periodo" [options]="periodos" placeholder="Seleccione" optionLabel="nombre" [(ngModel)]="parametrosFechas.periodo"></p-dropdown>
+                <p-dropdown inputId="periodo" [options]="periodos" placeholder="Seleccione" optionLabel="nombre" [(ngModel)]="parametrosFechas.periodo" [style]="{display:'block'}"></p-dropdown>
               </div>
             </div>
             <div class="p-field p-grid ui-fluid">
@@ -253,15 +249,16 @@
       <div class="p-col-12" style="padding:1rem" *ngIf="avancesEsperados.length!=0">
         <h2>Avances Esperados</h2>
         <hr>
+        <div class="p-grid p-justify-center">
         <div class="p-col-11">
-        <p-table [value]="avancesEsperados" [responsive]="true" [showCurrentPageReport]="true"
+        <p-table [value]="avancesEsperados" [autoLayout]="true" [showCurrentPageReport]="true"
                  currentPageReportTemplate="Mostrando {first} - {last} de {totalRecords} registros"
                  [paginator]="true" [rows]="10" class="ui-table" [rowsPerPageOptions]="[10,25,50]">
           <ng-template pTemplate="header">
             <tr>
               <th>Fecha Programada</th>
-              <th>Meta</th>
-              <th>Limite de Control</th>
+              <th style="width:25%">Meta</th>
+              <th style="width:25%">Limite de Control</th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-avance>
@@ -269,7 +266,7 @@
               <td pEditableColumn class="ui-fluid">
                 <p-cellEditor>
                   <ng-template pTemplate="input">
-                    <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="avance.fecha" [style]="{'width':'100%'}"></p-calendar>
+                    <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="avance.fecha" appendTo="body"></p-calendar>
                   </ng-template>
                   <ng-template pTemplate="output">
                     {{avance.fecha | date:'dd/MM/yyyy'}}
@@ -299,6 +296,7 @@
             </tr>
           </ng-template>
         </p-table>
+        </div>
         </div>
       </div>
       <div class="p-col-12" style="text-align:left">

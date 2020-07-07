@@ -4,8 +4,8 @@
       <h1>Plan Estratégico 2020-2024</h1>
     </div>
     <div class="p-col-6 group-right" style="padding:0;">
-      <a class="layout-config-button" style="color: #008100;cursor: pointer" (click)="showDialog()"><i class="fa fa-plus-circle"></i></a>
-      <a class="layout-config-button" style="color: #3E59AB;cursor: pointer"><i class="fa fa-search" (click)="showDialogFiltrar()"></i></a>
+      <a class="layout-config-button" style="color: #008100;" (click)="showDialog()"><i class="fa fa-plus-circle"></i></a>
+      <a class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-search" (click)="showDialogFiltrar()"></i></a>
     </div>
   </div>
 
@@ -26,7 +26,7 @@
             <hr>
             <div class="p-field p-grid margen">
               <div class="p-col" style="text-align:center">
-                <p class="p-col-fixed">{{obj.objetivo}}</p>
+                <p class="p-col-fixed">{{obj.objetivo|trimString}}</p>
               </div>
             </div>
             <div class="p-field p-grid margen">
@@ -36,8 +36,8 @@
               </div>
             </div>
             <div class="margen" style="padding:0;">
-              <a class="layout-config-button" style="color: #008100;cursor: pointer" (click)="showDialog(objetivos.indexOf(obj))"><i class="fa fa-pencil-square"></i></a>
-              <a class="layout-config-button" style="color: #B90B00;cursor: pointer" (click)="showDialogEliminar(objetivos.indexOf(obj))"><i class="fa fa-trash"></i></a>
+              <a class="layout-config-button" style="color: #008100;" (click)="showDialog(objetivos.indexOf(obj))"><i class="fa fa-pencil-square"></i></a>
+              <a class="layout-config-button" style="color: #B90B00;" (click)="showDialogEliminar(objetivos.indexOf(obj))"><i class="fa fa-trash"></i></a>
             </div>
           </p-card>
         </div>
@@ -49,19 +49,19 @@
 
 </div>
 
-<p-dialog header="{{accion}} Objetivo Estratégico" [(visible)]="display" [modal]="true" [style]="{width: 'auto'}">
+<p-dialog header="{{accion}} Objetivo Estratégico" [(visible)]="display" [modal]="true" [style]="{width: 'auto',maxWidth:'100%'}">
   <div class="p-grid p-justify-center ui-fluid" style="padding-top:1rem" *ngIf="objetivo">
     <div class="p-col-11">
       <div class="p-field p-grid">
         <label class="p-col-12">Perspectiva:</label>
         <div class="p-col-12">
-          <p-dropdown inputId="perspectivas" [options]="perspectivas" optionLabel="nombre" placeholder="Seleccione" [(ngModel)]="objetivo.persp" appendTo="body"></p-dropdown>
+          <p-dropdown inputId="perspectivas" [options]="perspectivas" optionLabel="nombre" placeholder="Seleccione" [(ngModel)]="objetivo.persp" appendTo="body" [style]="{display:'block'}"></p-dropdown>
         </div>
       </div>
       <div class="p-field p-grid">
         <label for="objetivo" class="p-col-12">Objetivo Estratégico:</label>
         <div class="p-col-12">
-          <textarea id="objetivo" type="text" rows="2" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" [(ngModel)]="objetivo.objetivo"></textarea>
+          <textarea id="objetivo" type="text" rows="5" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" [(ngModel)]="objetivo.objetivo"></textarea>
         </div>
       </div>
       <div class="p-field p-grid">
@@ -85,13 +85,13 @@
   </p-footer>
 </p-dialog>
 
-<p-dialog header="Filtrar Objetivo Estratégico" [(visible)]="displayFiltrar" [modal]="true" [style]="{width:'auto'}">
+<p-dialog header="Filtrar Objetivo Estratégico" [(visible)]="displayFiltrar" [modal]="true" [style]="{width:'auto',maxWidth:'100%'}">
   <div class="p-grid p-justify-center ui-fluid" style="padding-top:1rem">
     <div class="p-col-11">
       <div class="p-field p-grid">
         <label class="p-col-12">Perspectiva:</label>
         <div class="p-col-12">
-          <p-dropdown inputId="perspectiva" [options]="perspectivas" optionLabel="nombre" placeholder="Todas" appendTo="body"></p-dropdown>
+          <p-dropdown inputId="perspectiva" [options]="perspectivas" optionLabel="nombre" placeholder="Todas" appendTo="body" [style]="{display:'block'}"></p-dropdown>
         </div>
       </div>
     </div>

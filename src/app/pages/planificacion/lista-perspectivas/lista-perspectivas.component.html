@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="p-col-11">
-          <p-table [value]="perspectivas" [responsive]="true" [autoLayout]="true">
+          <p-table [value]="perspectivas" [autoLayout]="true">
             <ng-template pTemplate="header">
               <tr>
                 <th>Codigo</th>
@@ -55,7 +55,7 @@
                 <td>{{per.nombre}}</td>
                 <td>{{per.descripcion}}</td>
                 <td>
-                  <a class="layout-config-button" style="color: #008100;margin-left: 0em;cursor: pointer" (click)="editar(perspectivas.indexOf(per))"><i class="fa fa-pencil-square"></i></a>
+                  <a class="layout-config-button" style="color: #008100;margin-left: 0em;" (click)="editar(perspectivas.indexOf(per))"><i class="fa fa-pencil-square"></i></a>
                 </td>
               </tr>
             </ng-template>

@@ -101,8 +101,12 @@ export class EditarIndicadorComponent implements OnInit {
   }
 
   guardar(){
-    this.messageService.add({severity:'success', summary:'Guardado', detail:'Indicador editado correctamente'});
+    this.messageService.add({severity:'success', summary:'Guardado', detail:'Indicador guardado correctamente'});
     setTimeout(()=>this.router.navigate(['/listaIndicadores']), 2000 );
+  }
+
+  mostrarMensaje(){
+    this.messageService.add({severity:'success', summary:'Guardado', detail:'Indicador guardado correctamente'});
   }
 
   disabled=true;
@@ -117,10 +121,7 @@ export class EditarIndicadorComponent implements OnInit {
       accept: () => {
         this.messageService.add({severity:'success', summary:'Eliminado', detail:'Indicador eliminado correctamente'});
         setTimeout(()=>this.router.navigate(['/listaIndicadores']), 2000 );
-      },
-      /*reject: () => {
-        this.messageService.add({severity:'error', summary:'Cancelado', detail:'Se canceló la operación'});
-      }*/
+      }
     });
   }
 
