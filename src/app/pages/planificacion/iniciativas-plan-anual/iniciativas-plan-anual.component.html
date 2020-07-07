@@ -15,7 +15,13 @@
           <div class="p-field p-grid">
             <label for="perspectiva" class="p-col-fixed" style="width:100px">Perspectiva:</label>
             <div class="p-col">
-              <p-dropdown inputId="perspectiva" [options]="perspectiva" placeholder="Seleccionar" optionLabel="name"></p-dropdown>
+              <p-dropdown
+                  class="ui-dropdown-label-container ui-dropdown.ui-dropdown-clearable ui-dropdown-label ui-dropdown ui-dropdown-label" 
+                  inputId="perspectiva"
+                  [options]="perspectiva"
+                  placeholder="Seleccionar"
+                  optionLabel="name">
+              </p-dropdown>
             </div>
           </div>
           <div class="p-field p-grid">

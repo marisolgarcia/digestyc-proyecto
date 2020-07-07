@@ -24,3 +24,15 @@ i{
   padding-left: 1.5em;
   padding-right: 1.5em;
 }
+
+.ui-dropdown-label-container {
+width: 100%;
+}
+.ui-dropdown.ui-dropdown-clearable .ui-dropdown-label {
+text-overflow: ellipsis;
+padding-right: 2em !important;
+}
+.ui-dropdown .ui-dropdown-label {
+text-overflow: ellipsis;
+padding-right: 1em !important;
+}

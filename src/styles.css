@@ -24,3 +24,31 @@
   .layout-config-button{
     cursor: pointer;
   }
+
+  .crear {
+    color: #008100;
+  }
+
+  .editar {
+    color: #008100;
+  }
+
+  .detalle {
+    color: #3E59AB;
+  }
+
+  .filtrar {
+    color: #3E59AB;
+  }
+
+  .ui-dropdown-label-container {
+  width: 100%;
+  }
+  .ui-dropdown.ui-dropdown-clearable .ui-dropdown-label {
+  text-overflow: ellipsis;
+  padding-right: 2em !important;
+  }
+  .ui-dropdown .ui-dropdown-label {
+  text-overflow: ellipsis;
+  padding-right: 1em !important;
+  }
