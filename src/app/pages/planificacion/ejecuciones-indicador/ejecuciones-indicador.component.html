@@ -58,16 +58,26 @@
         <th>Meta</th>
         <th>Ejecución</th>
         <th>Evidencia</th>
+        <th>Ver Detalles</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-eje>
-      <tr [routerLink]="['/verIndicadorEje',eje.id]" >
+      <tr  >
           <td>{{eje.registrado}}</td>
           <td>{{eje.planificadoPara}}</td>
           <td>{{eje.anio}}</td>
           <td>{{eje.meta}}</td>
           <td>{{eje.ejecucion}}</td>
-          <td style="cursor: pointer"><u style="color: #3E59AB">{{eje.evidencia}}</u></td>
+          <td>
+            <a href="#">
+              <i class="fa fa-download"></i>
+            </a>
+          </td>
+          <td>
+            <a [routerLink]="['/verIndicadorEje',eje.id]">
+              <i class="fa fa-eye"></i>
+            </a>
+          </td>
       </tr>
     </ng-template>
   </p-table>

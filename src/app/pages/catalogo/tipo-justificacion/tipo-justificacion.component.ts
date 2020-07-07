@@ -56,7 +56,6 @@ export class TipoJustificacionComponent implements OnInit {
 	}
 
 	cancelar(){
-		this.showToast('error', 'Error', 'Canceló la operacion');
 		this.displayModal = false;
 	}
 
@@ -78,8 +77,7 @@ export class TipoJustificacionComponent implements OnInit {
             accept: () => {
             	this.tipos.splice(this.tipos.indexOf(param), 1);
                 this.showToast('success', 'Eliminado', 'Tipo de Justificacion eliminado correctamente');
-            },
-            reject: () => this.cancelar()
+            }
         });
 	}
 

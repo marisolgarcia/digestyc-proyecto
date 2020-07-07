@@ -57,7 +57,7 @@ export class FormRolComponent implements OnInit {
 	}
 
 	guardar(){
-		this.showSuccessToast('Guardado', 'Rol Guardado Correctamente');
+		this.showToast('success', 'Eliminado', 'Rol eliminado Correctamente');
 	}
 
 	delete(){
@@ -66,10 +66,7 @@ export class FormRolComponent implements OnInit {
             header: 'Confirmar',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
-                this.showSuccessToast('Eliminado', 'Rol eliminado Correctamente');
-            },
-            reject: () => {
-                this.showErrorToast('Error', 'Canceló la operacion');
+                this.showToast('success', 'Eliminado', 'Rol eliminado Correctamente');
             }
         });
 	}
@@ -78,19 +75,9 @@ export class FormRolComponent implements OnInit {
 		this.location.back();
 	}
 
-	private showSuccessToast(titulo: string, mensaje: string){
+	private showToast(severity: string, titulo: string, mensaje: string){
 		this.mService.add({
-			key:'exito',
-			severity:'success',
-			summary: titulo,
-			detail: mensaje
-		});
-	}
-
-	private showErrorToast(titulo: string, mensaje: string){
-		this.mService.add({
-			key:'error',
-			severity:'error',
+			severity: severity,
 			summary: titulo,
 			detail: mensaje
 		});
