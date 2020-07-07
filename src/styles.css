@@ -53,3 +53,7 @@
   text-overflow: ellipsis;
   padding-right: 1em !important;
   }
+
+  .break-words{
+    overflow-wrap: break-word;
+  }

@@ -16,27 +16,27 @@
       <p-card [header]="usuario.nombre"  styleClass="ui-card" [style]="{height: '100%'}">
         <hr>
         <div class="p-field p-grid margen">
-          <label  class="p-col-fixed" style="width:100px">Unidad Organizativa:</label>
+          <label  class="p-col-12">Unidad Organizativa:</label>
           <div class="p-col" style="text-align:right">
-            <label class="p-col-fixed" style="width:100px">{{usuario.unidad}}</label>
+            <label class="p-col-12">{{usuario.unidad}}</label>
           </div>
         </div>
         <div class="p-field p-grid margen">
-          <label  class="p-col-fixed" style="width:100px">Cargo:</label>
+          <label  class="p-col-12">Cargo:</label>
           <div class="p-col" style="text-align:right">
-            <label class="p-col-fixed" style="width:100px">{{usuario.cargo}}</label>
+            <label class="p-col-12">{{usuario.cargo}}</label>
           </div>
         </div>
         <div class="p-field p-grid margen">
-          <label class="p-col-fixed" style="width:100px">Correo: </label>
-          <div class="p-col" style="text-align:right">
-            <label class="p-col-fixed" style="width:100px">{{usuario.correo}}</label>
+          <label class="p-col-12">Correo: </label>
+          <div class="p-col-12" style="text-align:right">
+            <label class="p-col-12 break-words">{{usuario.correo}}</label>
           </div>
         </div>
         <div class="p-field p-grid margen">
-          <label class="p-col-fixed" style="width:100px">Estado</label>
-          <div class="p-col" style="text-align:right">
-            <label class="p-col-fixed" style="width:100px">{{usuario.estado}}</label>
+          <label class="p-col-12">Estado</label>
+          <div class="p-col-12" style="text-align:right">
+            <label class="p-col-12">{{usuario.estado}}</label>
           </div>
         </div>
         <div class="margen" style="padding:0;">
@@ -48,19 +48,19 @@
 
   <p-dialog header="Filtrar Usuarios" [(visible)]="display" [modal]="true">
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Unidad Organizativa: </label>
+      <label class="p-col-12">Unidad Organizativa: </label>
       <div class="p-col">
         <p-dropdown appendTo="body"  [options]="unidadOrg" [(ngModel)]="unidad" (onChange)="cambioPuestos(unidad)"></p-dropdown>
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Cargo: </label>
+      <label class="p-col-12">Cargo: </label>
       <div class="p-col">
         <p-dropdown appendTo="body"  [options]="cargos" [(ngModel)]="cargo" ></p-dropdown>
       </div>
     </div>
     <div class="p-field p-grid">
-      <label class="p-col-fixed" style="width:100px">Estado</label>
+      <label class="p-col-12">Estado</label>
       <div class="p-col-6">
         <p-inputSwitch [(ngModel)]="estado"></p-inputSwitch>
       </div>

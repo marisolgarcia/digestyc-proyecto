@@ -24,7 +24,7 @@ export class ListaUsuariosComponent implements OnInit {
         nombre: 'Mario Gonzalez',
         unidad: 'Gerencia General',
         cargo: 'Asistente de Gerente',
-        correo: 'asiatente@gmail.com',
+        correo: 'asiatentefrfrrhhhfffrfrfrffrdfdfdfd@gmail.com',
         estado: 'Activo',
       },
       {
