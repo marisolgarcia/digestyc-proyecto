@@ -53,26 +53,26 @@
   <div class="p-grid p-justify-center ui-fluid" style="padding-top:1rem" *ngIf="objetivo">
     <div class="p-col-11">
       <div class="p-field p-grid">
-        <label class="p-col-fixed" style="width:100px">Perspectiva:</label>
-        <div class="p-col">
+        <label class="p-col-12">Perspectiva:</label>
+        <div class="p-col-12">
           <p-dropdown inputId="perspectivas" [options]="perspectivas" optionLabel="nombre" placeholder="Seleccione" [(ngModel)]="objetivo.persp" appendTo="body"></p-dropdown>
         </div>
       </div>
       <div class="p-field p-grid">
-        <label for="objetivo" class="p-col-fixed" style="width:100px">Objetivo Estratégico:</label>
-        <div class="p-col">
+        <label for="objetivo" class="p-col-12">Objetivo Estratégico:</label>
+        <div class="p-col-12">
           <textarea id="objetivo" type="text" rows="2" pInputTextarea class="ui-inputtext ui-corner-all ui-state-default ui-widget" [(ngModel)]="objetivo.objetivo"></textarea>
         </div>
       </div>
       <div class="p-field p-grid">
-        <label class="p-col-fixed" style="width:100px">Codigo:</label>
-        <div class="p-col">
+        <label class="p-col-12">Codigo:</label>
+        <div class="p-col-12">
           <p-inputNumber name="codigo" mode="decimal" [showButtons]="false" [min]="0" class="ui-inputnumber ui-corner-all ui-state-default ui-widget" [(ngModel)]="objetivo.co"></p-inputNumber>
         </div>
       </div>
       <div class="p-field p-grid">
-        <label class="p-col-fixed" style="width:100px">Peso:</label>
-        <div class="p-col">
+        <label class="p-col-12">Peso:</label>
+        <div class="p-col-12">
           <p-inputNumber name="peso" min="0" max="101" suffix=" %" class="ui-inputnumber ui-corner-all ui-state-default ui-widget" [(ngModel)]="objetivo.peso"></p-inputNumber>
         </div>
       </div>
@@ -89,8 +89,8 @@
   <div class="p-grid p-justify-center ui-fluid" style="padding-top:1rem">
     <div class="p-col-11">
       <div class="p-field p-grid">
-        <label class="p-col-fixed" style="width:100px">Perspectiva:</label>
-        <div class="p-col">
+        <label class="p-col-12">Perspectiva:</label>
+        <div class="p-col-12">
           <p-dropdown inputId="perspectiva" [options]="perspectivas" optionLabel="nombre" placeholder="Todas" appendTo="body"></p-dropdown>
         </div>
       </div>

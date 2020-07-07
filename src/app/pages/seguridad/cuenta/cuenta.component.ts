@@ -15,8 +15,8 @@ export class CuentaComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.links = [
-            {label: 'Mis Datos', icon: 'pi pi-fw pi-user', routerLink: 'mis-datos'},
-            {label: 'Cambiar Contraseña', icon: 'pi pi-fw pi-lock', routerLink: 'cambiar-password'}
+            {label: 'Mis Datos', routerLink: 'mis-datos'},
+            {label: 'Cambiar Contraseña', routerLink: 'cambiar-password'}
         ];
 	}
 
