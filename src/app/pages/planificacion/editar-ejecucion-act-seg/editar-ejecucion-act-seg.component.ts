@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {ConfirmationService} from 'primeng/api';
 import {MessageService} from 'primeng/api';
-import {Message} from 'primeng/api';
-import {MenuItem} from 'primeng/api';
 import {Router} from '@angular/router';
 
 
@@ -99,14 +97,18 @@ export class EditarEjecucionActSegComponent implements OnInit {
             header: '¿Eliminar?',
             icon: 'pi pi-info-circle',
             accept: () => {
-                this.showSuccess();
+                this.eliminar();
             },
             reject: () => {
             }
         });
     }
-    showSuccess() {
+    eliminar() {
         this.messageService.add({severity:'success', summary: 'Eliminado', detail:'Ejecución eliminada correctamente'});
+        setTimeout(()=>this.router.navigate(['/ejecucionesActividad']), 2000 );
+    }
+    guardar() {
+        this.messageService.add({severity:'success', summary: 'Guardado', detail:'Ejecución guardada correctamente'});
         setTimeout(()=>this.router.navigate(['/ejecucionesActividad']), 2000 );
     }
 

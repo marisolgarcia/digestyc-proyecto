@@ -61,252 +61,25 @@
 
 <div class="p-grid" style="padding: 1rem">
 
-  <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-    <p-card header="2020"  styleClass="ui-card-shadow">
-      <hr>
-      <div class="p-field p-grid margen">
-        <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-        <div class="p-col" style="text-align:right">
-          <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-        </div>
-      </div>
-      <div class="p-field p-grid margen">
-        <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-        <div class="p-col" style="text-align:right">
-          <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-        </div>
-      </div>
-      <div class="p-field p-grid margen">
-        <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-        <div class="p-col" style="text-align:right">
-          <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-        </div>
-      </div>
-      <div class="margen" style="padding:0;">
-        <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-        <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
-        <!--
-        <a href="" class="layout-config-button" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-      -->
-    </div>
-  </p-card>
-</div>
-
-<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-  <p-card header="2021"  styleClass="ui-card-shadow">
+<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" *ngFor="let plan of planesAnuales">
+  <p-card header="{{plan.anio}}"  styleClass="ui-card-shadow">
     <hr>
     <div class="p-field p-grid margen">
       <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
       <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">A programar</label>
+        <label for="estado" class="p-col-fixed" style="width:100px">{{plan.estado}}</label>
       </div>
     </div>
     <div class="p-field p-grid margen">
       <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
       <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
+        <label for="estado" class="p-col-fixed" style="width:100px">{{plan.tIniciativas}}</label>
       </div>
     </div>
     <div class="p-field p-grid margen">
       <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
       <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-      </div>
-    </div>
-    <div class="margen" style="padding:0;">
-      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
-    </div>
-  </p-card>
-</div>
-
-<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-  <p-card header="2022"  styleClass="ui-card-shadow">
-    <hr>
-    <div class="p-field p-grid margen">
-      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">A programar</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-      </div>
-    </div>
-    <div class="margen" style="padding:0;">
-      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
-    </div>
-  </p-card>
-</div>
-
-<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-  <p-card header="2023"  styleClass="ui-card-shadow">
-    <hr>
-    <div class="p-field p-grid margen">
-      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">A programar</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-      </div>
-    </div>
-    <div class="margen" style="padding:0;">
-      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
-    </div>
-  </p-card>
-</div>
-
-<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-  <p-card header="2024"  styleClass="ui-card-shadow">
-    <hr>
-    <div class="p-field p-grid margen">
-      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">A programar</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-      </div>
-    </div>
-    <div class="margen" style="padding:0;">
-      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
-    </div>
-  </p-card>
-</div>
-
-<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-  <p-card header="2019"  styleClass="ui-card-shadow">
-    <hr>
-    <div class="p-field p-grid margen">
-      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">No Vigente</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-      </div>
-    </div>
-    <div class="margen" style="padding:0;">
-      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
-    </div>
-  </p-card>
-</div>
-
-<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-  <p-card header="2018"  styleClass="ui-card-shadow">
-    <hr>
-    <div class="p-field p-grid margen">
-      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">No Vigente</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-      </div>
-    </div>
-    <div class="margen" style="padding:0;">
-      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
-    </div>
-  </p-card>
-</div>
-
-<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-  <p-card header="2017"  styleClass="ui-card-shadow">
-    <hr>
-    <div class="p-field p-grid margen">
-      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">No Vigente</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
-      </div>
-    </div>
-    <div class="margen" style="padding:0;">
-      <a [routerLink]="['/iniciativasPlanAnual']" class="layout-config-button" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-      <a class="layout-config-button" style="color: #008100;" (click)="editarDialog()"><i class="fa fa-pencil-square"></i></a>
-    </div>
-  </p-card>
-</div>
-
-<div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-  <p-card header="2020"  styleClass="ui-card-shadow">
-    <hr>
-    <div class="p-field p-grid margen">
-      <label for="estado" class="p-col-fixed" style="width:100px">Estado:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">Vigente</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="iniciativas" class="p-col-fixed" style="width:100px">Iniciativas:</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">15</label>
-      </div>
-    </div>
-    <div class="p-field p-grid margen">
-      <label for="actividades" class="p-col-fixed" style="width:100px">Actividades</label>
-      <div class="p-col" style="text-align:right">
-        <label for="estado" class="p-col-fixed" style="width:100px">48</label>
+        <label for="estado" class="p-col-fixed" style="width:100px">{{plan.tActividades}}</label>
       </div>
     </div>
     <div class="margen" style="padding:0;">

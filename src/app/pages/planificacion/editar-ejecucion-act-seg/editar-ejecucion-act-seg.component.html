@@ -147,8 +147,7 @@
       </div-->
 
       <div class="p-col-12">
-        <button type="button" pButton [routerLink]="['/ejecucionesActividad']" label="Guardar"></button>
-        <button type="button" pButton [routerLink]="['/ejecucionesActividad']" label="Cancelar" class="ui-button-secondary"></button>
+        <button type="button" pButton (click)="guardar()" label="Guardar"></button>
       </div>
     </div>
 

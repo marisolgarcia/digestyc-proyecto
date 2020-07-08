@@ -90,417 +90,45 @@
     <app-sm-plan-anual></app-sm-plan-anual>
   </div>
 
-  <div style="padding-left:1.5em;">
-    <div class="p-col-6" style="padding:0;">
-      <h2>1. Ciudadania Satisfecha con Nuestro Servicio</h2>
-    </div>
+  <div class="p-col-12" style="padding:1rem;" *ngFor="let p of perspectiva">
+    <h2>{{p.code}}. {{p.name}}</h2>
     <hr>
-  </div>
 
-  <div class="p-grid" style="padding: 1rem">
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" style="height:100%">
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Realizar las gestiones necesarias para transformar a la DIGESTYC en el
-            Instituto  Salvadoreño de Estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Dirección y Subdirección General
+    <div class="p-grid" style="padding: 0rem">
+      <ng-container *ngFor="let ini of iniciativa">
+        <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" *ngIf="p.code==ini.cp">
+          <p-card header="Iniciativa {{ini.cp}}.{{ini.co}}.{{ini.code}}"  styleClass="ui-card" [style]="{height: '100%'}">
+            <hr>
+            <div class="p-grid margen">
+              <label for="iniciativa" class="p-col-12">Iniciativa:</label>
+              <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
+                {{ini.name|trimString}}
               </p>
             </div>
-        </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid">
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar el calendario de publicaciones de la producción estadísticas.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Elevar el alcance en el uso de la información estadística que generamos.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3 p-xs-12">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Unidad de comunicaciones
+            <div class="p-grid margen">
+              <label for="objetivo" class="p-col-12">Objetivo:</label>
+              <p for="objetivo" class="p-col-12">
+                {{ini.objetivo|trimString}}
               </p>
             </div>
-        </div>
-        <p-footer styleClass="fondo">
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Utilizar la plataforma informática para diseminar la información estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Elevar el alcance en el uso de la información estadística que generamos.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3 p-xs-12">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Gerencia de Tecnología de la Información
-              </p>
+            <div class="p-grid margen">
+                <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
+                <div class="p-col-12 p-md-9 p-lg-9">
+                  <p for="objetivo" style="text-align:right">
+                    {{ini.lider}}
+                  </p>
+                </div>
             </div>
+            <p-footer>
+              <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
+              <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
+            </p-footer>
+          </p-card>
         </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
+      </ng-container>
+
+
     </div>
-
-  </div>
-  <div style="padding-left:1.5em;">
-    <div class="p-col-6" style="padding:0;">
-      <h2>2. Eficacia de los Procesos Organizacionales</h2>
-    </div>
-    <hr>
-  </div>
-
-  <div class="p-grid" style="padding: 1rem">
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Realizar las gestiones necesarias para transformar a la DIGESTYC en el
-            Instituto  Salvadoreño de Estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3 p-xs-12">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Dirección y Subdirección General
-              </p>
-            </div>
-        </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Realizar las gestiones necesarias para transformar a la DIGESTYC en el
-            Instituto  Salvadoreño de Estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3 p-xs-12">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Dirección y Subdirección General
-              </p>
-            </div>
-        </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Realizar las gestiones necesarias para transformar a la DIGESTYC en el
-            Instituto  Salvadoreño de Estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3 p-xs-12">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Dirección y Subdirección General
-              </p>
-            </div>
-        </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
-  </div>
-
-  <div style="padding-left:1.5em;">
-    <div class="p-col-6" style="padding:0;">
-      <h2>3. Desarrollo y Mordenización Organizacional y del Talento Humano</h2>
-    </div>
-    <hr>
-  </div>
-
-  <div class="p-grid" style="padding: 1rem">
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Realizar las gestiones necesarias para transformar a la DIGESTYC en el
-            Instituto  Salvadoreño de Estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Dirección y Subdirección General
-              </p>
-            </div>
-        </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Realizar las gestiones necesarias para transformar a la DIGESTYC en el
-            Instituto  Salvadoreño de Estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Dirección y Subdirección General
-              </p>
-            </div>
-        </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Realizar las gestiones necesarias para transformar a la DIGESTYC en el
-            Instituto  Salvadoreño de Estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Dirección y Subdirección General
-              </p>
-            </div>
-        </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
-  </div>
-
-  <div style="padding-left:1.5em;">
-    <div class="p-col-6" style="padding:0;">
-      <h2>4. Eficacia en la Movilización y Manejo de los Recursos</h2>
-    </div>
-    <hr>
-  </div>
-
-  <div class="p-grid" style="padding: 1rem">
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Realizar las gestiones necesarias para transformar a la DIGESTYC en el
-            Instituto  Salvadoreño de Estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Dirección y Subdirección General
-              </p>
-            </div>
-        </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Realizar las gestiones necesarias para transformar a la DIGESTYC en el
-            Instituto  Salvadoreño de Estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Dirección y Subdirección General
-              </p>
-            </div>
-        </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
-    <div class="p-col-12 p-md-6 p-lg-4  ui-fluid" >
-      <p-card header="Iniciativa"  styleClass="ui-card" [style]="{height: '100%'}">
-        <hr>
-        <div class="p-grid margen">
-          <label for="iniciativa" class="p-col-12">Iniciativa:</label>
-          <p for="iniciativa" class="p-col-12" style="font-weight: bold;">
-            Elaborar e implementar  el Plan de transición de la DIGESTYC  en ISE.
-          </p>
-        </div>
-        <div class="p-grid margen">
-          <label for="objetivo" class="p-col-12">Objetivo:</label>
-          <p for="objetivo" class="p-col-12">
-            Realizar las gestiones necesarias para transformar a la DIGESTYC en el
-            Instituto  Salvadoreño de Estadística.
-          </p>
-        </div>
-        <div class="p-grid margen">
-            <label for="actividades" class="p-col-12 p-md-3 p-lg-3">Lider:</label>
-            <div class="p-col-12 p-md-9 p-lg-9">
-              <p for="objetivo" style="text-align:right">
-                Dirección y Subdirección General
-              </p>
-            </div>
-        </div>
-        <p-footer>
-          <a class="layout-config-button" [routerLink]="['/listaIniciativas/editarIniciativa']" style="color: #3E59AB;"><i class="fa fa-eye"></i></a>
-          <a class="layout-config-button" (click)="confirmDelete()" style="color: #B90B00;"><i class="fa fa-trash"></i></a>
-        </p-footer>
-      </p-card>
-    </div>
-
   </div>
 
   <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>

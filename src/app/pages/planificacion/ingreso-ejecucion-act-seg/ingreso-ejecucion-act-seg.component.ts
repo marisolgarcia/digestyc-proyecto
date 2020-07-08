@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import {ConfirmationService} from 'primeng/api';
+import {MessageService} from 'primeng/api';
+import {Router} from '@angular/router';
 
 interface mes {
   name: string;
@@ -14,13 +17,14 @@ interface tipoJustificacion {
 @Component({
   selector: 'app-ingreso-ejecucion-act-seg',
   templateUrl: './ingreso-ejecucion-act-seg.component.html',
-  styleUrls: ['./ingreso-ejecucion-act-seg.component.css']
+  styleUrls: ['./ingreso-ejecucion-act-seg.component.css'],
+  providers: [ConfirmationService, MessageService]
 })
 export class IngresoEjecucionActSegComponent implements OnInit {
 
   //datos quemados
   meta= 60;
-  acumulado= 0;
+  acumulado= 30;
 
   mes: mes[];
   selectedMes: string ="Junio";
@@ -37,7 +41,7 @@ export class IngresoEjecucionActSegComponent implements OnInit {
   contents: any = null;
   filename: string;
 
-  constructor() {
+  constructor(private router:Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
     this.mes = [
       {name: 'Enero', code: '1'},
       {name: 'Febreo', code: '2'},
@@ -97,6 +101,11 @@ export class IngresoEjecucionActSegComponent implements OnInit {
     };
     reader.readAsText(file);
     this.filename = file.name;
+  }
+
+  guardar() {
+      this.messageService.add({severity:'success', summary: 'Guardado', detail:'Ejecución guardada correctamente'});
+      setTimeout(()=>this.router.navigate(['/ejecucionesActividad']), 2000 );
   }
 
 }
