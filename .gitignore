@@ -3,6 +3,10 @@
 # Usado por roberto como auxiliar
 pendiente.txt
 
+.firebaserc
+/.firebase
+firebase.json
+
 # compiled output
 /dist
 /tmp
