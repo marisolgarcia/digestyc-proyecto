@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UnidadMedidaComponent } from './unidad-medida/unidad-medida.component';
+import { TipoJustificacionComponent } from './tipo-justificacion/tipo-justificacion.component';
+import { FuenteFinanciamientoComponent } from './fuente-financiamiento/fuente-financiamiento.component';
 
 const routes: Routes = [
 	{
 		path: 'fuente-financiamiento',
-		loadChildren: () => import('./fuente-financiamiento/fuente-financiamiento.module').then(m => m.FuenteFinanciamientoModule)
+		component: FuenteFinanciamientoComponent
 	},
 	{
 		path: 'tipo-justificacion',
-		loadChildren: () => import('./tipo-justificacion/tipo-justificacion.module').then(m => m.TipoJustificacionModule)
+		component: TipoJustificacionComponent
 	},
 	{
 		path: 'unidad-medida',
-		loadChildren: () => import('./unidad-medida/unidad-medida.module').then(m => m.UnidadMedidaModule)
+		component: UnidadMedidaComponent
 	}
 ];
 
