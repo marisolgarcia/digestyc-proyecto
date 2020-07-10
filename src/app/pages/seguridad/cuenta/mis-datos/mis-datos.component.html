@@ -1,47 +1,5 @@
-<div class="p-grid p-justify-between" style="padding: 1rem">
-	<div class="p-col-12 p-md-5 p-lg-5">
-		<p-card header="Datos Personales" styleClass="ui-card-shadow">
-			<hr>
-			<div class="ui-fluid">
-			    <div class="p-field p-grid">
-			        <label for="nombre" class="p-col-fixed" style="width:30%">Nombre</label>
-			        <div class="p-col" style="text-align:right">
-			        	<label id="nombre" class="p-col-fixed" style="width:70%">Jose Esaul</label>
-			        </div>
-			    </div>
-			    <div class="p-field p-grid p-justify-between">
-			        <label for="apellido" class="p-col-fixed" style="width:30%">Apellido</label>
-			        <div class="p-col" style="text-align:right">
-			        	<label id="apellido" class="p-col-fixed" style="width:70%"> Torres Quijada </label>
-			        </div>
-			    </div>
-			    <div class="p-field p-grid p-justify-between">
-			        <label for="correo" class="p-col-fixed" style="width:30%">Correo</label>
-			        <div class="p-col" style="text-align:right">
-			        	<label id="correo" class="p-col-fixed" style="width:70%"> manuel.quijada@digestyc.gob.sv </label>
-			        </div>
-			    </div>
-			</div>
-		</p-card>
-	</div>
-
-	<div class="p-col-12 p-md-5 p-lg-5">
-		<p-card header="Datos del Puesto" styleClass="ui-card-shadow">
-			<hr>
-			<div class="ui-fluid">
-			    <div class="p-field p-grid p-justify-between">
-			        <label for="unidad" class="p-col-fixed" style="width:40%">Unidad Organizativa</label>
-			        <div class="p-col" style="text-align:right">
-			        	<label id="unidad" class="p-col-fixed" style="width:60%"> Direccion General </label>
-			        </div>
-			    </div>
-			    <div class="p-field p-grid p-justify-between">
-			        <label for="cargo" class="p-col-fixed" style="width:30%">Cargo</label>
-			        <div class="p-col" style="text-align:right">
-			        	<label id="cargo" class="p-col-fixed" style="width:70%"> Asistente </label>
-			        </div>
-			    </div>
-			</div>
-		</p-card>
+<div class="p-grid p-justify-center" style="padding: 1rem">
+	<div class="p-col-12 p-md-6 p-lg-6">
+		<card-usuario [usuario]="usuario"></card-usuario>
 	</div>
 </div>

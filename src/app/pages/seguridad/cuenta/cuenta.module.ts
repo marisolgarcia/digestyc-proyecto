@@ -13,6 +13,7 @@ import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.co
 import { CustomTabMenuModule } from '../../../components/custom-tab-menu/custom-tab-menu.module';
 import { CustomTabMenuComponent } from '../../../components/custom-tab-menu/custom-tab-menu.component';
 import { MisDatosComponent } from './mis-datos/mis-datos.component';
+import {CardUsuarioModule} from '../../../components/seguridad/usuarios/card-usuario/card-usuario.module';
 
 @NgModule({
 	declarations: [
@@ -20,15 +21,16 @@ import { MisDatosComponent } from './mis-datos/mis-datos.component';
 		CambiarPasswordComponent,
 		MisDatosComponent
 	],
-	imports: [
-		CommonModule,
-		CuentaRoutingModule,
-		CustomTabMenuModule,
-		CardModule,
-		InputTextModule,
-		ButtonModule,
-		ToastModule
-	],
+    imports: [
+        CommonModule,
+        CuentaRoutingModule,
+        CustomTabMenuModule,
+        CardModule,
+        InputTextModule,
+        ButtonModule,
+        ToastModule,
+        CardUsuarioModule
+    ],
 	entryComponents: [
 		CustomTabMenuComponent
 	]

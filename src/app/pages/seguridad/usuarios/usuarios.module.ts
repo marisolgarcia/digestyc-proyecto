@@ -13,6 +13,8 @@ import { FormUsuarioComponent } from '../../../components/seguridad/usuarios/for
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { CreaUsuarioComponent } from './crea-usuario/crea-usuario.component';
+import {CardUsuarioModule} from '../../../components/seguridad/usuarios/card-usuario/card-usuario.module';
+import {CardUsuarioComponent} from '../../../components/seguridad/usuarios/card-usuario/card-usuario.component';
 
 @NgModule({
 	declarations: [
@@ -28,10 +30,12 @@ import { CreaUsuarioComponent } from './crea-usuario/crea-usuario.component';
 		CardModule,
 		DialogModule,
 		DropdownModule,
-		InputSwitchModule
+		InputSwitchModule,
+    CardUsuarioModule
 	],
 	entryComponents: [
-		FormUsuarioComponent
+		FormUsuarioComponent,
+    CardUsuarioComponent
 	],
 })
 export class UsuariosModule { }

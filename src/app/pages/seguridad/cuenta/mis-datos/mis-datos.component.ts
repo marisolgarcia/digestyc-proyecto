@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MisDatosComponent implements OnInit {
 
+  usuario = {
+    id: 3,
+    nombre: 'Carmen Estrada',
+    unidad: 'Gerencia General',
+    cargo: 'Gerente General',
+    correo: 'gerente@gmail.com',
+    estado: 'Activo',
+  }
+
 	constructor() { }
 
 	ngOnInit(): void {
