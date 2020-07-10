@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { SeguridadRoutingModule } from './seguridad-routing.module';
 import { FormUsuarioModule } from '../../components/seguridad/usuarios/form-usuario/form-usuario.module';
-import { FormUsuarioComponent } from '../../components/seguridad/usuarios/form-usuario/form-usuario.component';
 
 @NgModule({
 	declarations: [],
@@ -11,9 +10,6 @@ import { FormUsuarioComponent } from '../../components/seguridad/usuarios/form-u
 		CommonModule,
 		SeguridadRoutingModule,
 		FormUsuarioModule
-	],
-	entryComponents:[
-		FormUsuarioComponent
 	]
 })
 export class SeguridadModule { }

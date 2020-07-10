@@ -11,9 +11,8 @@ import { CuentaComponent } from './cuenta.component';
 import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component';
 
 import { CustomTabMenuModule } from '../../../components/custom-tab-menu/custom-tab-menu.module';
-import { CustomTabMenuComponent } from '../../../components/custom-tab-menu/custom-tab-menu.component';
 import { MisDatosComponent } from './mis-datos/mis-datos.component';
-import {CardUsuarioModule} from '../../../components/seguridad/usuarios/card-usuario/card-usuario.module';
+import { CardUsuarioModule } from '../../../components/seguridad/usuarios/card-usuario/card-usuario.module';
 
 @NgModule({
 	declarations: [
@@ -30,9 +29,6 @@ import {CardUsuarioModule} from '../../../components/seguridad/usuarios/card-usu
         ButtonModule,
         ToastModule,
         CardUsuarioModule
-    ],
-	entryComponents: [
-		CustomTabMenuComponent
-	]
+    ]
 })
 export class CuentaModule { }

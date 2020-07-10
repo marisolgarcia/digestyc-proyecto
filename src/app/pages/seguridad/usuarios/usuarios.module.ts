@@ -9,12 +9,11 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 
 import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { FormUsuarioModule } from '../../../components/seguridad/usuarios/form-usuario/form-usuario.module';
-import { FormUsuarioComponent } from '../../../components/seguridad/usuarios/form-usuario/form-usuario.component';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { CreaUsuarioComponent } from './crea-usuario/crea-usuario.component';
-import {CardUsuarioModule} from '../../../components/seguridad/usuarios/card-usuario/card-usuario.module';
-import {CardUsuarioComponent} from '../../../components/seguridad/usuarios/card-usuario/card-usuario.component';
+import { CardUsuarioModule } from '../../../components/seguridad/usuarios/card-usuario/card-usuario.module';
+
 
 @NgModule({
 	declarations: [
@@ -31,11 +30,7 @@ import {CardUsuarioComponent} from '../../../components/seguridad/usuarios/card-
 		DialogModule,
 		DropdownModule,
 		InputSwitchModule,
-    CardUsuarioModule
-	],
-	entryComponents: [
-		FormUsuarioComponent,
-    CardUsuarioComponent
-	],
+    	CardUsuarioModule
+	]
 })
 export class UsuariosModule { }
