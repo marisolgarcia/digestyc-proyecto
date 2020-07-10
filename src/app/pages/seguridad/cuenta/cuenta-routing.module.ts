@@ -12,7 +12,8 @@ const routes: Routes = [
 		children: [
 			{path: 'mis-datos', component: MisDatosComponent},
 			{path: 'cambiar-password', component: CambiarPasswordComponent},
-		],
+		]
+		// redirectTo: 'mis-datos'
 	},
 ];
 

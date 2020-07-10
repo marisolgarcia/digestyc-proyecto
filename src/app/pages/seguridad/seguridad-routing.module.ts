@@ -7,9 +7,13 @@ const routes: Routes = [
 		loadChildren: () => import('./roles/roles.module').then( m => m.RolesModule )
 	},
 	{
-		path: 'mi-cuenta',
-		loadChildren: () => import('./cuenta/cuenta.module').then( m => m.CuentaModule )
+		path: 'usuarios',
+		loadChildren: () => import('./usuarios/usuarios.module').then( m => m.UsuariosModule )
 	},
+	{
+		path: 'cuenta',
+		loadChildren: () => import('./cuenta/cuenta.module').then( m => m.CuentaModule )
+	}
 ];
 
 @NgModule({

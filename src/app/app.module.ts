@@ -56,10 +56,6 @@ import { EditarEjecucionIndicadorComponent } from './pages/planificacion/editar-
 import { UnidadesOrganizativasVaciaComponent } from './pages/organizacion/unidades-organizativas-vacia/unidades-organizativas-vacia.component';
 import { UnidadOrganizativaRaizComponent } from './pages/organizacion/unidad-organizativa-raiz/unidad-organizativa-raiz.component';
 import { UnidadOrganiSecunComponent } from './pages/organizacion/unidad-organi-secun/unidad-organi-secun.component';
-import { ListaUsuariosComponent } from './pages/seguridad/lista-usuarios/lista-usuarios.component';
-import { CreaUsuarioComponent } from './pages/seguridad/crea-usuario/crea-usuario.component';
-import { EditarUsuarioComponent } from './pages/seguridad/editar-usuario/editar-usuario.component';
-import { VerUsuarioComponent } from './pages/seguridad/ver-usuario/ver-usuario.component';
 
 import { ListaPlanesEstrategicosComponent } from './pages/planificacion/lista-planes-estrategicos/lista-planes-estrategicos.component';
 import { ListaObjetivosEstrategicosComponent } from './pages/planificacion/lista-objetivos-estrategicos/lista-objetivos-estrategicos.component';
@@ -72,9 +68,6 @@ import { CrearIndicadorComponent } from './pages/planificacion/crear-indicador/c
 import { EditarIniciativaComponent } from './pages/planificacion/editar-iniciativa/editar-iniciativa.component';
 import { SmPlanAnualComponent } from './components/sm-plan-anual/sm-plan-anual.component';
 import { EditarEjecucionActSegComponent } from './pages/planificacion/editar-ejecucion-act-seg/editar-ejecucion-act-seg.component';
-
-import { FormUsuarioComponent } from './components/seguridad/usuarios/form-usuario/form-usuario.component';
-import { FormUsuarioModule } from './components/seguridad/usuarios/form-usuario/form-usuario.module';
 
 @NgModule({
   declarations: [
@@ -104,10 +97,6 @@ import { FormUsuarioModule } from './components/seguridad/usuarios/form-usuario/
     UnidadesOrganizativasVaciaComponent,
     UnidadOrganizativaRaizComponent,
     UnidadOrganiSecunComponent,
-    ListaUsuariosComponent,
-    CreaUsuarioComponent,
-    EditarUsuarioComponent,
-    VerUsuarioComponent,
     ListaPlanesEstrategicosComponent,
     ListaObjetivosEstrategicosComponent,
     ListaIniciativasComponent,
@@ -151,10 +140,8 @@ import { FormUsuarioModule } from './components/seguridad/usuarios/form-usuario/
     ToastModule,
     InputSwitchModule,
     PipesModule,
-    FormUsuarioModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [FormUsuarioComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
