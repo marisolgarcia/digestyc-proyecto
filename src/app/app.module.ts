@@ -73,6 +73,9 @@ import { EditarIniciativaComponent } from './pages/planificacion/editar-iniciati
 import { SmPlanAnualComponent } from './components/sm-plan-anual/sm-plan-anual.component';
 import { EditarEjecucionActSegComponent } from './pages/planificacion/editar-ejecucion-act-seg/editar-ejecucion-act-seg.component';
 
+import { FormUsuarioComponent } from './components/seguridad/usuarios/form-usuario/form-usuario.component';
+import { FormUsuarioModule } from './components/seguridad/usuarios/form-usuario/form-usuario.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -147,9 +150,11 @@ import { EditarEjecucionActSegComponent } from './pages/planificacion/editar-eje
     PickListModule,
     ToastModule,
     InputSwitchModule,
-    PipesModule
+    PipesModule,
+    FormUsuarioModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [FormUsuarioComponent]
 })
 export class AppModule { }

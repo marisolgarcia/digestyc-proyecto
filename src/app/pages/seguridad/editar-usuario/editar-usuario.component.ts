@@ -22,6 +22,8 @@ export class EditarUsuarioComponent implements OnInit {
   lugar: number;
   activo = true;
 
+  disabled = true;
+
   constructor(private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
