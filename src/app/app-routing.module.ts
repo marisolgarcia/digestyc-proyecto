@@ -79,6 +79,10 @@ const routes: Routes = [];
       {path: 'theming', loadChildren: () => import('./components/theming/theming.module').then(m => m.ThemingModule)},
       {path: 'icons', loadChildren: () => import('./components/icons/icons.module').then(m => m.IconsModule)},*/
       {
+        path: 'planificacion',
+        loadChildren: () => import('./pages/planificacion/planificacion.module').then(m => m.PlanificacionModule),
+      },
+      {
         path: 'seguridad',
         loadChildren: () => import('./pages/seguridad/seguridad.module').then(m => m.SeguridadModule),
       },
