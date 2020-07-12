@@ -9,7 +9,6 @@ import { CrearActividadComponent } from './pages/planificacion/crear-actividad/c
 import { VerDetalleActividadComponent } from './pages/planificacion/ver-detalle-actividad/ver-detalle-actividad.component';
 import { EditarActividadComponent } from './pages/planificacion/editar-actividad/editar-actividad.component';
 import { CierreComponent } from './pages/planificacion/cierre/cierre.component';
-import { ReportesComponent } from './pages/planificacion/reportes/reportes.component';
 import { ListaActividadSegComponent } from './pages/planificacion/lista-actividad-seg/lista-actividad-seg.component';
 import { ListaActividadSegTodasComponent } from './pages/planificacion/lista-actividad-seg-todas/lista-actividad-seg-todas.component';
 import { EjecucionesActSegComponent } from './pages/planificacion/ejecuciones-act-seg/ejecuciones-act-seg.component';
@@ -49,7 +48,6 @@ const routes: Routes = [];
       {path: 'listaActividades/detalleActividad', component: VerDetalleActividadComponent},
       {path: 'listaActividades/editarActividad', component: EditarActividadComponent},
       {path: 'cierre', component: CierreComponent},
-      {path: 'reportes', component: ReportesComponent},
       {path: 'seguimientoActividades', component: ListaActividadSegComponent},
       {path: 'seguimientoActividadesTodas', component: ListaActividadSegTodasComponent},
       {path: 'ejecucionesActividad', component: EjecucionesActSegComponent},
